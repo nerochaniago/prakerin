@@ -20,32 +20,41 @@
             <div class="container">
             <div class="nav-wrapper">
             <a href="<?= base_url(); ?>" class="brand-logo">
-        <img src="<?= base_url(); ?>assets/img/Logo Puri.png" alt="logo" style="width: 60px; margin-top: 5px; "> 
+        <img src="<?= base_url(); ?>assets/img/Logo Puri.png" alt="logo" style="width: 60px; margin-top: 5px; ">
         </a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons black" style="padding-left: 10px; padding-right: 10px;">dehaze</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href=""  style="color: green;"><i class="material-icons left">work</i>Lowongan Pekerjaan</a></li>
-                <li><a href=""  style="color: green;">Tentang Kami</a></li>
+                <li><a href="<?= base_url(); ?>Pendaftar_C/tentangKami"  style="color: green;">Tentang Kami</a></li>
             </ul>
             </div>
             </div>
+            <div class="progress red">
+              <div class="indeterminate green darken-2"></div>
+          </div>
         </nav>
     </div>
     <!-- sidenav -->
     <ul class="sidenav" id="mobile-demo">
         <li><a href="">Lowongan Pekerjaan</a></li>
-        <li><a href="">Tentang Kami</a></li>
+        <li><a href="<?= base_url(); ?>Pendaftar_C/tentangKami">Tentang Kami</a></li>
     </ul>
-    
+
 
 
     <!-- jumbotron parallax -->
-    <div class="parallax-container" style="background-color: rgba(11,148,68,0.7);">
+    <div class="parallax-container" style="background-color: rgba(11,148,68,0.7); height: 395px;">
       <div class="parallax"><img src="<?= base_url(); ?>assets/img/puri.jpg"></div>
     </div>
+    <!-- main content -->
 
+    <div class="container">
+      <div class="row">
 
+      </div>
+    </div>
 
+    <!-- footer -->
     <footer class="page-footer red darken-3 ">
           <div class="container">
             <div class="row">
@@ -62,7 +71,7 @@
             </div>
           </div>
         </footer>
-   
+
 <!-- javascript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -77,7 +86,7 @@
 
     const parallax = document.querySelectorAll('.parallax');
     M.Parallax.init(parallax);
-     
+
 </script>
 </body>
 </html>
