@@ -28,9 +28,6 @@
             </ul>
             </div>
             </div>
-            <div class="progress red">
-              <div class="indeterminate green darken-2"></div>
-          </div>
         </nav>
     </div>
     <!-- sidenav -->
