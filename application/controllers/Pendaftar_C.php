@@ -5,7 +5,7 @@ class Pendaftar_C extends CI_Controller {
     public function index() {
         $this->load->view('pendaftar/home');
     }
-    public function tentangKami() {
-      $this->load->view('pendaftar/tentangKami');
+    public function lowonganKerja() {
+      $this->load->view('pendaftar/lowonganKerja');
     }
 }
