@@ -38,8 +38,16 @@
 
 
     <!-- jumbotron parallax -->
-    <div class="parallax-container" style="background-color: rgba(11,148,68,0.7); height: 395px;">
+    <div class="parallax-container" style="background-color: rgba(255,255,255,0.8); height: 395px;">
       <div class="parallax"><img src="<?= base_url(); ?>assets/img/puri.jpg"></div>
+      <h2 class="center" style="margin-top: 120px;">PT PURI MAKMUR LESTARI</h2>
+      <div class="container">
+        <div class="row">
+            <div class="col l12 s12 center">
+                <a class="waves-effect waves-light btn-small green darken-3 z-depth-2">Register</a>
+            </div>
+        </div>
+      </div>
     </div>
     <!-- main content -->
 
