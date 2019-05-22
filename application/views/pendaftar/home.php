@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="<?= base_url(); ?> assets/css/script.css">
     <?php  echo link_tag('assets/css/script.css')  ?>
 </head>
-<body>
+<body style="display: flex; min-height: 100vh; flex-direction: column;">
     <!--- Navbar --->
     <div class="navbar-fixed">
         <nav class="white darken-2">
@@ -48,11 +48,9 @@
     </div>
     <!-- main content -->
 
-    <div class="container">
-      <div class="row">
-
-      </div>
-    </div>
+    <main>
+      
+    </main>
 
     <!-- footer -->
     <footer class="page-footer red darken-3 ">
