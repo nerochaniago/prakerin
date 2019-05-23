@@ -25,14 +25,16 @@
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons black" style="padding-left: 10px; padding-right: 10px;">dehaze</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="<?= base_url();?>Pendaftar_C/lowonganKerja"  style="color: green;"><i class="material-icons left">work</i>Lowongan Pekerjaan</a></li>
+                <li><a href="<?= base_url();?>Auth/login" style="color: green;" target="_blank"><i class="material-icons left">assignment_ind</i>Login</a></li>
             </ul>
             </div>
             </div>
         </nav>
     </div>
     <!-- sidenav -->
-    <ul class="sidenav" id="mobile-demo">
-        <li><a href="<?= base_url();?>Pendaftar_C/lowonganKerja">Lowongan Pekerjaan</a></li>
+    <ul class="sidenav green" id="mobile-demo">
+        <li class="white"><a href="<?= base_url();?>Pendaftar_C/lowonganKerja">Lowongan Pekerjaan</a></li>
+        <li class="white"><a href="<?= base_url();?>Auth/login" target="_blank">Login</a></li>
     </ul>
 
 
