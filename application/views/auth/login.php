@@ -17,10 +17,26 @@
 
   <!-- Custom styles for this template-->
   <link href="<?= base_url(); ?>assets/css/sb-admin-2.min.css" rel="stylesheet">
+  <style media="screen">
+    div img{
+      width: 130px;
+    }
+    div h1 {
+      font-weight: bold;
+      font-size: 50px;
+    }
+    div button.btn {
+      color: black;
+      font-weight: bold;
+    }
+    form input.form-control:hover {
+      background-color: #ffffcc;
+    }
+  </style>
 
 </head>
 
-<body class="bg-gradient-danger">
+<body class="bg-gradient">
 
   <div class="container">
 
@@ -29,21 +45,22 @@
 
       <div class="col-lg-5">
 
-        <div class="card o-hidden border-0 shadow-lg my-5">
-          <div class="card-body p-0">
+        <div class="card o-hidden border-2 shadow-lg my-5">
+          <div class="card-body p-0 ">
             <!-- Nested Row within Card Body -->
             <div class="row">
               <div class="col-lg">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Login Page</h1>
+                    <img src="<?= base_url();?>assets/img/Logo Puri.png" alt="logo_pt_puri">
+                    <h1 class=" text-gray-900 mb-4">Login Page</h1>
                   </div>
                   <form class="user">
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="username" name="username" placeholder="Enter username...">
+                      <input type="text" class="form-control form-control-user" id="username" name="username" style="font-weight:bold; color:black;" placeholder="Enter username...">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password">
+                      <input type="password" class="form-control form-control-user" id="password" name="password" style="font-weight:bold; color:black;" placeholder="Password">
                     </div>
                     <button type="submit" class="btn btn-success btn-user btn-block">
                       Login
