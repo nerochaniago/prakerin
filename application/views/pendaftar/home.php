@@ -46,7 +46,7 @@
       <div class="container">
         <div class="row">
             <div class="col l12 s12 center">
-                <a class="waves-effect waves-light btn-small green darken-3 z-depth-2">Register</a>
+                <a class="waves-effect waves-light btn-small green darken-3 z-depth-2" href="<?= base_url();?>Auth/registration">Register</a>
             </div>
         </div>
       </div>

@@ -55,12 +55,15 @@
                     <img src="<?= base_url();?>assets/img/Logo Puri.png" alt="logo_pt_puri">
                     <h1 class=" text-gray-900 mb-4">Login Page</h1>
                   </div>
-                  <form class="user">
+                  <?= $this->session->flashdata('message');?>
+                  <form class="user" method="post" action="<?= base_url()?>Auth/login">
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="username" name="username" style="font-weight:bold; color:black;" placeholder="Enter username...">
+                      <input type="text" class="form-control form-control-user" id="email" name="email" style="font-weight:bold; color:black;" placeholder="Email" value="<?= set_value('email');?>">
+                      <?= form_error('email','<small class="text-danger pl-3">','</small>');?>
                     </div>
                     <div class="form-group">
                       <input type="password" class="form-control form-control-user" id="password" name="password" style="font-weight:bold; color:black;" placeholder="Password">
+                      <?= form_error('password','<small class="text-danger pl-3">','</small>');?>
                     </div>
                     <button type="submit" class="btn btn-success btn-user btn-block">
                       Login
@@ -68,10 +71,7 @@
                   </form>
                   <hr>
                   <div class="text-center">
-                    <a class="small" href="forgot-password.html">Forgot Password?</a>
-                  </div>
-                  <div class="text-center">
-                    <a class="small" href="register.html">Create an Account!</a>
+                    <a class="small" href="<?= base_url();?>Auth/registration">Create an Account!</a>
                   </div>
                 </div>
               </div>
