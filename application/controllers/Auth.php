@@ -30,9 +30,13 @@ class Auth extends CI_Controller {
                 'email' => $user['email'],
                 'role_id' => $user['role_id']
               ];
-
               $this->session->set_userdata($data);
-              redirect('user');
+
+              if ($user['role_id'] == 1) {
+                redirect('admin_puri');
+              } else{
+                  redirect('user');
+              }
 
           } else {
             $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">
@@ -91,4 +95,17 @@ class Auth extends CI_Controller {
        </div>');
       redirect('Auth/login');
     }
+
+
+
+    public function blocked() {
+      $this->load->view('auth/blocked');
+    }
+
+
+
+
+
+
+
 }

@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Profile | PT Puri Makmur Lestari</title>
+  <title>Dashboard | PT Puri Makmur Lestari</title>
 
   <!-- Custom fonts for this template-->
   <link href="<?= base_url();?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -40,6 +40,17 @@
         </div>
         <div class="sidebar-brand-text mx-3"></div>
       </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider">
@@ -116,23 +127,7 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Profile</h1>
-
-
-          <div class="card mb-3" style="max-width: 540px;">
-            <div class="row no-gutters">
-              <div class="col-md-4">
-                <img src="<?= base_url('assets/img/profile/') . $user['image'];?>" class="card-img">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title"><?= $user['name']?></h5>
-                  <p class="card-text"><?= $user['email']?></p>
-                  <p class="card-text"><small class="text-muted">Member since <?= date('d F Y' , $user['date_created']);  ?></small></p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <h1 class="h3 mb-4 text-gray-800">Dashboard</h1>
 
 
 

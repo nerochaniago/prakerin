@@ -12,6 +12,10 @@
         <!-- My css -->
     <link rel="stylesheet" href="<?= base_url(); ?> assets/css/script.css">
     <?php  echo link_tag('assets/css/script.css')  ?>
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+    @import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
+    </style>
 </head>
 <body style="display: flex; min-height: 100vh; flex-direction: column;">
     <!--- Navbar --->
@@ -23,7 +27,7 @@
         <img src="<?= base_url(); ?>assets/img/Logo Puri.png" alt="logo" style="width: 60px; margin-top: 5px; ">
         </a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons black" style="padding-left: 10px; padding-right: 10px;">dehaze</i></a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <ul id="nav-mobile" class="right hide-on-med-and-down ">
                 <li><a href="<?= base_url();?>Pendaftar_C/lowonganKerja"  style="color: green;"><i class="material-icons left">work</i>Lowongan Pekerjaan</a></li>
                 <li><a href="<?= base_url();?>Auth/login" style="color: green;" target="_blank"><i class="material-icons left">assignment_ind</i>Login</a></li>
             </ul>
@@ -42,7 +46,7 @@
     <!-- jumbotron parallax -->
     <div class="parallax-container" style="background-color: rgba(255,255,255,0.8); height: 395px;">
       <div class="parallax"><img src="<?= base_url(); ?>assets/img/puri.jpg"></div>
-      <h2 class="center" style="margin-top: 120px;">PT PURI MAKMUR LESTARI</h2>
+      <h2 class="center" style="margin-top: 120px; font-weight: bold; font-family: Roboto; color: red;">PT PURI MAKMUR LESTARI</h2>
       <div class="container">
         <div class="row">
             <div class="col l12 s12 center">
@@ -62,15 +66,15 @@
           <div class="container">
             <div class="row">
               <div class="col l6 s12">
-                <h5 class="white-text">Contact</h5>
-                <p class="grey-text text-lighten-4">Jl. Terusan Buah Batu Komp BBCA No. 48 Bandung</p>
+                <h5 class="white-text" style="font-family: Roboto;">Contact</h5>
+                <p class="grey-text text-lighten-4" style="font-family: Roboto;">Jl. Terusan Buah Batu Komp BBCA No. 48 Bandung</p>
               </div>
             </div>
             <hr>
           </div>
           <div class="footer-copyright red darken-3">
             <div class="container">
-            <h7 style="color: black;"> <strong> © 2019 PT Puri Makmur Lestari </strong> </h7>
+            <h7 style="color: black;  font-family: Roboto;"> <strong> © 2019 PT Puri Makmur Lestari </strong> </h7>
             </div>
           </div>
         </footer>
