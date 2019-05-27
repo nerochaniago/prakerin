@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Profile | PT Puri Makmur Lestari</title>
+  <title>Edit Akun | PT Puri Makmur Lestari</title>
 
   <!-- Custom fonts for this template-->
   <link href="<?= base_url();?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -119,32 +119,61 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Akun</h1>
+          <h1 class="h3 mb-4 text-gray-800">Edit Akun</h1>
+          <hr style="background-color: green;height: 2px;">
 
 
-          <div class="card mb-3" style="max-width: 540px;">
-            <div class="row no-gutters">
-              <div class="col-md-4">
-                <img src="<?= base_url('assets/img/profile/') . $user['image'];?>" class="card-img">
+        <!-- content utama -->
+
+        <div class="row">
+          <div class="col-lg-8">
+            <?= form_open_multipart('User/edit_user'); ?>
+            <div class="form-group row">
+              <label for="email" class="col-sm-2 col-form-label">Email</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="email" name="email">
               </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title"><?= $user['name']?></h5>
-                  <p class="card-text"><?= $user['email']?></p>
-                  <p class="card-text"><small class="text-muted">Member since <?= date('d F Y' , $user['date_created']);  ?></small></p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="alert alert-info" role="alert">
-            <h3 style="color: red; font-weight: bold;"> Penting : Lengkapi Biodata Anda Pada Menu Registrasi</h3>
-          </div>
-
-
-
-
-
+          </form>
         </div>
+
+        <div class="form-group row">
+          <label for="name" class="col-sm-2 col-form-label">Full Name</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="name" name="name">
+          </div>
+      </form>
+    </div>
+
+    <div class="form-group row">
+    <div class="col-sm-2">
+      Picture
+    </div>
+    <div class="col-sm-10">
+      <div class="row">
+        <div class="col-sm-3">
+          <img src="" class="img-thumbnail">
+        </div>
+        <div class="col-sm-9">
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="image" name="image">
+            <label class="custom-file-label" for="image">Choose file</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="form-group row">
+  <div class="col-sm-10">
+    <button type="submit"  class="btn btn-primary">Edit</button>
+  </div>
+</div>
+
+
+      </div>
+    </div>
+      </div>
         <!-- /.container-fluid -->
 
       </div>

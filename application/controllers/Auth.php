@@ -9,6 +9,11 @@ class Auth extends CI_Controller {
     }
 
     public function login() {
+      if ($this->session->userdata('email')) {
+        // code...
+        redirect('auth/blocked');
+      }
+
       $this->form_validation->set_rules('email','Email','required|trim|valid_email');
       $this->form_validation->set_rules('password','Password','required|trim');
       if ($this->form_validation->run() == false ) {

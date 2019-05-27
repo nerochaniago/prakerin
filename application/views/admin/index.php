@@ -47,10 +47,11 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="<?= base_url();?>Admin_Puri">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
+
 
       <!-- Divider -->
       <hr class="sidebar-divider">
@@ -64,7 +65,12 @@
         <a class="nav-link" href="charts.html">
           <i class="fas fa-fw fa-id-card"></i>
           <span>Profile</span></a>
+          <a class="nav-link" href="charts.html">
+            <i class="fas fa-fw fa-id-card"></i>
+            <span>Edit Profile</span></a>
       </li>
+
+
 
 
       <!-- Divider -->

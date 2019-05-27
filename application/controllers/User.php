@@ -14,4 +14,10 @@ class User extends CI_Controller {
       $this->load->view('user/index',$data);
   }
 
+  public function edit_user() {
+    $this->load->helper('form');
+    $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+    $this->load->view('user/edit_profile',$data);
+  }
+
 }
