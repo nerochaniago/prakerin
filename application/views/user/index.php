@@ -137,7 +137,7 @@
             </div>
           </div>
           <div class="alert alert-info" role="alert">
-            <h3 style="color: red; font-weight: bold;"> Penting : Lengkapi Biodata Anda Pada Menu Registrasi</h3>
+            <marquee><h3 style="color: red; font-weight: bold;"> Penting : Lengkapi Data Anda Pada Menu Registrasi</h3></marquee>
           </div>
 
 
