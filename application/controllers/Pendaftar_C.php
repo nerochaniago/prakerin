@@ -8,4 +8,7 @@ class Pendaftar_C extends CI_Controller {
     public function lowonganKerja() {
       $this->load->view('pendaftar/lowonganKerja');
     }
+    public function pengumuman() {
+      $this->load->view('pendaftar/pengumuman');
+    }
 }
