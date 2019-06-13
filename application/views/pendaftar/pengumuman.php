@@ -47,7 +47,7 @@
           <div class="container">
             <div class="row">
               <div class="col l12 s12">
-                <h2 style="font-weight: bold; font-family: Roboto; color: green;">Lowongan Kerja Tersedia</h1>
+                <h2 style="font-weight: bold; font-family: Roboto; color: green;">Pengumuman</h1>
               </div>
             </div>
           </div>
