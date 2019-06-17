@@ -46,17 +46,38 @@
 
 
     <!-- jumbotron parallax -->
-    <div class="parallax-container" style="background-color: rgba(255,255,255,0.8); height: 395px;">
-      <div class="parallax"><img src="<?= base_url(); ?>assets/img/puri.jpg"></div>
-      <h2 class="center" style="margin-top: 120px; font-weight: bold; font-family: Roboto; color: red;">PT PURI MAKMUR LESTARI</h2>
-      <div class="container">
-        <div class="row">
-            <div class="col l12 s12 center">
-                <!-- <a class="waves-effect waves-light btn-small green darken-3 z-depth-2" href="<?= base_url();?>Auth/registration">Register</a> -->
-            </div>
+    <div class="slider">
+    <ul class="slides">
+      <li>
+        <img src="https://lorempixel.com/580/250/nature/1"> <!-- random image -->
+        <div class="caption center-align">
+          <h3>This is our big Tagline!</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
         </div>
-      </div>
-    </div>
+      </li>
+      <li>
+        <img src="https://lorempixel.com/580/250/nature/2"> <!-- random image -->
+        <div class="caption left-align">
+          <h3>Left Aligned Caption</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="https://lorempixel.com/580/250/nature/3"> <!-- random image -->
+        <div class="caption right-align">
+          <h3>Right Aligned Caption</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="https://lorempixel.com/580/250/nature/4"> <!-- random image -->
+        <div class="caption center-align">
+          <h3>This is our big Tagline!</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+    </ul>
+  </div>
     <!-- main content -->
 
     <main>
@@ -95,6 +116,8 @@
 
     const parallax = document.querySelectorAll('.parallax');
     M.Parallax.init(parallax);
+
+    
 
 </script>
 </body>
