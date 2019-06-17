@@ -25,7 +25,7 @@ class Admin_Puri extends CI_Controller {
 
     $this->upload->do_upload('photo');
     $foto_ketua= $this->upload->data('file_name');
-    
+
     $data = array(
       'foto_wakil' => $foto_wakil,
       'posisi'=>$this->input->post('posisi')
@@ -39,8 +39,8 @@ class Admin_Puri extends CI_Controller {
   }
 
   public function deletelowonganC(){
-    $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
-    $this->load->view('admin/lowongan',$data);
+    $this->pemiluM->dellowonganM($id_lowongan);
+    redirect('Pendaftar_C');
   }
 
 
