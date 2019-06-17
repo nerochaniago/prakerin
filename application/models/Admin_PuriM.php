@@ -2,15 +2,23 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class pemiluM extends CI_Model {
-	public function getDataKomen()
+	public function getLowonganM()
 	{
-		$data = $this->db->get('komentar');
-		return $data->result_array();
+    $this->db->where('id_lowongan',$id_lowongan);
+    $lowongan = $this->db->get('lowongan');
+    return $lowongan->row_array();
 	}
-	public function addlowonganM($data){
+
+	public function addLowonganM($data){
 		$this->db->insert('lowongan',$data);
 	}
-  public function dellowonganM($id_lowongan){
+
+  public function delLowonganM($id_lowongan){
     $this->db->where('id_lowongan', $id_lowongan);
     $this->db->delete('lowongan','photo');
+  }
+
+  public function updateLowonganM($data, $id_lowongan) {
+  	$this->db->where('id_lowongan',$id_lowongan);
+  	$this->db->update('lowongan',$data);
   }
