@@ -8,13 +8,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.bootstrap4.min.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
 
-  <title>Dashboard | PT Puri Makmur Lestari</title>
+  <title>Menu Loker | PT Puri Makmur Lestari</title>
 
   <!-- Custom fonts for this template-->
   <link href="<?= base_url();?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
+  <link rel="stylesheet" href="<?= base_url();?>assets/datepicker/css/bootstrap-datepicker.min.css">
   <!-- Custom styles for this template-->
   <link href="<?= base_url();?>assets/css/sb-admin-2.min.css" rel="stylesheet">
   <style media="screen">
@@ -77,7 +80,7 @@
       </div>
 
       <li class="nav-item">
-        <a class="nav-link" href="<?= base_url();?>Admin_Puri/lowongan">
+        <a class="nav-link" href="<?= base_url();?>Admin_Puri">
           <i class= "fas fa-briefcase"></i>
           <span>Manage Loker</span></a>
       </li>
@@ -147,12 +150,117 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Dashboard</h1>
+          <h1 class="h3 mb-4 text-gray-800">Managemen Lowongan Pekerjaan</h1>
+          <div class="alert alert-info col-lg-2" role="alert">
+            <h6>Input Loker</h6>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-8">
+                <?= form_open_multipart('Admin_Puri/lowongan'); ?>
+                <div class="form-group row">
+                  <label for="posisi" class="col-sm-2 col-form-label">Posisi</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="posisi" name="posisi">
+                  </div>
+            </div>
+            <div class="form-group row">
+              <label for="penempatan" class="col-sm-2 col-form-label">Penempatan</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="penempatan" name="penempatan">
+                <!-- <?= form_error('name','<small class="text-danger pl-3">','</small>');?> -->
+              </div>
+        </div>
+        <div class="form-group row">
+
+          <label for="persyaratan" class="col-sm-2 col-form-label">Persyaratan</label>
+          <div class="col-sm-10">
+          <textarea class="form-control" id="persyaratan" name="persyaratan" rows="3"></textarea>
+            <!-- <?= form_error('name','<small class="text-danger pl-3">','</small>');?> -->
+          </div>
+
+    </div>
+    <div class="form-group row">
+      <label for="tanggal" class="col-sm-2 col-form-label">Batas</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control datepicker" id="tanggal" name="tanggal">
+        <!-- <?= form_error('name','<small class="text-danger pl-3">','</small>');?> -->
+      </div>
+</div>
 
 
+        <div class="form-group row">
+        <div class="col-sm-2">
+          Foto
+        </div>
+        <div class="col-sm-10">
+          <div class="row">
+            <div class="col-sm-3">
+              <img src="<?= base_url('assets/img/profile/') . $user['image'];?>" class="img-thumbnail">
+            </div>
+            <div class="col-sm-9">
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="image" name="image">
+                <label class="custom-file-label" for="image">Choose file</label>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="form-group row justify-content-end">
+      <div class="col-sm-10">
+        <button type="submit"  class="btn btn-primary">Submit</button>
+      </div>
+        </form>
+    </div>
+
+
+
+
+            </div>
+          </div>
 
 
         </div>
+        <hr>
+        <br><br>
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <h1 class="h3 mb-4 text-gray-800">List Lowongan Pekerjaan</h1>
+
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <table id="table_id" class="table table-striped table-bordered ">
+                  <thead>
+                    <tr>
+                      <th>Posisi</th>
+                      <th>Penempatan</th>
+                      <th>Persyaratan</th>
+                      <th>Batas Penerimaan</th>
+                      <th>Foto</th>
+                      <th>Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php foreach ($loker->result() as $lo) : ?>
+                    <tr>
+                      <td><?= $lo->posisi ?></td>
+                      <td><?= $lo->penempatan ?></td>
+                      <td><?= $lo->syarat ?></td>
+                      <td><?= $lo->batas ?></td>
+                      <td><?= $lo->gambar ?></td>
+                    </tr>
+                    <?php endforeach; ?>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
         <!-- /.container-fluid -->
 
       </div>
@@ -201,12 +309,46 @@
   <!-- Bootstrap core JavaScript-->
   <script src="<?= base_url();?>assets/vendor/jquery/jquery.min.js"></script>
   <script src="<?= base_url();?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="<?= base_url();?>assets/datepicker/js/bootstrap-datepicker.min.js"></script>
 
   <!-- Core plugin JavaScript-->
   <script src="<?= base_url();?>assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.bootstrap4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
+	<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+	<script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
+
+	<script>
+		$(document).ready(function () {
+			var table = $('#table_id').DataTable({
+				lengthChange: false,
+				buttons: ['pdf']
+			});
+
+			table.buttons().container()
+				.appendTo('#table_id_wrapper .col-md-6:eq(0)');
+		});
+
+	</script>
 
   <!-- Custom scripts for all pages-->
   <script src="<?= base_url();?>assets/js/sb-admin-2.min.js"></script>
+  <script type="text/javascript">
+            $(document).ready(function () {
+                $('.datepicker').datepicker({
+                    format: "yyyy-mm-dd",
+                    autoclose:true
+                });
+            });
+        </script>
 
 </body>
 
