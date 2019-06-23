@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 13, 2019 at 04:37 AM
+-- Generation Time: Jun 17, 2019 at 08:00 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -19,6 +19,18 @@ SET time_zone = "+00:00";
 --
 -- Database: `puri`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lowongan`
+--
+
+CREATE TABLE `lowongan` (
+  `id_lowongan` int(10) NOT NULL,
+  `photo` varchar(10) NOT NULL,
+  `posisi` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -65,8 +77,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
 (3, 'nero chaniago', 'nerochaniago19@gmail.com', 'default.jpg', '$2y$10$VME1rtUk8qDXD5J1KJZT5erO99yrH94YFK9VmUBFq7wllbwQOJHUm', 1, 1, 1558746937),
 (4, 'shyffa ilmallia noer fhadillah', 'shyffainf@yahoo.com', 'download.png', '$2y$10$9LPlNGk0nHo5jmUB/aoILeQCUE3xYFMdBFyHv5GKyRX6OeqL9dcty', 2, 1, 1558750388),
-(5, 'test', 'test@gmail.com', 'captain-america-1600x900-artwork-hd-8107.jpg', '$2y$10$zuX8uXQZ2tOSmmElvbZcJOLw8XgsurAeByIt6zyUHBKq49Dm5TQ0a', 2, 1, 1558913293),
-(6, 'admin', 'admin@puri.ac.id', 'default.jpg', '$2y$10$SMdks.T43y/H/SDN4UEhp.4vwy9Pu9mig/BK3YERqft3dXBjVUFIe', 2, 1, 1560393024);
+(5, 'test', 'test@gmail.com', 'captain-america-1600x900-artwork-hd-8107.jpg', '$2y$10$zuX8uXQZ2tOSmmElvbZcJOLw8XgsurAeByIt6zyUHBKq49Dm5TQ0a', 2, 1, 1558913293);
 
 -- --------------------------------------------------------
 
@@ -92,6 +103,12 @@ INSERT INTO `user_role` (`id`, `role`) VALUES
 --
 
 --
+-- Indexes for table `lowongan`
+--
+ALTER TABLE `lowongan`
+  ADD PRIMARY KEY (`id_lowongan`);
+
+--
 -- Indexes for table `pendaftaran`
 --
 ALTER TABLE `pendaftaran`
@@ -113,6 +130,11 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for dumped tables
 --
 
+--
+-- AUTO_INCREMENT for table `lowongan`
+--
+ALTER TABLE `lowongan`
+  MODIFY `id_lowongan` int(10) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `pendaftaran`
 --
