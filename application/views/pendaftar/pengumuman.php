@@ -57,8 +57,8 @@
                     <th>Image</th>
                   </tr>
                   <?php
-                  if( ! empty($pelamar)){ // Jika data pada database tidak sama dengan empty (alias ada datanya)
-                    foreach($pelamar as $data){ // Lakukan looping pada variabel siswa dari controller
+                  if( ! empty($pelamarnya)){ // Jika data pada database tidak sama dengan empty (alias ada datanya)
+                    foreach($pelamarnya as $data){ // Lakukan looping pada variabel siswa dari controller
                       echo "<tr>";
                       echo "<td>".$data->id."</td>";
                       echo "<td>".$data->name."</td>";

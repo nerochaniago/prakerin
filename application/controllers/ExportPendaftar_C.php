@@ -4,11 +4,12 @@ class ExportPendaftar_C extends CI_Controller {
   public function __construct(){
     parent::__construct();
     $this->load->model('ExportPendaftar_M');
+    $this->load->helper('url');
   }
 
   public function index(){
-    $data['pelamar'] = $this->ExportPendaftar_M->view();
-    $this->load->view('view', $data);
+    $data_pelamar['pelamar'] = $this->ExportPendaftar_M->view();
+    $this->load->view('pendaftar/pengumuman', $data_pelamar);
   }
 
   public function export(){
@@ -68,10 +69,10 @@ class ExportPendaftar_C extends CI_Controller {
     // $excel->getActiveSheet()->getStyle('D3')->applyFromArray($style_col);
     // $excel->getActiveSheet()->getStyle('E3')->applyFromArray($style_col);
     // Panggil function view yang ada di ExportPendaftar_M untuk menampilkan semua data siswanya
-    $pelamar = $this->ExportPendaftar_M->view();
+    $pelamarnya = $this->ExportPendaftar_M->view();
     $no = 1; // Untuk penomoran tabel, di awal set dengan 1
     $numrow = 4; // Set baris pertama untuk isi tabel adalah baris ke 4
-    foreach($pelamar as $data){ // Lakukan looping pada variabel siswa
+    foreach($pelamarnya as $data){ // Lakukan looping pada variabel siswa
       $excel->setActiveSheetIndex(0)->setCellValue('A'.$numrow, $id);
       $excel->setActiveSheetIndex(0)->setCellValue('B'.$numrow, $data->name);
       $excel->setActiveSheetIndex(0)->setCellValue('C'.$numrow, $data->email);
