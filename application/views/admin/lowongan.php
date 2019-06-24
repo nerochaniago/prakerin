@@ -185,7 +185,7 @@
         <div class="form-group row">
           <label for="tanggal" class="col-sm-2 col-form-label">Batas Penerimaan</label>
           <div class="col-sm-10">
-            <input type="date" class="form-control" id="tanggal" name="tanggal">
+            <input type="text" class="form-control datepicker" id="batas" name="batas">
             <!-- <?= form_error('name','<small class="text-danger pl-3">','</small>');?> -->
           </div>
     </div>
@@ -195,11 +195,10 @@
             <div class="col-sm-2">
               Foto
             </div>
-            <?php foreach ($loker->result() as $lo) : ?>
             <div class="col-sm-10">
               <div class="row">
                 <div class="col-sm-3">
-                  <img src="<?= base_url('assets/img/loker/') . $lo->gambar?>" class="img-thumbnail">
+                  <img src="" class="img-thumbnail">
                 </div>
                 <div class="col-sm-9">
                   <div class="custom-file">
@@ -209,7 +208,6 @@
                 </div>
               </div>
             </div>
-            <?php endforeach; ?>
         </div>
 
         <div class="form-group row justify-content-end">

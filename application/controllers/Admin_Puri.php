@@ -27,11 +27,13 @@ class Admin_Puri extends CI_Controller {
     if(isset($_POST['submit'])){
               $posisi = $this->input->post('posisi');
               $penempatan = $this->input->post('penempatan');
+              $batas = $this->input->post('batas');
 
               $input = array(
                       'posisi' => $posisi,
                       'penempatan' => $penempatan,
-                      'role_id' => 1
+                      'role_id' => 1,
+                      'batas' => $batas
               );
               $this->lowongan_m->insert($input);
               redirect('Admin_Puri/lowongan');
