@@ -80,7 +80,7 @@
       </div>
 
       <li class="nav-item">
-        <a class="nav-link" href="<?= base_url();?>Admin_Puri">
+        <a class="nav-link" href="<?= base_url();?>Admin_Puri/lowongan">
           <i class= "fas fa-briefcase"></i>
           <span>Manage Loker</span></a>
       </li>
@@ -151,80 +151,86 @@
 
           <!-- Page Heading -->
           <h1 class="h3 mb-4 text-gray-800">Managemen Lowongan Pekerjaan</h1>
-          <div class="alert alert-info col-lg-2" role="alert">
-            <h6>Input Loker</h6>
+          <div class="alert alert-info col-lg-2 offset-lg-5" role="alert">
+            <marquee><h6>Input Loker</h6></marquee>
           </div>
 
           <div class="row">
-            <div class="col-lg-8">
-                <?= form_open_multipart('Admin_Puri/lowongan'); ?>
+            <div class="col-md-8 offset-md-2">
+              <div class="card o-hidden border-0 shadow-lg my-4">
+                  <div class="card-body">
+                    <form action="<?php echo site_url('Admin_Puri/tambahLowongan'); ?>" method="post">
+                    <div class="form-group row">
+                      <label for="posisi" class="col-sm-2 col-form-label">Posisi</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" id="posisi" name="posisi">
+                      </div>
+                </div>
                 <div class="form-group row">
-                  <label for="posisi" class="col-sm-2 col-form-label">Posisi</label>
+                  <label for="penempatan" class="col-sm-2 col-form-label">Penempatan</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="posisi" name="posisi">
+                    <input type="text" class="form-control" id="penempatan" name="penempatan">
+                    <!-- <?= form_error('name','<small class="text-danger pl-3">','</small>');?> -->
                   </div>
             </div>
             <div class="form-group row">
-              <label for="penempatan" class="col-sm-2 col-form-label">Penempatan</label>
+
+              <label for="persyaratan" class="col-sm-2 col-form-label">Persyaratan</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="penempatan" name="penempatan">
+              <textarea class="form-control" id="persyaratan" name="persyaratan" rows="3"></textarea>
                 <!-- <?= form_error('name','<small class="text-danger pl-3">','</small>');?> -->
               </div>
+
         </div>
         <div class="form-group row">
-
-          <label for="persyaratan" class="col-sm-2 col-form-label">Persyaratan</label>
+          <label for="tanggal" class="col-sm-2 col-form-label">Batas Penerimaan</label>
           <div class="col-sm-10">
-          <textarea class="form-control" id="persyaratan" name="persyaratan" rows="3"></textarea>
+            <input type="date" class="form-control" id="tanggal" name="tanggal">
             <!-- <?= form_error('name','<small class="text-danger pl-3">','</small>');?> -->
           </div>
-
     </div>
-    <div class="form-group row">
-      <label for="tanggal" class="col-sm-2 col-form-label">Batas</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control datepicker" id="tanggal" name="tanggal">
-        <!-- <?= form_error('name','<small class="text-danger pl-3">','</small>');?> -->
-      </div>
-</div>
 
 
-        <div class="form-group row">
-        <div class="col-sm-2">
-          Foto
-        </div>
-        <div class="col-sm-10">
-          <div class="row">
-            <div class="col-sm-3">
-              <img src="<?= base_url('assets/img/profile/') . $user['image'];?>" class="img-thumbnail">
+            <div class="form-group row">
+            <div class="col-sm-2">
+              Foto
             </div>
-            <div class="col-sm-9">
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" id="image" name="image">
-                <label class="custom-file-label" for="image">Choose file</label>
+            <?php foreach ($loker->result() as $lo) : ?>
+            <div class="col-sm-10">
+              <div class="row">
+                <div class="col-sm-3">
+                  <img src="<?= base_url('assets/img/loker/') . $lo->gambar?>" class="img-thumbnail">
+                </div>
+                <div class="col-sm-9">
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="image" name="image">
+                    <label class="custom-file-label" for="image">Choose file</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
+
+        <div class="form-group row justify-content-end">
+          <div class="col-sm-10">
+          <button type="submit" name="submit" class="btn btn-primary">Add</button>
+          </div>
+            </form>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-    </div>
-
-    <div class="form-group row justify-content-end">
-      <div class="col-sm-10">
-        <button type="submit"  class="btn btn-primary">Submit</button>
-      </div>
-        </form>
-    </div>
-
-
-
-
-            </div>
-          </div>
 
 
         </div>
-        <hr>
+        <div class="container">
+            <hr style="width:900px;">
+        </div>
+
         <br><br>
+
         <div class="container-fluid">
 
           <!-- Page Heading -->
@@ -234,7 +240,7 @@
           <div class="container">
             <div class="row">
               <div class="col-lg-12">
-                <table id="table_id" class="table table-striped table-bordered ">
+                <table id="table_id" class="table table-striped table-bordered responsive ">
                   <thead>
                     <tr>
                       <th>Posisi</th>
@@ -252,7 +258,9 @@
                       <td><?= $lo->penempatan ?></td>
                       <td><?= $lo->syarat ?></td>
                       <td><?= $lo->batas ?></td>
-                      <td><?= $lo->gambar ?></td>
+                      <td>  <img src="<?= base_url('assets/img/loker/') . $lo->gambar?>" class="img-thumbnail" style="width:50px;"> </td>
+                      <td><button type="submit"  class="btn btn-primary">Edit</button> <button type="submit"  class="btn btn-danger">Delete</button></td>
+
                     </tr>
                     <?php endforeach; ?>
                   </tbody>
@@ -330,7 +338,7 @@
 		$(document).ready(function () {
 			var table = $('#table_id').DataTable({
 				lengthChange: false,
-				buttons: ['pdf']
+
 			});
 
 			table.buttons().container()

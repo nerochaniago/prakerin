@@ -22,6 +22,21 @@ class Admin_Puri extends CI_Controller {
     $this->load->view('admin/lowongan',$data);
   }
 
+  public function tambahLowongan(){
+    $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+    if(isset($_POST['submit'])){
+              $posisi = $this->input->post('posisi');
+              $penempatan = $this->input->post('penempatan');
+
+              $input = array(
+                      'posisi' => $posisi,
+                      'penempatan' => $penempatan,
+                      'role_id' => 1
+              );
+              $this->lowongan_m->insert($input);
+              redirect('Admin_Puri/lowongan');
+          }
+  }
 
 
 }

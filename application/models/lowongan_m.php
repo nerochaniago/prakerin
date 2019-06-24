@@ -9,4 +9,9 @@ class lowongan_m extends CI_Model{
 		$this->db->join('user', 'loker.role_id = user.role_id');
 		return $this->db->get('loker');
 	}
+
+  public function insert($input){
+    $res = $this->db->insert('loker', $input);
+    return $res;
+    }
 }
