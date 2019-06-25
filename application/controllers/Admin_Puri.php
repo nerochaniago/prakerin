@@ -27,15 +27,28 @@ class Admin_Puri extends CI_Controller {
     if(isset($_POST['submit'])){
               $posisi = $this->input->post('posisi');
               $penempatan = $this->input->post('penempatan');
+              $syarat = $this->input->post('syarat');
               $batas = $this->input->post('batas');
+              $uploadImage = $_FILES['gambar']['name'];
+              if ($uploadImage) {
+                // code...
+              }
 
+         // input ke database
               $input = array(
                       'posisi' => $posisi,
                       'penempatan' => $penempatan,
+                      'syarat' => $syarat,
                       'role_id' => 1,
-                      'batas' => $batas
+                      'batas' => $batas,
+                      'gambar' => $uploadImage
+
+
               );
               $this->lowongan_m->insert($input);
+              $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
+               Loker telah ditambahkan
+              </div>');
               redirect('Admin_Puri/lowongan');
           }
   }
