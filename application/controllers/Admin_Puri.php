@@ -45,16 +45,15 @@ class Admin_Puri extends CI_Controller {
                     // code...
                     unlink(FCPATH . 'assets/img/loker/' . $old_image);
 
+                  } else {
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $this->upload->display_errors() . '</div>');
+                    redirect('Admin_Puri/lowongan');
                   }
 
                   $new_img = $this->upload->data('file_name');
                   $this->db->set('gambar', $new_img);
 
 
-                } else {
-                  // code...
-                  $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $this->upload->display_errors() . '</div>');
-                  redirect('Admin_Puri/lowongan');
                 }
               }
 

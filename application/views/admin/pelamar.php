@@ -157,7 +157,7 @@
         </nav>
         <!-- End of Topbar -->
 
-        <div class="container-fluid">
+        <div class="container-fluid"style="">
 
           <!-- Page Heading -->
           <h1 class="h3 mb-4 text-gray-800">List Data Pelamar</h1>
@@ -195,13 +195,13 @@
           </div>
         <!-- /.container-fluid -->
         <br>
-        <div class="container-fluid" style="position:relative;">
+        <div class="container-fluid">
           <div align="center">
-          <form method="post" action="<?php echo site_url('Admin_Puri/delAllPendaftar'); ?>">
+          <form method="post" action="<?php echo site_url('Admin_Puri/delAllPendaftar'); ?>"  style="">
             <input type="submit" name="delete" class="btn btn-danger" value="Delete" style=""/>
           </form>
           <form method="post" action="<?php echo site_url('Admin_Puri/action'); ?>">
-            <input type="submit" name="export" class="btn btn-success" value="Export" style="position: absolute; right:440px; bottom:0px;" />
+            <input type="submit" name="export" class="btn btn-success" value="Export"/>
           </form>
           </div>
         </div>

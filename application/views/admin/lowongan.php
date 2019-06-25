@@ -161,7 +161,7 @@
 
           <!-- Page Heading -->
           <h1 class="h3 mb-4 text-gray-800">Managemen Lowongan Pekerjaan</h1>
-          <div class="alert alert-info col-lg-2 offset-lg-5" role="alert">
+          <div class="alert alert-warning col-lg-2 offset-lg-5" role="alert">
             <marquee><h6>Input Loker</h6></marquee>
           </div>
 
@@ -207,14 +207,14 @@
 
             <div class="form-group row">
             <div class="col-sm-2">
-              Foto
+              <label for="" style="color:black;">Foto*</label>
             </div>
             <div class="col-sm-10">
               <div class="row">
                 <div class="col-sm-9">
                   <div class="custom-file">
                     <input type="file" class="custom-file-input" id="gambar" name="gambar">
-                    <label class="custom-file-label" for="image">pilih file</label>
+                    <label class="custom-file-label" for="image">pilih file jpg / png, max 5 MB</label>
                   </div>
                 </div>
               </div>
