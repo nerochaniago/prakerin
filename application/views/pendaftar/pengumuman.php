@@ -44,35 +44,25 @@
 
         <!-- main content -->
         <main>
-          <div class="container">
-            <div class="row">
-              <div class="col l12 s12">
-                <h2 style="font-weight: bold; font-family: Roboto; color: green;">Hasil Pengumuman</h1>
-                  <a href="<?php echo base_url("index.php/ExportPendaftar_C/export"); ?>">Export ke Excel</a><br><br>
-                  <table border="1" cellpadding="8">
-                  <tr>
-                    <th>No</th>
-                    <th>Nama</th>
-                    <th>Email</th>
-                    <th>Image</th>
-                  </tr>
-                  <?php
-                  if( ! empty($pelamarnya)){ // Jika data pada database tidak sama dengan empty (alias ada datanya)
-                    foreach($pelamarnya as $data){ // Lakukan looping pada variabel siswa dari controller
-                      echo "<tr>";
-                      echo "<td>".$data->id."</td>";
-                      echo "<td>".$data->name."</td>";
-                      echo "<td>".$data->email."</td>";
-                      echo "<td>".$data->image."</td>";
-                      echo "</tr>";
-                    }
-                  }else{ // Jika data tidak ada
-                    echo "<tr><td colspan='4'>Data tidak ada</td></tr>";
-                  }
-                  ?>
-                  </table>
-              </div>
-            </div>
+          <div align="center">
+
+            <h3>Hasil Seleksi berkas</h3>
+           <form method="post" action="<?php echo site_url('Excel_export/action'); ?>">
+
+            <input type="submit" name="export" class="btn btn-success" value="Export" />
+
+           </form>
+
+          </div>
+          <div align="center">
+
+            <h3>Hasil Interview</h3>
+           <form method="post" action="<?php echo site_url('Excel_export/action'); ?>">
+
+            <input type="submit" name="export" class="btn btn-success" value="Export" />
+
+           </form>
+
           </div>
           </main>
 
