@@ -180,27 +180,27 @@
                     <div class="form-group row">
                       <label for="posisi" class="col-sm-2 col-form-label">Posisi</label>
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" id="posisi" name="posisi">
+                        <input type="text" class="form-control" id="posisi" name="posisi" placeholder="masukan posisi pekerjaan..">
                       </div>
                 </div>
                 <div class="form-group row">
                   <label for="penempatan" class="col-sm-2 col-form-label">Penempatan</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="penempatan" name="penempatan">
+                    <input type="text" class="form-control" id="penempatan" name="penempatan" placeholder="masukan penempatan pekerjaan..">
                   </div>
             </div>
             <div class="form-group row">
 
               <label for="persyaratan" class="col-sm-2 col-form-label">Persyaratan</label>
               <div class="col-sm-10">
-              <textarea class="form-control" id="syarat" name="syarat" rows="3"></textarea>
+              <textarea class="form-control" id="syarat" name="syarat" rows="3" placeholder="masukan persyaratan pekerjaan.."></textarea>
               </div>
 
         </div>
         <div class="form-group row">
           <label for="tanggal" class="col-sm-2 col-form-label">Batas Penerimaan</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control datepicker" id="batas" name="batas">
+            <input type="text" class="form-control datepicker" id="batas" name="batas" placeholder="yyyy/mm/dd">
           </div>
     </div>
 
@@ -211,13 +211,10 @@
             </div>
             <div class="col-sm-10">
               <div class="row">
-                <div class="col-sm-3">
-                  <img src="" class="img-thumbnail">
-                </div>
                 <div class="col-sm-9">
                   <div class="custom-file">
                     <input type="file" class="custom-file-input" id="gambar" name="gambar">
-                    <label class="custom-file-label" for="image">Choose file</label>
+                    <label class="custom-file-label" for="image">pilih file</label>
                   </div>
                 </div>
               </div>

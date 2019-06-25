@@ -77,7 +77,7 @@
       </div>
 
       <li class="nav-item">
-        <a class="nav-link" href="<?= base_url();?>Excel_Export">
+        <a class="nav-link" href="<?= base_url();?>Admin_Puri/lowongan">
           <i class= "fas fa-briefcase"></i>
           <span>Manage Loker</span></a>
       </li>

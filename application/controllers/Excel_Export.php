@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   class Excel_export extends CI_Controller {
 
     function index(){
-
+      $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
       $this->load->model("excel_export_model");
 
       $data["employee_data"] = $this->excel_export_model->fetch_data();
@@ -15,6 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     }
 
     function view(){
+
       $data["employee_data"] = $this->excel_export_model->fetch_data();
       $this->load->view("admin/pelamar", $data);
 
@@ -22,6 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     function action(){
 
+      $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
       $this->load->model("excel_export_model");
 
       $this->load->library("excel");
