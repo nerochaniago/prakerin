@@ -194,14 +194,15 @@
 
           </div>
         <!-- /.container-fluid -->
-
-        <div class="container-fluid">
+        <br>
+        <div class="container-fluid" style="position:relative;">
           <div align="center">
-            <form method="post" action="<?php echo site_url('Admin_Puri/action'); ?>">
-
-            <input type="submit" name="export" class="btn btn-success" value="Export" />
-            <input type="submit" name="delete" class="btn btn-danger" value="Delete" />
-           </form>
+          <form method="post" action="<?php echo site_url('Admin_Puri/delAllPendaftar'); ?>">
+            <input type="submit" name="delete" class="btn btn-danger" value="Delete" style=""/>
+          </form>
+          <form method="post" action="<?php echo site_url('Admin_Puri/action'); ?>">
+            <input type="submit" name="export" class="btn btn-success" value="Export" style="position: absolute; right:440px; bottom:0px;" />
+          </form>
           </div>
         </div>
       <!-- End of Main Content -->
