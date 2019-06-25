@@ -75,8 +75,7 @@ class Admin_Puri extends CI_Controller {
           }
   }
 
-<<<<<<< HEAD
-=======
+
   public function viewPendaftar()
   {
     $this->load->model("excel_export_model");
@@ -157,6 +156,4 @@ class Admin_Puri extends CI_Controller {
     $berhasil = $object_writer->save('php://output');
 
   }
->>>>>>> d3ef29c9de2c07e1d2c91d833056704eb011b34b
-
 }
