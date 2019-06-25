@@ -10,7 +10,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
       $data["employee_data"] = $this->excel_export_model->fetch_data();
 
-      $this->load->view("excel_export_view", $data);
+      $this->load->view("admin/pelamar", $data);
+
+    }
+
+    function view(){
+      $data["employee_data"] = $this->excel_export_model->fetch_data();
+      $this->load->view("admin/pelamar", $data);
 
     }
 

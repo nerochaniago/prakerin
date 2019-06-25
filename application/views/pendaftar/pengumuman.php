@@ -29,7 +29,7 @@
                 <ul id="nav-mobile" class="right hide-on-med-and-down ">
                     <li><a href="<?= base_url();?>Pendaftar_C"  style="color: green;"><i class="material-icons left">work</i>Home</a></li>
                     <li><a href="<?= base_url();?>Pendaftar_C/lowonganKerja"  style="color: green;"><i class="material-icons left">work</i>Lowongan Pekerjaan</a></li>
-                    <li><a href="<?= base_url();?>Pendaftar_C/pengumuman"  style="color: green;"><i class="material-icons left">work</i>Pengumuman</a></li>
+                    <li><a href="<?= base_url();?>Pendaftar_C/Informasi"  style="color: green;"><i class="material-icons left">work</i>Pengumuman</a></li>
                     <li><a href="<?= base_url();?>Auth/login" style="color: green;" target="_blank"><i class="material-icons left">assignment_ind</i>Login</a></li>
                 </ul>
                 </div>
@@ -46,22 +46,7 @@
         <main>
           <div align="center">
 
-            <h3>Hasil Seleksi berkas</h3>
-           <form method="post" action="<?php echo site_url('Excel_export/action'); ?>">
-
-            <input type="submit" name="export" class="btn btn-success" value="Export" />
-
-           </form>
-
-          </div>
-          <div align="center">
-
-            <h3>Hasil Interview</h3>
-           <form method="post" action="<?php echo site_url('Excel_export/action'); ?>">
-
-            <input type="submit" name="export" class="btn btn-success" value="Export" />
-
-           </form>
+           <h3>Informasi</h3>
 
           </div>
           </main>

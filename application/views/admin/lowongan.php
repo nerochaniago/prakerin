@@ -85,6 +85,16 @@
           <span>Manage Loker</span></a>
       </li>
 
+      <!-- Heading -->
+      <div class="sidebar-heading" style="color: black;">
+        Menu Pelamar
+      </div>
+
+      <li class="nav-item">
+        <a class="nav-link" href="<?= base_url();?>Admin_Puri/Excel_Export">
+          <i class= "fas fa-briefcase"></i>
+          <span>Data Pelamar</span></a>
+      </li>
 
 
 
