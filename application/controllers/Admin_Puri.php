@@ -53,6 +53,25 @@ class Admin_Puri extends CI_Controller {
           }
   }
 
+  public function viewPendaftar()
+  {
+    $this->load->model("excel_export_model");
+    $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+    $data["employee_data"] = $this->excel_export_model->fetch_data();
+    $this->load->view('informasiinfo',$data);
+  }
+
+  public function delPelamarC($id_pelamar){
+    $this->load->model("Excel_export_model");
+    $this->Excel_export_model->delPelamarM($id_pelamar);
+    redirect($_SERVER['HTTP_REFERER']);
+  }
+
+  public function delAllPendaftar(){
+    $this->pemiluM->delKomen($no);
+    redirect($_SERVER['HTTP_REFERER']);
+  }
+
   public function Excel_Export()
   {
     $this->load->model("excel_export_model");
@@ -111,7 +130,7 @@ class Admin_Puri extends CI_Controller {
 
     header('Content-Disposition: attachment;filename="Employee Data.xls"');
 
-    $object_writer->save('php://output');
+    $berhasil = $object_writer->save('php://output');
 
   }
 

@@ -2,7 +2,7 @@
 
 class Excel_export_model extends CI_Model{
 
-               function fetch_data(){
+               public function fetch_data(){
 
                               $this->db->order_by("id_pelamar", "DESC");
 
@@ -10,6 +10,12 @@ class Excel_export_model extends CI_Model{
 
                               return $query->result();
 
+               }
+
+               public function delPelamarM($id_pelamar)
+               {
+                 $this->db->where('id_pelamar', $id_pelamar);
+                 $this->db->delete('pendaftaran');
                }
 
 }
