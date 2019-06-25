@@ -178,29 +178,29 @@
 
                     <?= form_open_multipart('Admin_Puri/tambahLowongan'); ?>
                     <div class="form-group row">
-                      <label for="posisi" class="col-sm-2 col-form-label">Posisi</label>
+                      <label for="posisi" class="col-sm-2 col-form-label" style="color:black;">Posisi</label>
                       <div class="col-sm-10">
                         <input type="text" class="form-control" id="posisi" name="posisi" placeholder="masukan posisi pekerjaan..">
                       </div>
                 </div>
                 <div class="form-group row">
-                  <label for="penempatan" class="col-sm-2 col-form-label">Penempatan</label>
+                  <label for="penempatan" class="col-sm-2 col-form-label" style="color:black;">Penempatan</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" id="penempatan" name="penempatan" placeholder="masukan penempatan pekerjaan..">
                   </div>
             </div>
             <div class="form-group row">
 
-              <label for="persyaratan" class="col-sm-2 col-form-label">Persyaratan</label>
+              <label for="persyaratan" class="col-sm-2 col-form-label" style="color:black;">Persyaratan</label>
               <div class="col-sm-10">
               <textarea class="form-control" id="syarat" name="syarat" rows="3" placeholder="masukan persyaratan pekerjaan.."></textarea>
               </div>
 
         </div>
         <div class="form-group row">
-          <label for="tanggal" class="col-sm-2 col-form-label">Batas Penerimaan</label>
+          <label for="tanggal" class="col-sm-2 col-form-label" style="color:black;">Batas Penerimaan</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control datepicker" id="batas" name="batas" placeholder="yyyy/mm/dd">
+            <input type="date" class="form-control" id="batas" name="batas">
           </div>
     </div>
 
@@ -251,23 +251,23 @@
               <div class="col-lg-12" >
                 <table id="table_id" class="table table-striped table-bordered responsive">
                   <thead>
-                    <tr>
-                      <th>Posisi</th>
-                      <th>Penempatan</th>
-                      <th>Persyaratan</th>
-                      <th>Batas Penerimaan</th>
-                      <th>Foto</th>
-                      <th>Aksi</th>
+                    <tr style="background-color:#41f477;">
+                      <th style="color:black;">Posisi</th>
+                      <th style="color:black;">Penempatan</th>
+                      <th style="color:black;">Persyaratan</th>
+                      <th style="color:black;">Batas Penerimaan</th>
+                      <th style="color:black;">Foto</th>
+                      <th style="color:black;">Aksi</th>
                     </tr>
                   </thead>
                   <tbody>
                     <?php foreach ($loker->result() as $lo) : ?>
                     <tr>
-                      <td><?= $lo->posisi ?></td>
-                      <td><?= $lo->penempatan ?></td>
-                      <td><?= $lo->syarat ?></td>
-                      <td><?= $lo->batas ?></td>
-                      <td>  <img src="<?= base_url('assets/img/loker/') . $lo->gambar?>" class="img-thumbnail" style="width:50px;"> </td>
+                      <td style="color:black;"><?= $lo->posisi ?></td>
+                      <td style="color:black;"><?= $lo->penempatan ?></td>
+                      <td style="color:black;"><?= $lo->syarat ?></td>
+                      <td style="color:black;"><?= date("d/F/Y",strtotime($lo->batas)); ?></td>
+                      <td>  <img src="<?= base_url('assets/img/loker/') . $lo->gambar?>" class="img-thumbnail" style="width:80px;"> </td>
                       <td><button type="submit"  class="btn btn-success" style="">Edit</button>
                           <button type="submit"  class="btn btn-danger mt-1" style="">Delete</button>
                       </td>
@@ -350,6 +350,7 @@
 		$(document).ready(function () {
 			var table = $('#table_id').DataTable({
 				lengthChange: false,
+         scrollY: 400
 
 			});
 
