@@ -75,5 +75,88 @@ class Admin_Puri extends CI_Controller {
           }
   }
 
+<<<<<<< HEAD
+=======
+  public function viewPendaftar()
+  {
+    $this->load->model("excel_export_model");
+    $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+    $data["employee_data"] = $this->excel_export_model->fetch_data();
+    $this->load->view('informasiinfo',$data);
+  }
+
+  public function delPelamarC($id_pelamar){
+    $this->load->model("Excel_export_model");
+    $this->Excel_export_model->delPelamarM($id_pelamar);
+    redirect($_SERVER['HTTP_REFERER']);
+  }
+
+  public function delAllPendaftar(){
+    $this->pemiluM->delKomen($no);
+    redirect($_SERVER['HTTP_REFERER']);
+  }
+
+  public function Excel_Export()
+  {
+    $this->load->model("excel_export_model");
+
+    $data["employee_data"] = $this->excel_export_model->fetch_data();
+    $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+    $this->load->view("admin/pelamar", $data);
+  }
+
+  function action(){
+
+    $this->load->model("excel_export_model");
+
+    $this->load->library("excel");
+
+    $object = new PHPExcel();
+
+    $object->setActiveSheetIndex(0);
+
+    $table_columns = array("posisi", "nama", "tgl_lahir", "tmpt_lahir", "gender", "status", "agama", "alamat", "nomor", "email");
+
+    $column = 0;
+
+    foreach($table_columns as $field){
+
+      $object->getActiveSheet()->setCellValueByColumnAndRow($column, 1, $field);
+
+      $column++;
+
+    }
+
+    $employee_data = $this->excel_export_model->fetch_data();
+
+    $excel_row = 2;
+
+    foreach($employee_data as $row){
+
+      $object->getActiveSheet()->setCellValueByColumnAndRow(0, $excel_row, $row->posisi);
+      $object->getActiveSheet()->setCellValueByColumnAndRow(1, $excel_row, $row->nama);
+      $object->getActiveSheet()->setCellValueByColumnAndRow(2, $excel_row, $row->tgl_lahir);
+      $object->getActiveSheet()->setCellValueByColumnAndRow(3, $excel_row, $row->tmpt_lahir);
+      $object->getActiveSheet()->setCellValueByColumnAndRow(4, $excel_row, $row->gender);
+      $object->getActiveSheet()->setCellValueByColumnAndRow(5, $excel_row, $row->status);
+      $object->getActiveSheet()->setCellValueByColumnAndRow(6, $excel_row, $row->agama);
+      $object->getActiveSheet()->setCellValueByColumnAndRow(7, $excel_row, $row->alamat);
+      $object->getActiveSheet()->setCellValueByColumnAndRow(8, $excel_row, $row->nomor);
+      $object->getActiveSheet()->setCellValueByColumnAndRow(9, $excel_row, $row->email);
+
+      $excel_row++;
+
+    }
+
+    $object_writer = PHPExcel_IOFactory::createWriter($object, 'Excel5');
+
+    header('Content-Type: application/vnd.ms-excel');
+
+    header('Content-Disposition: attachment;filename="Employee Data.xls"');
+
+    $berhasil = $object_writer->save('php://output');
+
+  }
+>>>>>>> d3ef29c9de2c07e1d2c91d833056704eb011b34b
 
 }

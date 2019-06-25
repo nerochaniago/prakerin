@@ -176,13 +176,15 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <?php foreach ($employee_data->result() as $pelamar) : ?>
+                    <?php foreach ($employee_data as $pelamar) : ?>
                     <tr>
                       <td><?= $pelamar->nama ?></td>
                       <td><?= $pelamar->email ?></td>
                       <td><?= $pelamar->posisi ?></td>
-                      <td><button type="submit"  class="btn btn-primary">View</button> <button type="submit"  class="btn btn-danger">CV</button></td>
-
+                      <td><button type="submit"  class="btn btn-primary">View</button>
+                        <button type="submit"  class="btn btn-secondary">CV</button>
+                        <a href="<?php echo site_url('Admin_Puri/delPelamarC/'.$pelamar->id_pelamar); ?>" onclick="return confirm('Apakah Anda Ingin Menghapus Data <?=$pelamar->id_pelamar;?> ?');" class="btn btn-danger btn-circle" data-popup="tooltip" data-placement="top" title="Hapus Data"><i class="fa fa-trash"></i></a>
+                      </td>
                     </tr>
                     <?php endforeach; ?>
                   </tbody>
@@ -195,14 +197,12 @@
 
         <div class="container-fluid">
           <div align="center">
-           <form method="post" action="<?php echo site_url('Admin_Puri/Excel_export/action'); ?>">
+            <form method="post" action="<?php echo site_url('Admin_Puri/action'); ?>">
 
             <input type="submit" name="export" class="btn btn-success" value="Export" />
-
+            <input type="submit" name="delete" class="btn btn-danger" value="Delete" />
            </form>
-
           </div>
-
         </div>
       <!-- End of Main Content -->
 
