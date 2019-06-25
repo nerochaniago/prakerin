@@ -13,4 +13,9 @@ class lowongan_m extends CI_Model{
     $res = $this->db->insert('loker', $input);
     return $res;
     }
+
+    public function getLokerFoto(){
+      $this->db->join('user', 'loker.role_id = user.role_id');
+      return $this->db->get('loker')->result_array();
+    }
 }

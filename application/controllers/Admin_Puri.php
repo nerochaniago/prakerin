@@ -24,6 +24,7 @@ class Admin_Puri extends CI_Controller {
 
   public function tambahLowongan(){
     $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+    $data['loker'] = $this->lowongan_m->getLokerFoto();
     if(isset($_POST['submit'])){
               $posisi = $this->input->post('posisi');
               $penempatan = $this->input->post('penempatan');
@@ -32,6 +33,29 @@ class Admin_Puri extends CI_Controller {
               $uploadImage = $_FILES['gambar']['name'];
               if ($uploadImage) {
                 // code...
+                $config['allowed_types'] = 'gif|jpg|png';
+                $config['max_sizes'] = '5048';
+                $config['upload_path'] = './assets/img/loker/';
+                $this->load->library('upload',$config);
+
+                if ($this->upload->do_upload('gambar')) {
+                  // code...
+                  $old_image = $data['loker']['gambar'];
+                  if ($old_image != $old_image) {
+                    // code...
+                    unlink(FCPATH . 'assets/img/loker/' . $old_image);
+
+                  }
+
+                  $new_img = $this->upload->data('file_name');
+                  $this->db->set('gambar', $new_img);
+
+
+                } else {
+                  // code...
+                  $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $this->upload->display_errors() . '</div>');
+                  redirect('Admin_Puri/lowongan');
+                }
               }
 
          // input ke database
@@ -42,8 +66,6 @@ class Admin_Puri extends CI_Controller {
                       'role_id' => 1,
                       'batas' => $batas,
                       'gambar' => $uploadImage
-
-
               );
               $this->lowongan_m->insert($input);
               $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
@@ -53,6 +75,8 @@ class Admin_Puri extends CI_Controller {
           }
   }
 
+<<<<<<< HEAD
+=======
   public function viewPendaftar()
   {
     $this->load->model("excel_export_model");
@@ -134,5 +158,6 @@ class Admin_Puri extends CI_Controller {
     $berhasil = $object_writer->save('php://output');
 
   }
+>>>>>>> d3ef29c9de2c07e1d2c91d833056704eb011b34b
 
 }
