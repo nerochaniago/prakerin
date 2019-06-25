@@ -29,7 +29,7 @@
                 <ul id="nav-mobile" class="right hide-on-med-and-down ">
                     <li><a href="<?= base_url();?>Pendaftar_C"  style="color: green;"><i class="material-icons left">home</i>Home</a></li>
                     <li><a href="<?= base_url();?>Pendaftar_C/lowonganKerja"  style="color: green;"><i class="material-icons left">work</i>Lowongan Pekerjaan</a></li>
-                    <li><a href="<?= base_url();?>Pendaftar_C/pengumuman"  style="color: green;"><i class="material-icons left">info</i>Pengumuman</a></li>
+                    <li><a href="<?= base_url();?>Pendaftar_C/Informasi"  style="color: green;"><i class="material-icons left">work</i>Pengumuman</a></li>
                     <li><a href="<?= base_url();?>Auth/login" style="color: green;" target="_blank"><i class="material-icons left">assignment_ind</i>Login</a></li>
                 </ul>
                 </div>
@@ -44,35 +44,10 @@
 
         <!-- main content -->
         <main>
-          <div class="container">
-            <div class="row">
-              <div class="col l12 s12">
-                <h2 style="font-weight: bold; font-family: Roboto; color: green;">Hasil Pengumuman</h1>
-                  <a href="<?php echo base_url("index.php/ExportPendaftar_C/export"); ?>">Export ke Excel</a><br><br>
-                  <table border="1" cellpadding="8">
-                  <tr>
-                    <th>No</th>
-                    <th>Nama</th>
-                    <th>Email</th>
-                    <th>Image</th>
-                  </tr>
-                  <?php
-                  if( ! empty($pelamarnya)){ // Jika data pada database tidak sama dengan empty (alias ada datanya)
-                    foreach($pelamarnya as $data){ // Lakukan looping pada variabel siswa dari controller
-                      echo "<tr>";
-                      echo "<td>".$data->id."</td>";
-                      echo "<td>".$data->name."</td>";
-                      echo "<td>".$data->email."</td>";
-                      echo "<td>".$data->image."</td>";
-                      echo "</tr>";
-                    }
-                  }else{ // Jika data tidak ada
-                    echo "<tr><td colspan='4'>Data tidak ada</td></tr>";
-                  }
-                  ?>
-                  </table>
-              </div>
-            </div>
+          <div align="center">
+
+           <h3>Informasi</h3>
+
           </div>
           </main>
 
