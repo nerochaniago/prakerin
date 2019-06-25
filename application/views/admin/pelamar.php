@@ -157,17 +157,45 @@
         </nav>
         <!-- End of Topbar -->
 
-
-
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Menu Pelamar</h1>
-          <div class="alert alert-info col-lg-2 offset-lg-5" role="alert">
-            <marquee><h6>Data Pelamar</h6></marquee>
+          <h1 class="h3 mb-4 text-gray-800">List Data Pelamar</h1>
+
           </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <table id="table_id" class="table table-striped table-bordered responsive ">
+                  <thead>
+                    <tr>
+                      <th>Nama</th>
+                      <th>Email</th>
+                      <th>Posisi</th>
+                      <th>Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php foreach ($employee_data->result() as $pelamar) : ?>
+                    <tr>
+                      <td><?= $pelamar->nama ?></td>
+                      <td><?= $pelamar->email ?></td>
+                      <td><?= $pelamar->posisi ?></td>
+                      <td><button type="submit"  class="btn btn-primary">View</button> <button type="submit"  class="btn btn-danger">CV</button></td>
+
+                    </tr>
+                    <?php endforeach; ?>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        <!-- /.container-fluid -->
+
+        <div class="container-fluid">
           <div align="center">
-           <form method="post" action="<?php echo site_url('Excel_export/action'); ?>">
+           <form method="post" action="<?php echo site_url('Admin_Puri/Excel_export/action'); ?>">
 
             <input type="submit" name="export" class="btn btn-success" value="Export" />
 

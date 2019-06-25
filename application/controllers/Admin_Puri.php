@@ -50,9 +50,9 @@ class Admin_Puri extends CI_Controller {
   }
 
   function view(){
+    $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
     $data["employee_data"] = $this->excel_export_model->fetch_data();
     $this->load->view("admin/pelamar", $data);
-
   }
 
   function action(){
@@ -65,7 +65,7 @@ class Admin_Puri extends CI_Controller {
 
     $object->setActiveSheetIndex(0);
 
-    $table_columns = array("Name", "Email");
+    $table_columns = array("posisi", "nama", "tgl_lahir", "tmpt_lahir", "gender", "status", "agama", "alamat", "nomor", "email");
 
     $column = 0;
 
@@ -83,7 +83,8 @@ class Admin_Puri extends CI_Controller {
 
     foreach($employee_data as $row){
 
-      $object->getActiveSheet()->setCellValueByColumnAndRow(0, $excel_row, $row->name);
+      $object->getActiveSheet()->setCellValueByColumnAndRow(0, $excel_row, $row->nama);
+      $object->getActiveSheet()->setCellValueByColumnAndRow(1, $excel_row, $row->email);
 
       $object->getActiveSheet()->setCellValueByColumnAndRow(1, $excel_row, $row->email);
 
