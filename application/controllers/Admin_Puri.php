@@ -49,12 +49,6 @@ class Admin_Puri extends CI_Controller {
     $this->load->view("admin/pelamar", $data);
   }
 
-  function view(){
-    $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
-    $data["employee_data"] = $this->excel_export_model->fetch_data();
-    $this->load->view("admin/pelamar", $data);
-  }
-
   function action(){
 
     $this->load->model("excel_export_model");
@@ -83,10 +77,16 @@ class Admin_Puri extends CI_Controller {
 
     foreach($employee_data as $row){
 
-      $object->getActiveSheet()->setCellValueByColumnAndRow(0, $excel_row, $row->nama);
-      $object->getActiveSheet()->setCellValueByColumnAndRow(1, $excel_row, $row->email);
-
-      $object->getActiveSheet()->setCellValueByColumnAndRow(1, $excel_row, $row->email);
+      $object->getActiveSheet()->setCellValueByColumnAndRow(0, $excel_row, $row->posisi);
+      $object->getActiveSheet()->setCellValueByColumnAndRow(1, $excel_row, $row->nama);
+      $object->getActiveSheet()->setCellValueByColumnAndRow(2, $excel_row, $row->tgl_lahir);
+      $object->getActiveSheet()->setCellValueByColumnAndRow(3, $excel_row, $row->tmpt_lahir);
+      $object->getActiveSheet()->setCellValueByColumnAndRow(4, $excel_row, $row->gender);
+      $object->getActiveSheet()->setCellValueByColumnAndRow(5, $excel_row, $row->status);
+      $object->getActiveSheet()->setCellValueByColumnAndRow(6, $excel_row, $row->agama);
+      $object->getActiveSheet()->setCellValueByColumnAndRow(7, $excel_row, $row->alamat);
+      $object->getActiveSheet()->setCellValueByColumnAndRow(8, $excel_row, $row->nomor);
+      $object->getActiveSheet()->setCellValueByColumnAndRow(9, $excel_row, $row->email);
 
       $excel_row++;
 

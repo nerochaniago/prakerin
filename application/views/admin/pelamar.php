@@ -181,8 +181,7 @@
                       <td><?= $pelamar->nama ?></td>
                       <td><?= $pelamar->email ?></td>
                       <td><?= $pelamar->posisi ?></td>
-                      <td><button type="submit"  class="btn btn-primary">View</button> <button type="submit"  class="btn btn-danger">CV</button></td>
-
+                      <td><button type="submit"  class="btn btn-primary">View</button> <button type="submit"  class="btn btn-secondary">CV</button> <button type="submit"  class="btn btn-danger">Delete</button></td>
                     </tr>
                     <?php endforeach; ?>
                   </tbody>
@@ -195,14 +194,11 @@
 
         <div class="container-fluid">
           <div align="center">
-           <form method="post" action="<?php echo site_url('Admin_Puri/Excel_export/action'); ?>">
-
+           <form method="post" action="<?php echo base_url('Admin_Puri/Excel_Export/action'); ?>">
             <input type="submit" name="export" class="btn btn-success" value="Export" />
-
+            <input type="submit" name="delete" class="btn btn-danger" value="Delete" />
            </form>
-
           </div>
-
         </div>
       <!-- End of Main Content -->
 

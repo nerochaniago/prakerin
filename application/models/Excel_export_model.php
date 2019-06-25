@@ -8,7 +8,7 @@ class Excel_export_model extends CI_Model{
 
                               $query = $this->db->get("pendaftaran");
 
-                              return $query;
+                              return $query->result();
 
                }
 
