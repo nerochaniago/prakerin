@@ -156,10 +156,17 @@
           </div>
 
           <div class="row">
+            <div class="col-lg-6">
+              <?= $this->session->flashdata('message');?>
+            </div>
+          </div>
+
+          <div class="row">
             <div class="col-md-8 offset-md-2">
               <div class="card o-hidden border-0 shadow-lg my-4">
                   <div class="card-body">
-                    <form action="<?php echo site_url('Admin_Puri/tambahLowongan'); ?>" method="post">
+
+                    <?= form_open_multipart('Admin_Puri/tambahLowongan'); ?>
                     <div class="form-group row">
                       <label for="posisi" class="col-sm-2 col-form-label">Posisi</label>
                       <div class="col-sm-10">
@@ -170,15 +177,13 @@
                   <label for="penempatan" class="col-sm-2 col-form-label">Penempatan</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" id="penempatan" name="penempatan">
-                    <!-- <?= form_error('name','<small class="text-danger pl-3">','</small>');?> -->
                   </div>
             </div>
             <div class="form-group row">
 
               <label for="persyaratan" class="col-sm-2 col-form-label">Persyaratan</label>
               <div class="col-sm-10">
-              <textarea class="form-control" id="persyaratan" name="persyaratan" rows="3"></textarea>
-                <!-- <?= form_error('name','<small class="text-danger pl-3">','</small>');?> -->
+              <textarea class="form-control" id="syarat" name="syarat" rows="3"></textarea>
               </div>
 
         </div>
@@ -186,7 +191,6 @@
           <label for="tanggal" class="col-sm-2 col-form-label">Batas Penerimaan</label>
           <div class="col-sm-10">
             <input type="text" class="form-control datepicker" id="batas" name="batas">
-            <!-- <?= form_error('name','<small class="text-danger pl-3">','</small>');?> -->
           </div>
     </div>
 
@@ -202,7 +206,7 @@
                 </div>
                 <div class="col-sm-9">
                   <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="image" name="image">
+                    <input type="file" class="custom-file-input" id="gambar" name="gambar">
                     <label class="custom-file-label" for="image">Choose file</label>
                   </div>
                 </div>
@@ -237,8 +241,8 @@
           </div>
           <div class="container">
             <div class="row">
-              <div class="col-lg-12">
-                <table id="table_id" class="table table-striped table-bordered responsive ">
+              <div class="col-lg-12" >
+                <table id="table_id" class="table table-striped table-bordered responsive">
                   <thead>
                     <tr>
                       <th>Posisi</th>
@@ -257,7 +261,10 @@
                       <td><?= $lo->syarat ?></td>
                       <td><?= $lo->batas ?></td>
                       <td>  <img src="<?= base_url('assets/img/loker/') . $lo->gambar?>" class="img-thumbnail" style="width:50px;"> </td>
-                      <td><button type="submit"  class="btn btn-primary">Edit</button> <button type="submit"  class="btn btn-danger">Delete</button></td>
+                      <td><button type="submit"  class="btn btn-success" style="">Edit</button>
+                          <button type="submit"  class="btn btn-danger mt-1" style="">Delete</button>
+                      </td>
+
 
                     </tr>
                     <?php endforeach; ?>
@@ -342,6 +349,11 @@
 			table.buttons().container()
 				.appendTo('#table_id_wrapper .col-md-6:eq(0)');
 		});
+
+    $('.custom-file-input').on('change', function() {
+      let filename = $(this).val().split('\\').pop();
+      $(this).next('.custom-file-label').addClass("selected").html(filename);
+    });
 
 	</script>
 
