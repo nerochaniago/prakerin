@@ -18,4 +18,10 @@ class Excel_export_model extends CI_Model{
                  $this->db->delete('pendaftaran');
                }
 
+               public function delAll()
+               {
+                 // $this->db->delete('pendaftaran');
+                 $this->db->empty_table('pendaftaran');
+               }
+
 }

@@ -91,7 +91,8 @@ class Admin_Puri extends CI_Controller {
   }
 
   public function delAllPendaftar(){
-    $this->pemiluM->delKomen($no);
+    $this->load->model("Excel_export_model");
+    $this->Excel_export_model->delAll();
     redirect($_SERVER['HTTP_REFERER']);
   }
 
