@@ -58,6 +58,17 @@
             <span>Edit Akun</span></a>
       </li>
 
+      <!-- Heading -->
+      <div class="sidebar-heading" style="color: black;">
+        Lowongan
+      </div>
+
+      <li class="nav-item">
+          <a class="nav-link" href="<?= base_url();?>User/daftarLowonganC">
+            <i class="fas fa-fw fa-id-card"></i>
+            <span>Daftar Lowongan Pekerjaan</span></a>
+      </li>
+
 
       <!-- Divider -->
       <hr class="sidebar-divider">

@@ -181,7 +181,9 @@
                       <td><?= $pelamar->nama ?></td>
                       <td><?= $pelamar->email ?></td>
                       <td><?= $pelamar->posisi ?></td>
-                      <td><button type="submit"  class="btn btn-primary">View</button>
+                      <td>
+                        <button type="submit"  class="btn btn-primary" data-toggle="modal" data-target="#viewnya" >View</button>
+                        <!-- <a data-toggle="modal" data-target="#modal-view<?=$pelamar->id_pelamar;?>" class="btn btn-primary" data-popup="tooltip" data-placement="top" title="View"><i class="fa fa-pencil"></i></a> -->
                         <button type="submit"  class="btn btn-secondary">CV</button>
                         <a href="<?php echo site_url('Admin_Puri/delPelamarC/'.$pelamar->id_pelamar); ?>" onclick="return confirm('Apakah Anda Ingin Menghapus Data <?=$pelamar->id_pelamar;?> ?');" class="btn btn-danger btn-circle" data-popup="tooltip" data-placement="top" title="Hapus Data"><i class="fa fa-trash"></i></a>
                       </td>
@@ -198,13 +200,85 @@
         <div class="container-fluid">
           <div align="center">
           <form method="post" action="<?php echo site_url('Admin_Puri/delAllPendaftar'); ?>"  style="">
-            <input type="submit" name="delete" class="btn btn-danger" value="Delete" style=""/>
+            <input type="submit" name="delete" class="btn btn-danger" value="Delete All" style="float: right"/>
           </form>
           <form method="post" action="<?php echo site_url('Admin_Puri/action'); ?>">
-            <input type="submit" name="export" class="btn btn-success" value="Export"/>
+            <input type="submit" name="export" class="btn btn-success" value="Export All" style="float: right; margin-right: 2px;"/>
           </form>
           </div>
         </div>
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="viewnya" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">View data pelamar</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <!-- Pendaftaran pelamar -->
+              	<div class="container">
+              		<div class="col-12 konten" style="background-color: white;">
+              			<p>Formulir Pendaftaran</p>
+
+              			<h2><?php echo $title; ?></h2>
+              			<form method="post" action="<?php echo site_url('Admin_Puri/viewPendaftar/'.$pelamar['id_pelamar']); ?>">
+              				<div class="form-group row">
+              					<label for="nikck" class="col-sm-2 col-form-label">NAMA :</label>
+              					<div class="col-sm-10">
+              						<input type="text" class="form-control" name="namack" value="<?php echo $pelamar['namack']; ?>">
+              					</div>
+              				</div>
+              				<div class="form-group row">
+              					<label for="nikck" class="col-sm-2 col-form-label">Pendidikan :</label>
+              					<div class="col-sm-10">
+              						<input type="text" class="form-control" name="pendidikanck" value="<?php echo $pelamar['pendidikanck']; ?>">
+              					</div>
+              				</div>
+              				<div class="form-group row">
+              					<label for="nikck" class="col-sm-2 col-form-label">Email :</label>
+              					<div class="col-sm-10">
+              						<input type="email" class="form-control" name="emailck" value="<?php echo $pelamar['emailck']; ?>">
+              					</div>
+              				</div>
+              				<div class="form-group row">
+              					<label for="nikck" class="col-sm-2 col-form-label">NAMA :</label>
+              					<div class="col-sm-10">
+              						<input type="text" class="form-control" name="namacw" value="<?php echo $pelamar['namacw']; ?>">
+              					</div>
+              				</div>
+              				<div class="form-group row">
+              					<label for="nikck" class="col-sm-2 col-form-label">Pendidikan :</label>
+              					<div class="col-sm-10">
+              						<input type="text" class="form-control" name="pendidikancw" value="<?php echo $pelamar['pendidikancw']; ?>">
+              					</div>
+              				</div>
+              				<div class="form-group row">
+              					<label for="nikck" class="col-sm-2 col-form-label">Email :</label>
+              					<div class="col-sm-10">
+              						<input type="email" class="form-control" name="emailcw" value="<?php echo $pelamar['emailcw']; ?>">
+              					</div>
+              				</div>
+              				<div class="form-group row">
+              					<label for="nikck" class="col-sm-2 col-form-label">Partai :</label>
+              					<div class="col-sm-10">
+              						<input type="text" class="form-control" name="partaick" value="<?php echo $pelamar['partaick']; ?>">
+              					</div>
+              				</div>
+              			</form>
+              		</div>
+              	</div>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Done</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
       <!-- End of Main Content -->
 
       <!-- Footer -->

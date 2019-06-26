@@ -79,7 +79,7 @@ class Admin_Puri extends CI_Controller {
     $this->load->view("admin/pelamar", $data);
   }
 
-  function action(){
+  public function action(){
 
     $this->load->model("excel_export_model");
 
@@ -89,7 +89,7 @@ class Admin_Puri extends CI_Controller {
 
     $object->setActiveSheetIndex(0);
 
-    $table_columns = array("posisi", "nama", "tgl_lahir", "tmpt_lahir", "gender", "status", "agama", "alamat", "nomor", "email");
+    $table_columns = array("posisi", "nama", "tgl_lahir", "tmpt_lahir", "gender", "status", "agama", "alamat", "nomor", "email", "pendidikan");
 
     $column = 0;
 
@@ -117,6 +117,8 @@ class Admin_Puri extends CI_Controller {
       $object->getActiveSheet()->setCellValueByColumnAndRow(7, $excel_row, $row->alamat);
       $object->getActiveSheet()->setCellValueByColumnAndRow(8, $excel_row, $row->nomor);
       $object->getActiveSheet()->setCellValueByColumnAndRow(9, $excel_row, $row->email);
+      $object->getActiveSheet()->setCellValueByColumnAndRow(10, $excel_row, $row->pendidikan);
+
 
       $excel_row++;
 

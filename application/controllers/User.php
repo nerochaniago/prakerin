@@ -11,7 +11,6 @@ class User extends CI_Controller {
   }
 
   public function index() {
-
       $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
       $this->load->view('user/index',$data);
   }
@@ -60,9 +59,62 @@ class User extends CI_Controller {
       </div>');
       redirect('user');
     }
+  }
 
+  public function daftarLowonganC()
+  {
+    $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+    $this->load->model('UserM');
+    $this->load->view('user/daftarLowonganV',$data);
+  }
 
+  public function add_pelamar()
+  {
+    $this->load->model('UserM');
+    $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+    $config['upload_path'] = './uploads/pelamar';
+  	$config['allowed_types'] = 'jpg|jpeg|pdf|doc';
+  	$this->load->library('upload', $config);
 
+  	$this->upload->do_upload('foto');
+    $this->upload->do_upload('cv');
+
+  	$foto = $this->upload->data('file_name');
+    $cv = $this->upload->data('file_name');
+
+  	$data = array(
+  		'posisi'=>$this->input->post('posisi'),
+  		'nama'=>$this->input->post('nama'),
+  		'tgl_lahir'=>$this->input->post('tgl_lahir'),
+  		'tmpt_lahir'=>$this->input->post('tmpt_lahir'),
+  		'pendidikan'=>$this->input->post('pendidikan'),
+  		'email'=>$this->input->post('email'),
+  		'nomor'=>$this->input->post('nomor'),
+  		'gender'=>$this->input->post('gender'),
+      'alamat'=>$this->input->post('alamat'),
+  		'agama'=>$this->input->post('agama'),
+  		'status'=>$this->input->post('status'),
+  		'foto' => $foto,
+  		'cv' => $cv
+  	);
+
+    $this->UserM->add_pelamarM($data);
+  	redirect('User');
+  }
+
+  public function dataPekerjaanC()
+  {
+    $data['list'] = $this->pemiluM->getAll();
+    $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+    $this->load->view('user/dataPekerjaanV',$data);
+  }
+
+  public function allDataC()
+  {
+    $this->load->model("UserM");
+    $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+    $data["employee_data"] = $this->excel_export_model->fetch_data();
+    $this->load->view('',$data);
   }
 
 }
