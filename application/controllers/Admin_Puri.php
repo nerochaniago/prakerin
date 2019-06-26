@@ -30,32 +30,7 @@ class Admin_Puri extends CI_Controller {
               $penempatan = $this->input->post('penempatan');
               $syarat = $this->input->post('syarat');
               $batas = $this->input->post('batas');
-              $uploadImage = $_FILES['gambar']['name'];
-              if ($uploadImage) {
-                // code...
-                $config['allowed_types'] = 'gif|jpg|png';
-                $config['max_sizes'] = '5048';
-                $config['upload_path'] = './assets/img/loker/';
-                $this->load->library('upload',$config);
 
-                if ($this->upload->do_upload('gambar')) {
-                  // code...
-                  $old_image = $data['loker']['gambar'];
-                  if ($old_image != $old_image) {
-                    // code...
-                    unlink(FCPATH . 'assets/img/loker/' . $old_image);
-
-                  } else {
-                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $this->upload->display_errors() . '</div>');
-                    redirect('Admin_Puri/lowongan');
-                  }
-
-                  $new_img = $this->upload->data('file_name');
-                  $this->db->set('gambar', $new_img);
-
-
-                }
-              }
 
          // input ke database
               $input = array(
@@ -63,8 +38,8 @@ class Admin_Puri extends CI_Controller {
                       'penempatan' => $penempatan,
                       'syarat' => $syarat,
                       'role_id' => 1,
-                      'batas' => $batas,
-                      'gambar' => $uploadImage
+                      'batas' => $batas
+
               );
               $this->lowongan_m->insert($input);
               $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">

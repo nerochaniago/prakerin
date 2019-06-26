@@ -161,7 +161,7 @@
 
           <!-- Page Heading -->
           <h1 class="h3 mb-4 text-gray-800">Managemen Lowongan Pekerjaan</h1>
-          <div class="alert alert-warning col-lg-2 offset-lg-5" role="alert">
+          <div class="alert alert-info col-lg-2 offset-lg-5" role="alert">
             <marquee><h6>Input Loker</h6></marquee>
           </div>
 
@@ -171,66 +171,7 @@
             </div>
           </div>
 
-          <div class="row">
-            <div class="col-md-8 offset-md-2">
-              <div class="card o-hidden border-0 shadow-lg my-4">
-                  <div class="card-body">
-
-                    <?= form_open_multipart('Admin_Puri/tambahLowongan'); ?>
-                    <div class="form-group row">
-                      <label for="posisi" class="col-sm-2 col-form-label" style="color:black;">Posisi</label>
-                      <div class="col-sm-10">
-                        <input type="text" class="form-control" id="posisi" name="posisi" placeholder="masukan posisi pekerjaan..">
-                      </div>
-                </div>
-                <div class="form-group row">
-                  <label for="penempatan" class="col-sm-2 col-form-label" style="color:black;">Penempatan</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="penempatan" name="penempatan" placeholder="masukan penempatan pekerjaan..">
-                  </div>
-            </div>
-            <div class="form-group row">
-
-              <label for="persyaratan" class="col-sm-2 col-form-label" style="color:black;">Persyaratan</label>
-              <div class="col-sm-10">
-              <textarea class="form-control" id="syarat" name="syarat" rows="3" placeholder="masukan persyaratan pekerjaan.."></textarea>
-              </div>
-
-        </div>
-        <div class="form-group row">
-          <label for="tanggal" class="col-sm-2 col-form-label" style="color:black;">Batas Penerimaan</label>
-          <div class="col-sm-10">
-            <input type="date" class="form-control" id="batas" name="batas">
-          </div>
-    </div>
-
-
-            <div class="form-group row">
-            <div class="col-sm-2">
-              <label for="" style="color:black;">Foto*</label>
-            </div>
-            <div class="col-sm-10">
-              <div class="row">
-                <div class="col-sm-9">
-                  <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="gambar" name="gambar">
-                    <label class="custom-file-label" for="image">pilih file jpg / png, max 5 MB</label>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </div>
-
-        <div class="form-group row justify-content-end">
-          <div class="col-sm-10">
-          <button type="submit" name="submit" class="btn btn-primary">Add</button>
-          </div>
-            </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          
 
 
         </div>
