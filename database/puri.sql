@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 26, 2019 at 05:23 AM
+-- Generation Time: Jun 26, 2019 at 11:00 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -91,6 +91,7 @@ CREATE TABLE `pendaftaran` (
   `gender` varchar(15) NOT NULL,
   `status` varchar(10) NOT NULL,
   `agama` varchar(10) NOT NULL,
+  `pendidikan` varchar(100) NOT NULL,
   `alamat` varchar(50) NOT NULL,
   `nomor` int(16) NOT NULL,
   `email` varchar(50) NOT NULL,
@@ -102,11 +103,12 @@ CREATE TABLE `pendaftaran` (
 -- Dumping data for table `pendaftaran`
 --
 
-INSERT INTO `pendaftaran` (`id_pelamar`, `posisi`, `nama`, `tgl_lahir`, `tmpt_lahir`, `gender`, `status`, `agama`, `alamat`, `nomor`, `email`, `foto`, `cv`) VALUES
-(2, 'a', 'a', '2019-06-04', 'a', 'a', 'a', 'a', 'a', 0, 'a', '', ''),
-(3, 'b', 'b', '2019-06-14', 'b', 'b', 'b', 'b', 'b', 0, 'b', '', ''),
-(4, 'c', 'c', '2019-06-01', 'c', 'c', 'c', 'c', 'c', 0, 'c', '', ''),
-(5, 'd', 'd', '2019-06-14', 'd', 'd', 'dd', 'd', 'd', 0, 'd', '', '');
+INSERT INTO `pendaftaran` (`id_pelamar`, `posisi`, `nama`, `tgl_lahir`, `tmpt_lahir`, `gender`, `status`, `agama`, `pendidikan`, `alamat`, `nomor`, `email`, `foto`, `cv`) VALUES
+(2, 'a', 'a', '2019-06-04', 'a', 'a', 'a', 'a', '', 'a', 0, 'a', '', ''),
+(3, 'b', 'b', '2019-06-14', 'b', 'b', 'b', 'b', '', 'b', 0, 'b', '', ''),
+(4, 'c', 'c', '2019-06-01', 'c', 'c', 'c', 'c', '', 'c', 0, 'c', '', ''),
+(5, 'd', 'd', '2019-06-14', 'd', 'd', 'dd', 'd', '', 'd', 0, 'd', '', ''),
+(6, '1', 'a', '2019-06-08', 'a', 'Laki-laki', 'Lajang', 'a', 'S2', 'a', 1, 'admin@puri.ac.id', '', '');
 
 -- --------------------------------------------------------
 
@@ -206,7 +208,7 @@ ALTER TABLE `loker`
 -- AUTO_INCREMENT for table `pendaftaran`
 --
 ALTER TABLE `pendaftaran`
-  MODIFY `id_pelamar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_pelamar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `user`
 --

@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Edit Akun | PT Puri Makmur Lestari</title>
+  <title>Profile | PT Puri Makmur Lestari</title>
 
   <!-- Custom fonts for this template-->
   <link href="<?= base_url();?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -67,6 +67,12 @@
           <a class="nav-link" href="<?= base_url();?>User/daftarLowonganC">
             <i class="fas fa-fw fa-id-card"></i>
             <span>Daftar Lowongan Pekerjaan</span></a>
+      </li>
+
+      <li class="nav-item">
+          <a class="nav-link" href="<?= base_url();?>User/daftarPekerjaanC">
+            <i class="fas fa-fw fa-id-card"></i>
+            <span>Data Pekerjaan yang dilamar</span></a>
       </li>
 
 
@@ -129,60 +135,40 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-          <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Edit Akun</h1>
-          <hr style="background-color: green;height: 2px;">
+          <div class="container konten">
+          	<div class="row">
+          		<table id="tabelcaleg" class="table-responsive table-striped table-bordered">
+          	  <thead>
+          		<th>No</th>
+          		<th>Posisi</th>
+          		<th>Action</th>
+          	</thead>
+
+          	<tbody>
+          		<?php
+          			$no = 1;
+          			foreach ($list as $a) {
+          		?>
+
+          		<tr>
+          			<td><?php echo $no++; ?></td>
+          			<td><?php echo $a['posisi']; ?></td>
+          			<td><?php echo $a['namack']; ?></td>
+          			 <?php
+          				echo '<td><input type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" value="Edit" onclick="if (confirm(\'Edit data ini??\')) location.href=\''.site_url('User/allDataC/'.$a['nikck']).'\'">
+          				<br><br>
+          				<input type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" value="Hapus" onclick="if (confirm(\'yakin anda akan menghapus Data ini??\')) location.href=\''.site_url('User/del_Calon/'.$a['nikck']).'\'"></td>';
+          				?>
+          		</tr>
+
+          		<?php } ?>
+          	</tbody>
 
 
-        <!-- content utama -->
 
-        <div class="row">
-          <div class="col-lg-8">
-            <?= form_open_multipart('User/edit_user'); ?>
-            <div class="form-group row">
-              <label for="email" class="col-sm-2 col-form-label">Email</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="email" name="email" value="<?= $user['email'];?>" readonly>
-              </div>
-        </div>
-        <div class="form-group row">
-          <label for="name" class="col-sm-2 col-form-label">Full Name</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="name" name="name" value="<?= $user['name'];?>">
-            <?= form_error('name','<small class="text-danger pl-3">','</small>');?>
+          </table>
           </div>
-    </div>
-    <div class="form-group row">
-    <div class="col-sm-2">
-      Picture
-    </div>
-    <div class="col-sm-10">
-      <div class="row">
-        <div class="col-sm-3">
-          <img src="<?= base_url('assets/img/profile/') . $user['image'];?>" class="img-thumbnail">
-        </div>
-        <div class="col-sm-9">
-          <div class="custom-file">
-            <input type="file" class="custom-file-input" id="image" name="image">
-            <label class="custom-file-label" for="image">Choose file</label>
           </div>
-        </div>
-      </div>
-    </div>
-</div>
-
-<div class="form-group row justify-content-end">
-  <div class="col-sm-10">
-    <button type="submit"  class="btn btn-primary">Edit</button>
-  </div>
-    </form>
-</div>
-
-
-      </div>
-    </div>
-      </div>
-        <!-- /.container-fluid -->
 
       </div>
       <!-- End of Main Content -->
@@ -236,13 +222,6 @@
 
   <!-- Custom scripts for all pages-->
   <script src="<?= base_url();?>assets/js/sb-admin-2.min.js"></script>
-
-  <script type="text/javascript">
-      $('.custom-file-input').on('change', function() {
-        let filename = $(this).val().split('\\').pop();
-        $(this).next('.custom-file-label').addClass("selected").html(filename);
-      });
-  </script>
 
 </body>
 
