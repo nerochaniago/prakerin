@@ -159,11 +159,6 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-          <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Managemen Lowongan Pekerjaan</h1>
-          <div class="alert alert-info col-lg-2 offset-lg-5" role="alert">
-            <marquee><h6>Input Loker</h6></marquee>
-          </div>
 
           <div class="row">
             <div class="col-lg-6">
@@ -171,7 +166,70 @@
             </div>
           </div>
 
-          
+
+            <!-- Page Heading -->
+            <h1 class="h3 mb-4 text-gray-800">Input Lowongan Pekerjaan</h1>
+            <hr style="background-color: green;height: 2px;">
+
+
+          <!-- content utama -->
+
+          <div class="row">
+            <div class="col-lg-8">
+              <form action="<?= base_url()?>Admin_Puri/tambahLowongan/" method="post">
+              <div class="form-group row">
+                <label for="posisi" class="col-sm-2 col-form-label">Posisi</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="posisi" name="posisi">
+                </div>
+          </div>
+          <div class="form-group row">
+            <label for="penempatan" class="col-sm-2 col-form-label">Penempatan</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="penempatan" name="penempatan" >
+            </div>
+      </div>
+      <div class="form-group row">
+        <label for="persyaratan" class="col-sm-2 col-form-label">Persyaratan</label>
+        <div class="col-sm-10">
+          <textarea class="form-control" id="syarat" name="syarat" cols="50" rows="4" > </textarea>
+        </div>
+  </div>
+  <div class="form-group row">
+    <label for="batas" class="col-sm-2 col-form-label">Batas Penerimaan</label>
+    <div class="col-sm-10">
+      <input type="date" class="form-control" id="batas" name="batas" >
+    </div>
+</div>
+
+      <div class="form-group row">
+      <div class="col-sm-2">
+        Foto
+      </div>
+      <div class="col-sm-10">
+        <div class="row">
+          <div class="col-sm-9">
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="gambar" name="gambar">
+              <label class="custom-file-label" for="image">Max 4MB , jpg/png</label>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="form-group row justify-content-end">
+    <div class="col-sm-10">
+    <button type="submit" name="button" style="float:right">Add Loker</button>
+    </div>
+      </form>
+  </div>
+
+
+        </div>
+      </div>
+
+
 
 
         </div>
@@ -185,46 +243,24 @@
 
           <!-- Page Heading -->
           <h1 class="h3 mb-4 text-gray-800">List Lowongan Pekerjaan</h1>
-
+          <!-- <td style="color:black;"><?= date("d/F/Y",strtotime($lo->batas)); ?></td> -->
           </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-12" >
-                <table id="table_id" class="table table-striped table-bordered responsive">
-                  <thead>
-                    <tr style="background-color:#41f477;">
-                      <th style="color:black;">Posisi</th>
-                      <th style="color:black;">Penempatan</th>
-                      <th style="color:black;">Persyaratan</th>
-                      <th style="color:black;">Batas Penerimaan</th>
-                      <th style="color:black;">Foto</th>
-                      <th style="color:black;">Aksi</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php foreach ($loker->result() as $lo) : ?>
-                    <tr>
-                      <td style="color:black;"><?= $lo->posisi ?></td>
-                      <td style="color:black;"><?= $lo->penempatan ?></td>
-                      <td style="color:black;"><?= $lo->syarat ?></td>
-                      <td style="color:black;"><?= date("d/F/Y",strtotime($lo->batas)); ?></td>
-                      <td>  <img src="<?= base_url('assets/img/loker/') . $lo->gambar?>" class="img-thumbnail" style="width:80px;"> </td>
-                      <td><button type="submit"  class="btn btn-success" style="">Edit</button>
-                          <button type="submit"  class="btn btn-danger mt-1" style="">Delete</button>
-                      </td>
 
+        <table border="1">
+          <thead>
+            <tr>
+              <th>Posisi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($loker_baru as $lo):?>
+            <tr>
+              <td><?=$lo['posisi'];?></td>
+            </tr>
+            <?php endforeach; ?>
+          </tbody>
 
-                    </tr>
-                    <?php endforeach; ?>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-          </div>
-        <!-- /.container-fluid -->
-
-      </div>
+        </table>
       <!-- End of Main Content -->
 
       <!-- Footer -->

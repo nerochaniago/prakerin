@@ -18,35 +18,23 @@ class Admin_Puri extends CI_Controller {
 
   public function lowongan(){
     $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
-    $data['loker'] = $this->lowongan_m->getLowonganPekerjaan();
+    $data['loker_baru'] = $this->lowongan_m->getLowonganPekerjaan();
     $this->load->view('admin/lowongan',$data);
   }
 
-  public function tambahLowongan(){
+  public function dummy_lowongan(){
     $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
-    $data['loker'] = $this->lowongan_m->getLokerFoto();
-    if(isset($_POST['submit'])){
-              $posisi = $this->input->post('posisi');
-              $penempatan = $this->input->post('penempatan');
-              $syarat = $this->input->post('syarat');
-              $batas = $this->input->post('batas');
+    $data['loker_baru'] = $this->lowongan_m->getLowonganPekerjaan();
+    $this->load->view('admin/dummy_lowongan',$data);
+  }
 
 
-         // input ke database
-              $input = array(
-                      'posisi' => $posisi,
-                      'penempatan' => $penempatan,
-                      'syarat' => $syarat,
-                      'role_id' => 1,
-                      'batas' => $batas
-
-              );
-              $this->lowongan_m->insert($input);
-              $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
-               Loker telah ditambahkan
-              </div>');
-              redirect('Admin_Puri/lowongan');
-          }
+  public function tambahLowongan(){
+    $this->lowongan_m->insertLowongan();
+    $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
+     Input Loker Berhasil
+    </div>');
+    redirect('Admin_Puri/lowongan');
   }
 
 
