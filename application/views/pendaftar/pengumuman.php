@@ -15,24 +15,26 @@
     @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
     @import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
     </style>
+
+
 </head>
   <body style="display: flex; min-height: 100vh; flex-direction: column;">
         <!--- Navbar --->
         <div class="navbar-fixed">
             <nav class="white darken-2">
-                <div class="container">
+
                 <div class="nav-wrapper">
-                <a href="<?= base_url(); ?>" class="brand-logo">
+                <a href="<?= base_url(); ?>" class="brand-logo" style="margin-left:5px;">
             <img src="<?= base_url(); ?>assets/img/Logo Puri.png" alt="logo" style="width: 60px; margin-top: 5px; ">
             </a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons black" style="padding-left: 10px; padding-right: 10px;">dehaze</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down ">
                     <li><a href="<?= base_url();?>Pendaftar_C"  style="color: green;"><i class="material-icons left">home</i>Home</a></li>
                     <li><a href="<?= base_url();?>Pendaftar_C/lowonganKerja"  style="color: green;"><i class="material-icons left">work</i>Lowongan Pekerjaan</a></li>
-                    <li><a href="<?= base_url();?>Pendaftar_C/Informasi"  style="color: green;"><i class="material-icons left">work</i>Pengumuman</a></li>
+                    <li><a href="<?= base_url();?>Pendaftar_C/pengumuman"  style="color: green;"><i class="material-icons left">info</i>Pengumuman</a></li>
                     <li><a href="<?= base_url();?>Auth/login" style="color: green;" target="_blank"><i class="material-icons left">assignment_ind</i>Login</a></li>
                 </ul>
-                </div>
+
                 </div>
             </nav>
         </div>
@@ -46,7 +48,7 @@
         <main>
           <div align="center">
 
-           <h3>Informasi</h3>
+
 
           </div>
           </main>
@@ -85,5 +87,7 @@
           M.Parallax.init(parallax);
 
       </script>
+      <!-- JQuery -->
+
       </body>
       </html>
