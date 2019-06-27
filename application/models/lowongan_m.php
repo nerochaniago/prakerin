@@ -5,8 +5,11 @@ class lowongan_m extends CI_Model{
  }
 
  public function getLowonganPekerjaan(){
-		$this->db->join('user', 'loker_baru.role_id = user.role_id');
-    return $this->db->get('loker_baru')->result_array();
+    $this->db->select('lo.id_loker,lo.posisi,lo.penempatan,lo.syarat,lo.batas,lo.gambar');
+    $this->db->from('loker_baru lo');
+		$this->db->join('user u', 'lo.role_id = u.role_id','inner');
+    $this->db->group_by('id_loker');
+    return $this->db->get()->result_array();
 
 	}
 
