@@ -18,6 +18,12 @@ class Excel_export_model extends CI_Model{
                  $this->db->delete('pendaftaran');
                }
 
+               public function viewDataM($id_pelamar)
+               {
+                 $this->db->where('id_pelamar', $id_pelamar);
+                 $this->db->get('pendaftaran');
+               }
+
                public function delAll()
                {
                  // $this->db->delete('pendaftaran');

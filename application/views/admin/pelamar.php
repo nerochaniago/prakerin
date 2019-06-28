@@ -156,57 +156,71 @@
         </nav>
         <!-- End of Topbar -->
 
-        <div class="container-fluid"style="">
-
-          <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">List Data Pelamar</h1>
-
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-12">
-                <table id="data-table" class="table table-bordered table-striped table-sm">
-                  <thead>
-                    <tr>
-                      <th>Nama</th>
-                      <th>Email</th>
-                      <th>Posisi</th>
-                      <th>Aksi</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php foreach ($employee_data as $pelamar) : ?>
-                    <tr>
-                      <td><?= $pelamar->nama ?></td>
-                      <td><?= $pelamar->email ?></td>
-                      <td><?= $pelamar->posisi ?></td>
-                      <td>
-                        <button type="submit"  class="btn btn-primary" data-toggle="modal" data-target="#viewnya" >View</button>
-                        <!-- <a data-toggle="modal" data-target="#modal-view<?=$pelamar->id_pelamar;?>" class="btn btn-primary" data-popup="tooltip" data-placement="top" title="View"><i class="fa fa-pencil"></i></a> -->
-                        <button type="submit"  class="btn btn-secondary">CV</button>
-                        <a href="<?php echo site_url('Admin_Puri/delPelamarC/'.$pelamar->id_pelamar); ?>" onclick="return confirm('Apakah Anda Ingin Menghapus Data <?=$pelamar->id_pelamar;?> ?');" class="btn btn-danger btn-circle" data-popup="tooltip" data-placement="top" title="Hapus Data"><i class="fa fa-trash"></i></a>
-                      </td>
-                    </tr>
-                    <?php endforeach; ?>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-          </div>
-        </div>
-        <!-- /.container-fluid -->
-        <br>
+        <!-- Begin Page Content -->
         <div class="container-fluid">
-          <div align="center">
-          <form method="post" action="<?php echo site_url('Admin_Puri/delAllPendaftar'); ?>"  style="">
-            <input type="submit" name="delete" class="btn btn-danger" value="Delete All" style="float: right"/>
-          </form>
-          <form method="post" action="<?php echo site_url('Admin_Puri/action'); ?>">
-            <input type="submit" name="export" class="btn btn-success" value="Export All" style="float: right; margin-right: 2px;"/>
-          </form>
+
+
+          <div class="row">
+            <div class="col-lg-6">
+              <?= $this->session->flashdata('message');?>
+            </div>
           </div>
-        </div>
+          <!-- content utama -->
+          <!-- Page Heading -->
+                   <h1 class="h3 mb-4 text-gray-800">List Data Pelamar</h1>
+                   <hr style="background-color: green;height: 2px;">
+
+                   <div class="container">
+                     <div class="row">
+                       <div class="col-lg-12">
+                         <table id="table_id" class="table table-striped table-bordered responsive table-sm">
+                         <!-- <table id="data-table" class="table table-bordered table-striped "> -->
+                           <thead>
+                             <tr>
+                               <th>Nama</th>
+                               <th>Email</th>
+                               <th>Posisi</th>
+                               <th>Aksi</th>
+                             </tr>
+                           </thead>
+                           <tbody>
+                             <?php foreach ($employee_data as $pelamar) : ?>
+                             <tr>
+                               <td><?= $pelamar->nama ?></td>
+                               <td><?= $pelamar->email ?></td>
+                               <td><?= $pelamar->posisi ?></td>
+                               <td>
+                                 <!-- <button type="submit"  class="btn btn-primary" data-toggle="modal" data-target="#viewnya" >View</button> -->
+                                 <a href="<?php echo site_url('Admin_Puri/viewData/'.$pelamar->id_pelamar); ?>" onclick="return confirm('Apakah Anda Ingin Melihat Data <?=$pelamar->id_pelamar;?> ?');" class="btn btn-primary" data-popup="tooltip" data-placement="top" title="View Data"><i class="glyphicon glyphicon-file"></i>View</a>
+
+                                 <button type="submit"  class="btn btn-secondary">CV</button>
+                                 <a href="<?php echo site_url('Admin_Puri/delPelamarC/'.$pelamar->id_pelamar); ?>" onclick="return confirm('Apakah Anda Ingin Menghapus Data <?=$pelamar->id_pelamar;?> ?');" class="btn btn-danger btn-circle" data-popup="tooltip" data-placement="top" title="Hapus Data"><i class="fa fa-trash"></i></a>
+                               </td>
+                             </tr>
+                             <?php endforeach; ?>
+                           </tbody>
+                         </table>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+
+                 <!-- /.container-fluid -->
+                 <br>
+                 <div class="container-fluid">
+                   <div align="center">
+                   <form method="post" action="<?php echo site_url('Admin_Puri/delAllPendaftar'); ?>"  style="">
+                     <input type="submit" name="delete" class="btn btn-danger" value="Delete All" style="float: right"/>
+                   </form>
+                   <form method="post" action="<?php echo site_url('Admin_Puri/action'); ?>">
+                     <input type="submit" name="export" class="btn btn-success" value="Export All" style="float: right; margin-right: 2px;"/>
+                   </form>
+                   </div>
+                 </div>
+      </div>
+
+      <!-- End of Main Content -->
+
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
@@ -247,8 +261,30 @@
     </div>
   </div>
 
-  <!-- Bootstrap core JavaScript-->
+  <!-- Logout Modal-->
+  <div class="modal" id="viewnya" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Lihat data ?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body" id="rincian_data">
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Done</button>
+        </div>
+    </div>
+  </div>
 
+
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="<?= base_url();?>assets/vendor/jquery/jquery.min.js"></script>
+  <script src="<?= base_url();?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="<?= base_url();?>assets/datepicker/js/bootstrap-datepicker.min.js"></script>
 
   <!-- Core plugin JavaScript-->
   <script src="<?= base_url();?>assets/vendor/jquery-easing/jquery.easing.min.js"></script>
@@ -265,15 +301,24 @@
 	<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 	<script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
 
-  <script src="<?= base_url();?>assets/vendor/jquery/jquery.min.js"></script>
-  <script src="<?= base_url();?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			var table = $('#table_id').DataTable({
+				lengthChange: true,
+         scrollY: 400
 
-  <!-- Core plugin JavaScript-->
-  <script src="<?= base_url();?>assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+			});
 
-  <!-- Custom scripts for all pages-->
-  <script src="<?= base_url();?>assets/js/sb-admin-2.min.js"></script>
+			table.buttons().container()
+				.appendTo('#table_id_wrapper .col-md-6:eq(0)');
+		});
 
+    $('.custom-file-input').on('change', function() {
+      let filename = $(this).val().split('\\').pop();
+      $(this).next('.custom-file-label').addClass("selected").html(filename);
+    });
+
+	</script>
 
 </body>
 

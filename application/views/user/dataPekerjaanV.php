@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Profile | PT Puri Makmur Lestari</title>
+  <title>Data Pekerjaan | PT Puri Makmur Lestari</title>
 
   <!-- Custom fonts for this template-->
   <link href="<?= base_url();?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -147,21 +147,23 @@
           	<tbody>
           		<?php
           			$no = 1;
+                if( !empty($results) ) {
           			foreach ($list as $a) {
           		?>
 
           		<tr>
           			<td><?php echo $no++; ?></td>
-          			<td><?php echo $a['posisi']; ?></td>
-          			<td><?php echo $a['namack']; ?></td>
+          			<td><?php echo $a['posisi'] ?></td>
+          			<td><?php echo $a['nama'] ?></td>
           			 <?php
-          				echo '<td><input type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" value="Edit" onclick="if (confirm(\'Edit data ini??\')) location.href=\''.site_url('User/allDataC/'.$a['nikck']).'\'">
+          				echo '<td><input type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" value="Update" onclick="if (confirm(\'Edit data ini??\')) location.href=\''.site_url('User/allDataC/'.$a->id_pelamar).'\'">
           				<br><br>
-          				<input type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" value="Hapus" onclick="if (confirm(\'yakin anda akan menghapus Data ini??\')) location.href=\''.site_url('User/del_Calon/'.$a['nikck']).'\'"></td>';
+          				<input type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" value="Delete" onclick="if (confirm(\'yakin anda akan menghapus Data ini??\')) location.href=\''.site_url('User/del_Calon/'.$a->id_pelamar).'\'"></td>';
           				?>
           		</tr>
 
-          		<?php } ?>
+          		<?php }
+              } ?>
           	</tbody>
 
 

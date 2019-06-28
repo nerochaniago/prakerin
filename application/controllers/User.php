@@ -11,6 +11,7 @@ class User extends CI_Controller {
   }
 
   public function index() {
+      $this->load->model('UserM');
       $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
       $this->load->view('user/index',$data);
   }
@@ -71,7 +72,8 @@ class User extends CI_Controller {
   public function add_pelamar()
   {
     $this->load->model('UserM');
-    $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+    $this->session->set_userdata('who','User');
+    // $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
     $config['upload_path'] = './uploads/pelamar';
   	$config['allowed_types'] = 'jpg|jpeg|pdf|doc';
   	$this->load->library('upload', $config);
@@ -95,7 +97,8 @@ class User extends CI_Controller {
   		'agama'=>$this->input->post('agama'),
   		'status'=>$this->input->post('status'),
   		'foto' => $foto,
-  		'cv' => $cv
+  		'cv' => $cv,
+      'role_id' => 2
   	);
 
     $this->UserM->add_pelamarM($data);
@@ -104,17 +107,13 @@ class User extends CI_Controller {
 
   public function dataPekerjaanC()
   {
-    $data['list'] = $this->pemiluM->getAll();
+    $data['user'] = $this->load->model("UserM");
+    // $this->session->set_userdata('who','User');
+    // $email = $this->input->post('email');
     $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+    $data["list"] = $this->UserM->fetch_data();
     $this->load->view('user/dataPekerjaanV',$data);
   }
 
-  public function allDataC()
-  {
-    $this->load->model("UserM");
-    $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
-    $data["employee_data"] = $this->excel_export_model->fetch_data();
-    $this->load->view('',$data);
-  }
 
 }

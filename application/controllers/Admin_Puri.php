@@ -52,6 +52,12 @@ class Admin_Puri extends CI_Controller {
     redirect($_SERVER['HTTP_REFERER']);
   }
 
+  public function viewData($id_pelamar){
+    $this->load->model("Excel_export_model");
+    $this->Excel_export_model->viewDataM($id_pelamar);
+    $this->load->view('admin/viewDataV',$data);
+  }
+
   public function delAllPendaftar(){
     $this->load->model("Excel_export_model");
     $this->Excel_export_model->delAll();
