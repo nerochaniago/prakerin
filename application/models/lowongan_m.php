@@ -13,10 +13,24 @@ class lowongan_m extends CI_Model{
 
 	}
 
+
+
   public function insertLowongan(){
+
+    if ($this->input->post('gambar')) {
+      // code...
+      $uploadImage = $_FILES['gambar'];
+      var_dump($uploadImage);
+      die;
+    }
+
       $data = [
         'posisi' => $this->input->post('posisi'),
-        'role_id' => 1
+        'role_id' => 1,
+        'penempatan' => $this->input->post('penempatan'),
+        'syarat' => $this->input->post('syarat'),
+        'batas' => $this->input->post('batas')
+
       ];
 
       $this->db->insert('loker_baru',$data);

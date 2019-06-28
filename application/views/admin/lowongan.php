@@ -246,21 +246,91 @@
           <!-- <td style="color:black;"><?= date("d/F/Y",strtotime($lo->batas)); ?></td> -->
           </div>
 
-        <table id="example" class="ui celled table" style="width:100%">
-          <thead>
-            <tr>
-              <th>Posisi</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php foreach ($loker_baru as $lo):?>
-            <tr>
-              <td><?=$lo['posisi'];?></td>
-            </tr>
-            <?php endforeach; ?>
-          </tbody>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <table id="table_id" class="table table-striped table-bordered responsive ">
+                  <thead>
+                    <tr>
+                      <th>Posisi</th>
+                      <th>Penempatan</th>
+                      <th>Syarat</th>
+                      <th>Batas Penerimaan</th>
+                      <th>Foto</th>
+                      <th>Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php foreach ($loker_baru as $lo):?>
+                    <tr>
+                      <td><?=$lo['posisi'];?></td>
+                      <td><?=$lo['penempatan'];?></td>
+                      <td><?=$lo['syarat'];?></td>
+                      <td><?= date("d/F/Y",strtotime($lo['batas'])); ?></td>
+                      <td><?=$lo['gambar'];?></td>
+                      <td>
+                            <div class="btn-group">
+                              <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#editLoker<?= $lo['id_loker']; ?>">
+                                Edit
+                              </button>
+                              <a href="" class="btn btn-sm btn-danger">Hapus</a>
+                            </div>
 
-        </table>
+                            <!-- Modal Tambahkan Pelanggan -->
+                      <div class="modal fade" id="editLoker<?= $lo['id_loker'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Edit Loker</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                                  <div class="modal-body">
+                                    <form action="<?= base_url() ?>Admin_Puri/editLoker" method="POST">
+                                      <input type="hidden" name="id_loker" value="<?= $lo['id_loker'] ?>">
+
+                                      <div class="form-group">
+                                        <label for="posisi">Posisi</label>
+                                        <input type="text" class="form-control" id="posisi" name="posisi" value="<?= $lo['posisi'] ?>" placeholder="Posisi">
+                                      </div>
+
+                                      <div class="form-group">
+                                        <label for="Penempatan">Penempatan</label>
+                                        <input type="text" class="form-control" id="penempatan" name="penempatan" value="<?= $lo['penempatan'] ?>" placeholder="Penempatan">
+                                      </div>
+
+                                      <div class="form-group">
+                                        <label for="persyaratan">Persyaratan</label>
+                                          <textarea class="form-control" id="syarat" name="syarat"  ><?= $lo['syarat'];?> </textarea>
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="batas">Batas Penerimaan</label>
+
+                                      <input type="date" class="form-control" id="batas" name="batas" value="<?=$lo['batas']?>" >
+
+                                </div>
+
+                                <div class="form-group">
+                                  Foto
+                                      <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="gambar" name="gambar" value="<??>">
+                                        <label class="custom-file-label" for="image"><?=$lo['gambar']?></label>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                    <button type="submit" class="btn btn-success">Edit</button>
+                                  </div>
+                                  </form>
+                    </tr>
+                    <?php endforeach; ?>
+                  </tbody>
+
+                </table>
+              </div>
+            </div>
+          </div>
       <!-- End of Main Content -->
 
       <!-- Footer -->
@@ -304,7 +374,9 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-
+  <script src="<?= base_url();?>assets/vendor/jquery/jquery.min.js"></script>
+  <script src="<?= base_url();?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="<?= base_url();?>assets/datepicker/js/bootstrap-datepicker.min.js"></script>
 
   <!-- Core plugin JavaScript-->
   <script src="<?= base_url();?>assets/vendor/jquery-easing/jquery.easing.min.js"></script>
@@ -321,17 +393,35 @@
 	<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 	<script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
 
-  <script src="<?= base_url();?>assets/vendor/jquery/jquery.min.js"></script>
-  <script src="<?= base_url();?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			var table = $('#table_id').DataTable({
+				lengthChange: true,
+         scrollY: 400
 
-  <!-- Core plugin JavaScript-->
-  <script src="<?= base_url();?>assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+			});
+
+			table.buttons().container()
+				.appendTo('#table_id_wrapper .col-md-6:eq(0)');
+		});
+
+    $('.custom-file-input').on('change', function() {
+      let filename = $(this).val().split('\\').pop();
+      $(this).next('.custom-file-label').addClass("selected").html(filename);
+    });
+
+	</script>
 
   <!-- Custom scripts for all pages-->
   <script src="<?= base_url();?>assets/js/sb-admin-2.min.js"></script>
-
-
-
+  <script type="text/javascript">
+            $(document).ready(function () {
+                $('.datepicker').datepicker({
+                    format: "yyyy-mm-dd",
+                    autoclose:true
+                });
+            });
+        </script>
 
 </body>
 
