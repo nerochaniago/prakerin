@@ -30,7 +30,8 @@ class Admin_Puri extends CI_Controller {
 
 
   public function tambahLowongan(){
-    $this->lowongan_m->insertLowongan();
+  
+
     $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
      Input Loker Berhasil
     </div>');
