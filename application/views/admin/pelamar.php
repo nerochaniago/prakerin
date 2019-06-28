@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.bootstrap4.min.css">
 	<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
 
-  <title>Menu Pelamar | PT Puri Makmur Lestari</title>
+  <title>Menu Loker | PT Puri Makmur Lestari</title>
 
   <!-- Custom fonts for this template-->
   <link href="<?= base_url();?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -84,8 +84,6 @@
           <i class= "fas fa-briefcase"></i>
           <span>Manage Loker</span></a>
       </li>
-      <!-- Divider -->
-      <hr class="sidebar-divider">
 
       <!-- Heading -->
       <div class="sidebar-heading" style="color: black;">
@@ -97,6 +95,9 @@
           <i class= "fas fa-briefcase"></i>
           <span>Data Pelamar</span></a>
       </li>
+
+
+
       <!-- Divider -->
       <hr class="sidebar-divider">
 
@@ -134,7 +135,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-white-600 small" style="font-weight: bold;"><?= $user['name'];?></span>
-                <img class="img-profile rounded-circle" src="<?= site_url('assets/img/profile/') . $user['image'];?>">
+                <img class="img-profile rounded-circle" src="<?= base_url('assets/img/profile/') . $user['image'];?>">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -164,7 +165,7 @@
           <div class="container">
             <div class="row">
               <div class="col-lg-12">
-                <table id="table_id" class="table table-striped table-bordered responsive ">
+                <table id="data-table" class="table table-bordered table-striped table-sm">
                   <thead>
                     <tr>
                       <th>Nama</th>
@@ -206,80 +207,6 @@
           </form>
           </div>
         </div>
-
-        <!-- Logout Modal-->
-        <div class="modal fade" id="viewnya" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">View data pelamar</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">×</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <!-- Pendaftaran pelamar -->
-              	<div class="container">
-              		<div class="col-12 konten" style="background-color: white;">
-              			<p>Formulir Pendaftaran</p>
-
-              			<h2><?php echo $title; ?></h2>
-              			<form method="post" action="<?php echo site_url('Admin_Puri/viewPendaftar/'.$pelamar['id_pelamar']); ?>">
-              				<div class="form-group row">
-              					<label for="nikck" class="col-sm-2 col-form-label">NAMA :</label>
-              					<div class="col-sm-10">
-              						<input type="text" class="form-control" name="namack" value="<?php echo $pelamar['namack']; ?>">
-              					</div>
-              				</div>
-              				<div class="form-group row">
-              					<label for="nikck" class="col-sm-2 col-form-label">Pendidikan :</label>
-              					<div class="col-sm-10">
-              						<input type="text" class="form-control" name="pendidikanck" value="<?php echo $pelamar['pendidikanck']; ?>">
-              					</div>
-              				</div>
-              				<div class="form-group row">
-              					<label for="nikck" class="col-sm-2 col-form-label">Email :</label>
-              					<div class="col-sm-10">
-              						<input type="email" class="form-control" name="emailck" value="<?php echo $pelamar['emailck']; ?>">
-              					</div>
-              				</div>
-              				<div class="form-group row">
-              					<label for="nikck" class="col-sm-2 col-form-label">NAMA :</label>
-              					<div class="col-sm-10">
-              						<input type="text" class="form-control" name="namacw" value="<?php echo $pelamar['namacw']; ?>">
-              					</div>
-              				</div>
-              				<div class="form-group row">
-              					<label for="nikck" class="col-sm-2 col-form-label">Pendidikan :</label>
-              					<div class="col-sm-10">
-              						<input type="text" class="form-control" name="pendidikancw" value="<?php echo $pelamar['pendidikancw']; ?>">
-              					</div>
-              				</div>
-              				<div class="form-group row">
-              					<label for="nikck" class="col-sm-2 col-form-label">Email :</label>
-              					<div class="col-sm-10">
-              						<input type="email" class="form-control" name="emailcw" value="<?php echo $pelamar['emailcw']; ?>">
-              					</div>
-              				</div>
-              				<div class="form-group row">
-              					<label for="nikck" class="col-sm-2 col-form-label">Partai :</label>
-              					<div class="col-sm-10">
-              						<input type="text" class="form-control" name="partaick" value="<?php echo $pelamar['partaick']; ?>">
-              					</div>
-              				</div>
-              			</form>
-              		</div>
-              	</div>
-              </div>
-              <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Done</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      <!-- End of Main Content -->
-
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
@@ -320,6 +247,9 @@
     </div>
   </div>
 
+  <!-- Bootstrap core JavaScript-->
+
+
   <!-- Core plugin JavaScript-->
   <script src="<?= base_url();?>assets/vendor/jquery-easing/jquery.easing.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
@@ -334,38 +264,16 @@
 	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
 	<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 	<script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
-  <!-- Bootstrap core JavaScript-->
+
   <script src="<?= base_url();?>assets/vendor/jquery/jquery.min.js"></script>
   <script src="<?= base_url();?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
   <!-- Core plugin JavaScript-->
   <script src="<?= base_url();?>assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
   <script src="<?= base_url();?>assets/js/sb-admin-2.min.js"></script>
 
-	<script>
-		$(document).ready(function () {
-			var table = $('#table_id').DataTable({
-				lengthChange: false,
-
-			});
-
-			table.buttons().container()
-				.appendTo('#table_id_wrapper .col-md-6:eq(0)');
-		});
-
-	</script>
-
-  <!-- Custom scripts for all pages-->
-  <script src="<?= base_url();?>assets/js/sb-admin-2.min.js"></script>
-  <script type="text/javascript">
-            $(document).ready(function () {
-                $('.datepicker').datepicker({
-                    format: "yyyy-mm-dd",
-                    autoclose:true
-                });
-            });
-        </script>
 
 </body>
 

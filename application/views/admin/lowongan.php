@@ -246,7 +246,7 @@
           <!-- <td style="color:black;"><?= date("d/F/Y",strtotime($lo->batas)); ?></td> -->
           </div>
 
-        <table border="1">
+        <table id="example" class="ui celled table" style="width:100%">
           <thead>
             <tr>
               <th>Posisi</th>
@@ -304,9 +304,7 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="<?= base_url();?>assets/vendor/jquery/jquery.min.js"></script>
-  <script src="<?= base_url();?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="<?= base_url();?>assets/datepicker/js/bootstrap-datepicker.min.js"></script>
+
 
   <!-- Core plugin JavaScript-->
   <script src="<?= base_url();?>assets/vendor/jquery-easing/jquery.easing.min.js"></script>
@@ -323,35 +321,17 @@
 	<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 	<script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
 
-	<script>
-		$(document).ready(function () {
-			var table = $('#table_id').DataTable({
-				lengthChange: false,
-         scrollY: 400
+  <script src="<?= base_url();?>assets/vendor/jquery/jquery.min.js"></script>
+  <script src="<?= base_url();?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-			});
-
-			table.buttons().container()
-				.appendTo('#table_id_wrapper .col-md-6:eq(0)');
-		});
-
-    $('.custom-file-input').on('change', function() {
-      let filename = $(this).val().split('\\').pop();
-      $(this).next('.custom-file-label').addClass("selected").html(filename);
-    });
-
-	</script>
+  <!-- Core plugin JavaScript-->
+  <script src="<?= base_url();?>assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
   <script src="<?= base_url();?>assets/js/sb-admin-2.min.js"></script>
-  <script type="text/javascript">
-            $(document).ready(function () {
-                $('.datepicker').datepicker({
-                    format: "yyyy-mm-dd",
-                    autoclose:true
-                });
-            });
-        </script>
+
+
+
 
 </body>
 
