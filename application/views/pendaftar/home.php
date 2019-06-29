@@ -81,6 +81,8 @@
   </div>
     <!-- main content -->
 
+    
+
     <main>
 
     </main>
@@ -113,7 +115,9 @@
     M.Sidenav.init(sideNav);
 
     const slider = document.querySelectorAll('.slider');
-    M.Slider.init(slider);
+    M.Slider.init(slider,{
+      indicators : false
+    });
 
     const parallax = document.querySelectorAll('.parallax');
     M.Parallax.init(parallax);

@@ -24,11 +24,13 @@
     a div img {
       width: 80px;
     }
+    @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+    @import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
   </style>
 
 </head>
 
-<body id="page-top">
+<body id="page-top" style="">
 
   <!-- Page Wrapper -->
   <div id="wrapper">
@@ -168,7 +170,7 @@
 
 
             <!-- Page Heading -->
-            <h1 class="h3 mb-4 text-gray-800">Input Lowongan Pekerjaan</h1>
+            <h1 class="h3 mb-4 text-gray-800" style="font-family: "Roboto", sans-serif;">Input Lowongan Pekerjaan</h1>
             <hr style="background-color: green;height: 2px;">
 
 
@@ -176,7 +178,7 @@
 
           <div class="row">
             <div class="col-lg-8">
-              <form action="<?= base_url()?>Admin_Puri/tambahLowongan/" method="post">
+                <?= form_open_multipart('Admin_Puri/tambahLowongan'); ?>
               <div class="form-group row">
                 <label for="posisi" class="col-sm-2 col-form-label">Posisi</label>
                 <div class="col-sm-10">
@@ -267,13 +269,13 @@
                       <td><?=$lo['penempatan'];?></td>
                       <td><?=$lo['syarat'];?></td>
                       <td><?= date("d/F/Y",strtotime($lo['batas'])); ?></td>
-                      <td><?=$lo['gambar'];?></td>
+                      <td> <img src="<?= base_url('assets/img/loker/') . $lo['gambar'];?>" class="img-thumbnail" style="width:45px; "/></td>
                       <td>
                             <div class="btn-group">
                               <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#editLoker<?= $lo['id_loker']; ?>">
                                 Edit
                               </button>
-                              <a href="" class="btn btn-sm btn-danger">Hapus</a>
+                              <a href="<?= base_url();?>Admin_Puri/hapusLoker/<?= $lo['id_loker'];?>" class="btn btn-sm btn-danger" onclick="return confirm('yakin?');">Hapus</a>
                             </div>
 
                             <!-- Modal Tambahkan Pelanggan -->
@@ -287,7 +289,7 @@
                                     </button>
                                   </div>
                                   <div class="modal-body">
-                                    <form action="<?= base_url() ?>Admin_Puri/editLoker" method="POST">
+                                      <?= form_open_multipart('Admin_Puri/editLoker'); ?>
                                       <input type="hidden" name="id_loker" value="<?= $lo['id_loker'] ?>">
 
                                       <div class="form-group">

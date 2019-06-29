@@ -12,6 +12,13 @@ class lowongan_m extends CI_Model{
     return $this->db->get()->result_array();
 
 	}
-  
+
+  public function hapusLoker($id_loker) {
+    $this->db->where('id_loker',$id_loker);
+    $query = $this->db->get('loker_baru');
+    $row = $query->row();
+    unlink("./assets/img/loker/$row->gambar");
+    $this->db->delete('loker_baru', array('id_loker' => $id_loker));
+  }
 
 }
