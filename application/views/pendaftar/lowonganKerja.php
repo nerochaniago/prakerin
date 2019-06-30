@@ -53,6 +53,36 @@
               </div>
             </div>
           </div>
+
+
+
+
+          <div class="container">
+              <div class="row">
+                <?php foreach($loker_baru as $lo):?>
+                <div class="col m4">
+                  <div class="card">
+                    <div class="card-image">
+                      <img src="<?= base_url('assets/img/loker/') . $lo['gambar'];?>" style="height:15em;">
+                    </div>
+                    <div class="card-content">
+                      <span class="card-title">Card Title</span>
+                      <p>I am a very simple card. I am good at containing small bits of information.
+                      I am convenient because I require little markup to use effectively.</p>
+                    </div>
+                    <div class="card-action">
+                      <a href="#" class="btn waves-effect waves-light">Detail</a>
+                    </div>
+                  </div>
+                </div>
+                <?php endforeach;?>
+              </div>
+
+            </div>
+          </div>
+
+
+
           </main>
 
           <!-- footer -->

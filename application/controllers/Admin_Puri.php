@@ -43,7 +43,7 @@ class Admin_Puri extends CI_Controller {
       if ($this->upload->do_upload('gambar')) {
 
           $new_img = $this->upload->data('file_name');
-          
+
 
       } else {
           $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $this->upload->display_errors() . '</div>');
@@ -56,8 +56,7 @@ class Admin_Puri extends CI_Controller {
       'penempatan' => $penempatan,
       'syarat' => $syarat,
       'batas' => $batas,
-      'gambar' => $upload_image,
-      'role_id' => 1
+      'gambar' => $upload_image
     ];
 
     $this->db->insert('loker_baru',$data);
@@ -110,7 +109,7 @@ public function editLoker(){
     'posisi' => $posisi,
     'penempatan' => $penempatan,
     'syarat' => $syarat,
-    'batas' => $batas,
+    'batas' => $batas
   ];
 
   $this->db->where('id_loker',$this->input->post('id_loker'));
@@ -218,4 +217,9 @@ public function hapusLoker($id_loker){
     $berhasil = $object_writer->save('php://output');
 
   }
+
+
+
+
+
 }
