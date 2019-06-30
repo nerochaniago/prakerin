@@ -21,4 +21,6 @@ class lowongan_m extends CI_Model{
     $this->db->delete('loker_baru', array('id_loker' => $id_loker));
   }
 
+  
+
 }
