@@ -27,7 +27,7 @@
             <a href="<?= base_url(); ?>" class="brand-logo" style="margin-left:5px;">
         <img src="<?= base_url(); ?>assets/img/Logo Puri.png" alt="logo" style="width: 60px; margin-top: 5px; ">
         </a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons black" style="padding-left: 10px; padding-right: 10px;">dehaze</i></a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons green darken-2" style="padding-left: 10px; padding-right: 10px;">dehaze</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down ">
                 <li><a href="<?= base_url();?>Pendaftar_C"  style="color: green;"><i class="material-icons left">home</i>Home</a></li>
                 <li><a href="<?= base_url();?>Pendaftar_C/lowonganKerja"  style="color: green;"><i class="material-icons left">work</i>Lowongan Pekerjaan</a></li>
@@ -39,9 +39,9 @@
         </nav>
     </div>
     <!-- sidenav -->
-    <ul class="sidenav green" id="mobile-demo">
-        <li class="white"><a href="<?= base_url();?>Pendaftar_C/lowonganKerja">Lowongan Pekerjaan</a></li>
-        <li class="white"><a href="<?= base_url();?>Auth/login" target="_blank">Login</a></li>
+    <ul class="sidenav white" id="mobile-demo">
+        <li class="green"><a href="<?= base_url();?>Pendaftar_C/lowonganKerja">Lowongan Pekerjaan</a></li>
+        <li class="green"><a href="<?= base_url();?>Auth/login" target="_blank">Login</a></li>
     </ul>
 
 
@@ -81,7 +81,7 @@
   </div>
     <!-- main content -->
 
-    
+
 
     <main>
 
@@ -92,15 +92,29 @@
           <div class="container">
             <div class="row">
               <div class="col l6 s12">
-                <h5 class="white-text" style="font-family: Roboto;">Contact</h5>
-                <p class="grey-text text-lighten-4" style="font-family: Roboto;">Jl. Terusan Buah Batu Komp BBCA No. 48 Bandung</p>
+                <h5 class="white-text" style="font-family: Roboto; ">Contact</h5><br>
+                <p class="grey-text text-lighten-4" style="font-family: Roboto; ">Jl. Terusan Buah Batu Komp BBCA No. 48 Bandung</p>
+              </div>
+              <div class="col l6 s12">
+                <h5 class="white-text" style="font-family: Roboto; text-align:center;">Social Media</h5><br>
+                <div class="col offset-l3">
+                  <a href="" style="display:block;"><img src="<?= base_url(); ?>assets/img/icons8-facebook-filled-35.png"></a>
+                  <a href="" style="display:block;"><img src="<?= base_url(); ?>assets/img/icons8-instagram-filled-35.png"></a>
+                  <a href="" style="display:block;"><img src="<?= base_url(); ?>assets/img/icons8-new-post-filled-35.png"></a>
+                </div>
+                <div class="col l6">
+                  <h6 style="margin-top:5px;">Puri Makmur Lestari</h6>
+                  <h6 style="margin-top:25.5px;">Puri Makmur Lestari</h6>
+                  <h6 style="margin-top:23px;">Puri Makmur Lestari</h6>
+                </div>
+
               </div>
             </div>
             <hr>
           </div>
           <div class="footer-copyright red darken-3">
             <div class="container">
-            <h7 style="color: black;  font-family: Roboto;"> <strong> © 2019 PT Puri Makmur Lestari </strong> </h7>
+            <h6 style="color: white;  font-family: Roboto;">  © 2019 PT Puri Makmur Lestari </h6>
             </div>
           </div>
         </footer>
