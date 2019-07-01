@@ -61,7 +61,7 @@
               <div class="row">
                 <?php foreach($loker_baru as $lo):?>
                 <div class="col m4" style="">
-                  <div class="card">
+                  <div class="card" style="margin-bottom:57px;">
                     <div class="card-image">
                       <img src="<?= base_url('assets/img/loker/') . $lo['gambar'];?>" style="height:15em;">
                     </div>

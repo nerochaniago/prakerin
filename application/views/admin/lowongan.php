@@ -194,7 +194,7 @@
       <div class="form-group row">
         <label for="persyaratan" class="col-sm-2 col-form-label">Persyaratan</label>
         <div class="col-sm-10">
-          <textarea class="form-control" id="syarat" name="syarat" cols="50" rows="4" > </textarea>
+          <textarea class="form-control texteditor" id="syarat" name="syarat" cols="50" rows="4" > </textarea>
         </div>
   </div>
   <div class="form-group row">
@@ -304,7 +304,7 @@
 
                                       <div class="form-group">
                                         <label for="persyaratan">Persyaratan</label>
-                                          <textarea class="form-control" id="syarat" name="syarat"  ><?= $lo['syarat'];?> </textarea>
+                                          <textarea class="form-control texteditor" id="syarat" name="syarat"  ><?= $lo['syarat'];?> </textarea>
                                   </div>
                                   <div class="form-group">
                                     <label for="batas">Batas Penerimaan</label>
@@ -394,8 +394,16 @@
 	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
 	<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 	<script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
+  <script src="<?= base_url();?>assets/ckeditor/ckeditor.js"></script>
+  <script src="<?= base_url();?>assets/ckeditor/adapters/jquery.js"></script>
 
-	<script>
+
+  <script type="text/javascript">
+      $('textarea.texteditor').ckeditor();
+  </script>
+
+
+<script>
 		$(document).ready(function () {
 			var table = $('#table_id').DataTable({
 				lengthChange: true,
