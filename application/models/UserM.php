@@ -1,37 +1,34 @@
 <?php
 class UserM extends CI_Model{
-  public function fetch_data()
-  {
-      // // cek username dan password yang di input
-      // $cek = $this->db->query("SELECT * FROM pendaftaran where email='$email'");
-      // $row = $cek->row_array();
-      // if ($cek->num_rows()>=1){ // cek jml record yang ditemukan
-      //   // Session username diciptakan dan menyimpan data username si user
-      //   $this->session->set_userdata(array('email'=>$row['email']));
-      //   // echo "Login Sukses";
-      //   // buat query cek user berdasarkan session username yang sukses login,..
-      //   $rows = $this->db->query("SELECT * FROM pendaftaran where email='".$this->session->email."'")->row_array();
-      //   // echo "Selamat datang : $rows[nama_lengkap]";
-      // }
-   $this->db->select("*");
-   $this->db->from('pendaftaran');
-   $this->db->where('email', $this->session->userdata('email'));
-
-   return $this->db->get();
-  }
 
   public function add_pelamarM($data)
   {
-    $this->db->insert('pendaftaran',$data);
+    // $data1 = $this->session->email;
+    //
+    // // $data1 = $this->db->query('SELECT email FROM pendaftaran');
+    //
+    // if ($data1 > 0) {
+    // $this->session->set_flashdata('Anda sudah mendaftar', '<div class="alert alert-danger" role="alert">' . $this->upload->display_errors() . '</div>');
+
+    // }
+    // else {
+      $this->db->insert('pendaftaran',$data);
+    // }
   }
 
   public function dataPekerjaanM()
   {
     $this->db->select('*');
     $this->db->from('pendaftaran pen');
-		// $this->db->join('user u', 'pen.email = u.email','inner');
-    $this->db->join('user u', 'pen.role_id = u.role_id');
-    // $this->db->group_by('id_pelamar');
+    $this->db->where('email', $this->session->userdata('email'));
     return $this->db->get()->result_array();
   }
+
+  public function getDataPekerjaanM($id_pelamar)
+  {
+    $this->db->where('id_pelamar',$id_pelamar);
+  	$mhs = $this->db->get('pendaftaran');
+  	return $mhs->row_array();
+  }
+
 }

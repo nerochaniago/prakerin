@@ -85,8 +85,6 @@ public function editLoker(){
     $this->load->library('upload',$config);
 
     if ($this->upload->do_upload('gambar')) {
-
-
       // code...
 
       $old_image = $data['loker_baru']['gambar'];
