@@ -28,5 +28,8 @@ class lowongan_m extends CI_Model{
     return $this->db->get()->result_array();
   }
 
+  public function getAllLokerById($id_loker){
+    return $this->db->get_where('loker_baru',['id_loker' => $id_loker])->row_array();
+  }
 
 }

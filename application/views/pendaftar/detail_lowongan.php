@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Loker | PT Puri Makmur Lestari</title>
+    <title>Detail Lowongan | PT Puri Makmur Lestari</title>
     <!-- My materialize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -46,46 +46,34 @@
 
         <!-- main content -->
         <main>
-          <div class="container">
+          <div class="container" style="margin-top:15px;">
             <div class="row">
-              <div class="col l12 s12">
-                <h2 style="font-weight: bold; font-family: Roboto; color: green;" >Lowongan Kerja Tersedia</h1>
-              </div>
-            </div>
-          </div>
-
-
-
-
-          <div class="container">
-              <div class="row">
-                <?php foreach($loker_baru as $lo):?>
-                <div class="col m4" style="">
+                <div class="col m8">
                   <div class="card">
-                    <div class="card-image">
-                      <img src="<?= base_url('assets/img/loker/') . $lo['gambar'];?>" style="height:15em;">
+                    <div class="card-content white-text">
+                      <span class="card-title" style="color:black;">Lowongan Tersedia</span>
+                      <p>I am a very simple card. I am good at containing small bits of information.
+                      I am convenient because I require little markup to use effectively.</p>
                     </div>
-                    <div class="card-content">
-                      <h6 class="" style="color:green; font-family: Roboto;" style="margin-top:8px; display: inline-block;" ><b><?=$lo['posisi'];?></b></h6>
-
-                       <span class="new badge red" style="float:left; font-family: Roboto; font-size:13px;" data-badge-caption="Batas Penerimaan <?= date("d/F/Y",strtotime($lo['batas'])); ?> "></span><br />
-
-                       <h7 style="font-family: Roboto; ">Lokasi : <?= character_limiter($lo['penempatan'],10)?></h7>
-                    </div>
-                    <div class="card-action" style="padding:6px;">
-                      <a href="<?= base_url();?>Pendaftar_C/detailLoker/<?= $lo['id_loker'];?>" class="btn green darken-1" style="font-family: Roboto;">Detail</a>
+                    <div class="card-action">
+                      <a href="#">This is a link</a>
                     </div>
                   </div>
                 </div>
-                <?php endforeach;?>
-              </div>
 
+
+                <div class="col m4">
+                  <h6 style="margin-top:2px;">Lowongan Lainnya</h6>
+                  <div class="collection">
+                    <a href="#!" class="collection-item">Alvin</a>
+                    <a href="#!" class="collection-item active">Alvin</a>
+                    <a href="#!" class="collection-item">Alvin</a>
+                    <a href="#!" class="collection-item">Alvin</a>
+                  </div>
+                </div>
             </div>
           </div>
-
-
-
-          </main>
+        </main>
 
           <!-- footer -->
           <footer class="page-footer red darken-3 ">
