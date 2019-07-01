@@ -69,10 +69,14 @@
             <span>Daftar Lowongan Pekerjaan</span></a>
       </li>
 
+      <li class="nav-item">
+          <a class="nav-link" href="<?= base_url();?>User/dataPekerjaanC">
+            <i class="fas fa-fw fa-id-card"></i>
+            <span>Data Pekerjaan yang dilamar</span></a>
+      </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider">
-
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>

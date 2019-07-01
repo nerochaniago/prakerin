@@ -69,6 +69,11 @@
             <span>Daftar Lowongan Pekerjaan</span></a>
       </li>
 
+      <li class="nav-item">
+          <a class="nav-link" href="<?= base_url();?>User/dataPekerjaanC">
+            <i class="fas fa-fw fa-id-card"></i>
+            <span>Data Pekerjaan yang dilamar</span></a>
+      </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider">

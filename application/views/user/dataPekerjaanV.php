@@ -70,7 +70,7 @@
       </li>
 
       <li class="nav-item">
-          <a class="nav-link" href="<?= base_url();?>User/daftarPekerjaanC">
+          <a class="nav-link" href="<?= base_url();?>User/dataPekerjaanC">
             <i class="fas fa-fw fa-id-card"></i>
             <span>Data Pekerjaan yang dilamar</span></a>
       </li>
@@ -143,27 +143,26 @@
           		<th>Posisi</th>
           		<th>Action</th>
           	</thead>
-
           	<tbody>
           		<?php
           			$no = 1;
-                if( !empty($results) ) {
           			foreach ($list as $a) {
           		?>
 
           		<tr>
-          			<td><?php echo $no++; ?></td>
-          			<td><?php echo $a['posisi'] ?></td>
-          			<td><?php echo $a['nama'] ?></td>
+          			<td><?php echo $no++ ?></td>
+          			<td><?php echo $a['posisi']?></td>
+          			<td>
           			 <?php
-          				echo '<td><input type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" value="Update" onclick="if (confirm(\'Edit data ini??\')) location.href=\''.site_url('User/allDataC/'.$a->id_pelamar).'\'">
+          				echo '<input type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" value="Update" onclick="if (confirm(\'Edit data ini??\')) location.href=\''.site_url('User/formeEditDataPelamarC/'.$a['id_pelamar']).'\'">
           				<br><br>
-          				<input type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" value="Delete" onclick="if (confirm(\'yakin anda akan menghapus Data ini??\')) location.href=\''.site_url('User/del_Calon/'.$a->id_pelamar).'\'"></td>';
+          				<input type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" value="Delete" onclick="if (confirm(\'yakin anda akan menghapus Data ini??\')) location.href=\''.site_url('User/del_Calon/'.$a['id_pelamar']).'\'">';
           				?>
+                </td>
           		</tr>
 
           		<?php }
-              } ?>
+             ?>
           	</tbody>
 
 

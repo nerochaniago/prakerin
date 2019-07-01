@@ -148,7 +148,7 @@
         	<div class="container">
         		<div class="col-12 konten" style="background-color: white;">
         			<p>Formulir Pendaftaran</p>
-        			<form action="<?php echo site_url(); ?>/User/add_pelamar" method="POST" enctype="multipart/form-data">
+        			<form action="<?php echo site_url(); ?>/User/editDataPelamarC" method="POST" enctype="multipart/form-data">
 
         				<!-- Formulir pendaftaran Lowongan Pekerjaan -->
         				<p class="text-center">Formulir pendaftaran Lowongan Pekerjaan</p>
@@ -156,84 +156,84 @@
         				<div class="form-group row">
         				    <label for="posisi" class="col-sm-2 col-form-label">Posisi</label>
         				    <div class="col-sm-10">
-        				      <input type="text" class="form-control" name="posisi" placeholder="Posisi yang akan dilamar">
+        				      <input type="text" class="form-control" name="posisi" value="<?= $list['posisi'] ?>">
         				    </div>
         			  	</div>
         				<!-- Form input nama lengkap -->
         				<div class="form-group row">
         				    <label for="nama" class="col-sm-2 col-form-label">Nama Lengkap</label>
         				    <div class="col-sm-10">
-        				      <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap">
+        				      <input type="text" class="form-control" name="nama" value="<?= $list['nama'] ?>">
         				    </div>
         			  	</div>
         				<!-- Form input tempat lahir -->
         			  	<div class="form-group row">
         				    <label for="tmpt_lahir" class="col-sm-2 col-form-label">Tempat Lahir</label>
         				    <div class="col-sm-10">
-        				      <input type="text" class="form-control" name="tmpt_lahir" placeholder="Tempat Lahir">
+        				      <input type="text" class="form-control" name="tmpt_lahir" value="<?= $list['tmpt_lahir'] ?>">
         				    </div>
         			  	</div>
         				<!-- Form input tanggal lahir -->
         			  	<div class="form-group row">
         				    <label for="tgl_lahir" class="col-sm-2 col-form-label">Tanggal Lahir</label>
         				    <div class="col-sm-10">
-        				      <input type="date" class="form-control" name="tgl_lahir" placeholder="Tanggal Lahir">
+        				      <input type="date" class="form-control" name="tgl_lahir" value="<?= $list['tgl_lahir'] ?>">
         				    </div>
         			  	</div>
         			  	<!-- Form input alamat -->
         				<div class="form-group row">
         				    <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
         				    <div class="col-sm-10">
-        				      	<input type="text" class="form-control" name="alamat" placeholder="Alamat">
+        				      	<input type="text" class="form-control" name="alamat" placeholder="Alamat"value="<?= $list['alamat'] ?>">
         				    </div>
         				</div>
                 <!-- Form input agama -->
               <div class="form-group row">
                   <label for="agama" class="col-sm-2 col-form-label">Agama</label>
                   <div class="col-sm-10">
-                      <input type="text" class="form-control" name="agama" placeholder="Agama">
+                      <input type="text" class="form-control" name="agama" value="<?= $list['agama'] ?>">
                   </div>
               </div>
         				<!-- Form input pendidikan terakhir -->
-        			  	<fieldset class="form-group">
-        				    <div class="row">
-        				      	<legend class="col-form-label col-sm-2 pt-0">Pendidikan Terakhir</legend>
-        				     	<div class="col-sm-10">
+                <fieldset class="form-group">
+                  <div class="row">
+                      <legend class="col-form-label col-sm-2 pt-0">Pendidikan Terakhir</legend>
+                    <div class="col-sm-10">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan1" value="D3">
+                        <label class="form-check-label" for="pendidikan1">D3</label>
+                      </div>
+                      <div class="form-check">
+                          <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan2" value="S1">
+                          <label class="form-check-label" for="pendidikan2">S1</label>
+                      </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan1" value="D3" checked>
-                          <label class="form-check-label" for="pendidikan1">D3</label>
+                          <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan3" value="S2" checked>
+                          <label class="form-check-label" for="pendidikan3">S2</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan2" value="S1">
-                            <label class="form-check-label" for="pendidikan2">S1</label>
+                            <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan4" value="S3">
+                            <label class="form-check-label" for="pendidikan4">S3</label>
                         </div>
-        				        	<div class="form-check">
-        						        <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan3" value="S2" checked>
-        						        <label class="form-check-label" for="pendidikan3">S2</label>
-        				        	</div>
-        				        	<div class="form-check">
-        					          	<input class="form-check-input" type="radio" name="pendidikan" id="pendidikan4" value="S3">
-        					          	<label class="form-check-label" for="pendidikan4">S3</label>
-        				        	</div>
-        				      	</div>
-        				    </div>
-        				</fieldset>
+                      </div>
+                  </div>
+              </fieldset>
         				<!-- Form input email -->
         				<div class="form-group row">
         				    <label for="email" class="col-sm-2 col-form-label">Email</label>
         				    <div class="col-sm-10">
-        				      	<input type="email" class="form-control" name="email" value="<?php echo $user['email']; ?>" readonly>
+        				      	<input type="email" class="form-control" name="email" value="<?php echo $list['email']; ?>" readonly>
         				    </div>
         				</div>
         				<!-- Form input nomor hp -->
         				<div class="form-group row">
         				    <label for="nomor" class="col-sm-2 col-form-label">Nomor HP</label>
         				    <div class="col-sm-10">
-        				      <input type="number" class="form-control" name="nomor" placeholder="Nomor HP">
+        				      <input type="number" class="form-control" name="nomor" value="<?php echo $list['nomor']; ?>">
         				    </div>
         			  	</div>
         				<!-- Form input jenis kelamin -->
-        				<fieldset class="form-group">
+                <fieldset class="form-group">
         				    <div class="row">
         				      	<legend class="col-form-label col-sm-2 pt-0">Jenis Kelamin</legend>
         				     	<div class="col-sm-10">
@@ -261,23 +261,34 @@
         					          	<input class="form-check-input" type="radio" name="status" id="status" value="Menikah">
         					          	<label class="form-check-label" for="status">Menikah</label>
         				        	</div>
-        				      	</div>
+        				      </div>
         				    </div>
         				</fieldset>
                 <!-- Form input Foto -->
-                <div class="form-group row">
-                  <label for="title">Foto Formal</label>
-                  <input type="file" class="form-control-file" accept="image/*" name="foto">
+                <div class="row">
+                  <label for="foto" class="col-sm-2 col-form-label">Foto</label>
+                  <img src="<?php echo base_url(); ?>/uploads/pelamar/<?php echo $list['foto']; ?>" alt="" style="width: 100px; height: 150px;">
+                  <div class="col-sm-10">
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="foto" name="foto" value="<??>">
+                      <label class="custom-file-label" for="image"><?=$list['foto']?></label>
+                    </div>
+                  </div>
                 </div>
                 <!-- Form input CV -->
-                <div class="form-group row">
-                  <label for="title">CV</label>
-                  <input type="file" class="form-control-file" accept="PDF/*" name="cv">
+                <div class="row">
+                  <label for="cv" class="col-sm-2 col-form-label">CV</label>
+                  <div class="col-sm-10">
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="cv" name="cv" value="<??>">
+                      <label class="custom-file-label" for="image"><?=$list['cv']?></label>
+                    </div>
+                  </div>
                 </div>
                 <!-- Validasi pendaftaran -->
                 <div class="form-group row">
                     <div class="col-sm-10">
-                      <button type="submit" class="btn btn-primary">Daftar</button>
+                      <button type="submit" class="btn btn-primary">Edit</button>
                     </div>
                 </div>
                 <br>

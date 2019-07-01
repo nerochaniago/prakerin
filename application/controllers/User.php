@@ -72,17 +72,17 @@ class User extends CI_Controller {
   public function add_pelamar()
   {
     $this->load->model('UserM');
-    $this->session->set_userdata('who','User');
-    // $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+    // $this->session->set_userdata('who','User');
+    $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
     $config['upload_path'] = './uploads/pelamar';
   	$config['allowed_types'] = 'jpg|jpeg|pdf|doc';
   	$this->load->library('upload', $config);
 
   	$this->upload->do_upload('foto');
-    $this->upload->do_upload('cv');
+    // $this->upload->do_upload('cv');
 
   	$foto = $this->upload->data('file_name');
-    $cv = $this->upload->data('file_name');
+    // $cv = $this->upload->data('file_name');
 
   	$data = array(
   		'posisi'=>$this->input->post('posisi'),
@@ -90,15 +90,14 @@ class User extends CI_Controller {
   		'tgl_lahir'=>$this->input->post('tgl_lahir'),
   		'tmpt_lahir'=>$this->input->post('tmpt_lahir'),
   		'pendidikan'=>$this->input->post('pendidikan'),
-  		'email'=>$this->input->post('email'),
   		'nomor'=>$this->input->post('nomor'),
   		'gender'=>$this->input->post('gender'),
       'alamat'=>$this->input->post('alamat'),
   		'agama'=>$this->input->post('agama'),
   		'status'=>$this->input->post('status'),
   		'foto' => $foto,
-  		'cv' => $cv,
-      'role_id' => 2
+  		// 'cv' => $cv,
+      'email'=>$this->session->email
   	);
 
     $this->UserM->add_pelamarM($data);
@@ -111,8 +110,86 @@ class User extends CI_Controller {
     // $this->session->set_userdata('who','User');
     // $email = $this->input->post('email');
     $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
-    $data["list"] = $this->UserM->fetch_data();
+    $data['list'] = $this->UserM->dataPekerjaanM();
     $this->load->view('user/dataPekerjaanV',$data);
+  }
+
+  public function formeEditDataPelamarC($id_pelamar) {
+    $this->load->model('UserM');
+    $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+  	$data['list'] = $this->UserM->getDataPekerjaanM($id_pelamar);
+  	$this->load->view('user/editDataV',$data);
+  }
+
+  public function editDataPelamarC($id_pelamar)
+  {
+    $data['foto_baru'] = $this->db->get_where('pendaftaran',['id_pelamar'])->row_array();
+    $posisi = $this->input->post('posisi');
+    $nama = $this->input->post('nama');
+    $tgl_lahir = $this->input->post('tgl_lahir');
+    $tmpt_lahir = $this->input->post('tmpt_lahir');
+    $pendidikan = $this->input->post('pendidikan');
+    $nomor = $this->input->post('nomor');
+    $gender = $this->input->post('gender');
+    $alamat = $this->input->post('alamat');
+    $agama = $this->input->post('agama');
+    $status = $this->input->post('status');
+    $upload_image = $_FILES['foto']['name'];
+    $upload_cv = $_FILES['cv']['name'];
+
+    if ( ($upload_image) || ($upload_cv) ){
+
+      $config['allowed_types'] = 'gif|jpg|png|pdf|doc';
+      $config['max_sizes'] = '5048';
+      $config['upload_path'] = './assets/pelamar/';
+      $config['overwrite'] = true;
+
+      $this->load->library('upload',$config);
+
+      if ($this->upload->do_upload('foto')) {
+        $old_image = $data['pendaftaran']['foto'];
+
+        if ($old_image != 'default.jpg') {
+          unlink(FCPATH . 'assets/pelamar/' . $old_image);
+        }
+        $new_img = $this->upload->data('file_name');
+        $this->db->set('foto', $new_img);
+      } else if ($this->upload->do_upload('cv')) {
+              $old_cv = $data['pendaftaran']['cv'];
+              if ($old_cv != 'default.jpg') {
+                unlink(FCPATH . 'assets/pelamar/' . $old_cv);
+              }
+              $new_cv = $this->upload->data('file_name');
+              $this->db->set('cv', $new_cv);
+            }
+      else {
+        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $this->upload->display_errors() . '</div>');
+        redirect('user');
+      }
+    }
+
+    $data = [
+      'posisi'=>$this->input->post('posisi'),
+      'nama'=>$this->input->post('nama'),
+      'tgl_lahir'=>$this->input->post('tgl_lahir'),
+      'tmpt_lahir'=>$this->input->post('tmpt_lahir'),
+      'pendidikan'=>$this->input->post('pendidikan'),
+      'nomor'=>$this->input->post('nomor'),
+      'gender'=>$this->input->post('gender'),
+      'alamat'=>$this->input->post('alamat'),
+      'agama'=>$this->input->post('agama'),
+      'status'=>$this->input->post('status'),
+      'foto' => $foto,
+      'cv' => $cv,
+    ];
+
+    $this->db->where('id_pelamar',$this->input->post('id_pelamar'));
+    $this->db->update('pendaftaran',$data);
+    $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
+     Your data has been updated
+    </div>');
+    redirect('user');
+
   }
 
 
