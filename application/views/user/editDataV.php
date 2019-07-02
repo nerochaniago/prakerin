@@ -152,6 +152,8 @@
 
         				<!-- Formulir pendaftaran Lowongan Pekerjaan -->
         				<p class="text-center">Formulir pendaftaran Lowongan Pekerjaan</p>
+                <input type="hidden" name="id_pelamar" value="<?= $list['id_pelamar'] ?>">
+
         				<!--Form input Posisi-->
         				<div class="form-group row">
         				    <label for="posisi" class="col-sm-2 col-form-label">Posisi</label>
@@ -267,24 +269,21 @@
                 <!-- Form input Foto -->
                 <div class="row">
                   <label for="foto" class="col-sm-2 col-form-label">Foto</label>
-                  <img src="<?php echo base_url(); ?>/uploads/pelamar/<?php echo $list['foto']; ?>" alt="" style="width: 100px; height: 150px;">
                   <div class="col-sm-10">
-                    <div class="custom-file">
+                      <img src="<?= base_url('uploads/pelamar/foto/') . $list['foto'];?>" style="width: 100px; height: 150px;">
                       <input type="file" class="custom-file-input" id="foto" name="foto" value="<??>">
-                      <label class="custom-file-label" for="image"><?=$list['foto']?></label>
-                    </div>
+                      <input type="file" class="form-control-file" accept="image/*" name="foto">
                   </div>
-                </div>
+                </div><br>
                 <!-- Form input CV -->
                 <div class="row">
                   <label for="cv" class="col-sm-2 col-form-label">CV</label>
                   <div class="col-sm-10">
                     <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="cv" name="cv" value="<??>">
-                      <label class="custom-file-label" for="image"><?=$list['cv']?></label>
+                      <button type="button" name="button" class="btn btn-primary">View</button>
                     </div>
                   </div>
-                </div>
+                </div><br>
                 <!-- Validasi pendaftaran -->
                 <div class="form-group row">
                     <div class="col-sm-10">
@@ -350,7 +349,12 @@
 
   <!-- Custom scripts for all pages-->
   <script src="<?= base_url();?>assets/js/sb-admin-2.min.js"></script>
-
+  <script>
+    $('.custom-file-input').on('change', function() {
+      let filename = $(this).val().split('\\').pop();
+      $(this).next('.custom-file-label').addClass("selected").html(filename);
+    });
+  </script>
 </body>
 
 </html>

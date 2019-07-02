@@ -24,11 +24,30 @@ class UserM extends CI_Model{
     return $this->db->get()->result_array();
   }
 
-  public function getDataPekerjaanM($id_pelamar)
+  public function getDataPekerjaanM($table,$where)
+  {
+    $this->db->where('id_pelamar',$where);
+  	$mhs = $this->db->get($table);
+  	return $mhs->row_array();
+    // return $this->db->get_where($table,$where);
+  }
+
+  public function editDataPekerjaanM($data, $id_pelamar)
   {
     $this->db->where('id_pelamar',$id_pelamar);
-  	$mhs = $this->db->get('pendaftaran');
-  	return $mhs->row_array();
+    $this->db->update('pendaftaran',$data);
+    $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
+     Your data has been updated
+    </div>');
+  }
+
+  public function delPelamarM($id_pelamar)
+  {
+    $this->db->where('id_pelamar', $id_pelamar);
+    $query = $this->db->get('pendaftaran');
+    $row = $query->row();
+    unlink("./uploads/pelamar/foto/$row->foto");
+    $this->db->delete('pendaftaran', array('id_pelamar' => $id_pelamar));
   }
 
 }

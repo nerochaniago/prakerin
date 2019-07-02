@@ -195,6 +195,7 @@
 
                                  <button type="submit"  class="btn btn-secondary">CV</button>
                                  <a href="<?php echo site_url('Admin_Puri/delPelamarC/'.$pelamar->id_pelamar); ?>" onclick="return confirm('Apakah Anda Ingin Menghapus Data <?=$pelamar->id_pelamar;?> ?');" class="btn btn-danger btn-circle" data-popup="tooltip" data-placement="top" title="Hapus Data"><i class="fa fa-trash"></i></a>
+                                 <!-- <input type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" value="Delete" onclick="if (confirm(\'yakin anda akan menghapus Data ini??\')) location.href=\''.site_url('Admin_Puri/delAllPendaftarAdmin_Puri/delPelamarC'.$pelamar['id_pelamar']).'\'">'; -->
                                </td>
                              </tr>
                              <?php endforeach; ?>
@@ -209,9 +210,11 @@
                  <br>
                  <div class="container-fluid">
                    <div align="center">
-                   <form method="post" action="<?php echo site_url('Admin_Puri/delAllPendaftar'); ?>"  style="">
+                   <form method="post" action="<?php echo site_url('Admin_Puri/delAllPendaftar/'); ?>"  style="">
                      <input type="submit" name="delete" class="btn btn-danger" value="Delete All" style="float: right"/>
                    </form>
+                   <!-- <input type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" value="Delete" onclick="if (confirm(\'yakin anda akan menghapus Data ini??\')) location.href=\''.site_url('Admin_Puri/delAllPendaftar'.$pelamar['id_pelamar']).'\'">'; -->
+
                    <form method="post" action="<?php echo site_url('Admin_Puri/action'); ?>">
                      <input type="submit" name="export" class="btn btn-success" value="Export All" style="float: right; margin-right: 2px;"/>
                    </form>

@@ -72,17 +72,19 @@ class User extends CI_Controller {
   public function add_pelamar()
   {
     $this->load->model('UserM');
-    // $this->session->set_userdata('who','User');
     $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
-    $config['upload_path'] = './uploads/pelamar';
-  	$config['allowed_types'] = 'jpg|jpeg|pdf|doc';
-  	$this->load->library('upload', $config);
+    $config1['upload_path'] = './uploads/pelamar/foto';
+  	$config1['allowed_types'] = 'jpg|jpeg';
+  	$this->load->library('upload', $config1);
+
+    $config2['upload_path'] = './uploads/pelamar/cv';
+  	$config2['allowed_types'] = 'pdf|doc';
+    $this->load->library('upload', $config2);
 
   	$this->upload->do_upload('foto');
-    // $this->upload->do_upload('cv');
-
-  	$foto = $this->upload->data('file_name');
-    // $cv = $this->upload->data('file_name');
+    $foto = $this->upload->data('file_name');
+    $this->upload->do_upload('cv');
+    $cv = $this->upload->data('file_name');
 
   	$data = array(
   		'posisi'=>$this->input->post('posisi'),
@@ -96,7 +98,7 @@ class User extends CI_Controller {
   		'agama'=>$this->input->post('agama'),
   		'status'=>$this->input->post('status'),
   		'foto' => $foto,
-  		// 'cv' => $cv,
+  		'cv' => $cv,
       'email'=>$this->session->email
   	);
 
@@ -107,8 +109,6 @@ class User extends CI_Controller {
   public function dataPekerjaanC()
   {
     $data['user'] = $this->load->model("UserM");
-    // $this->session->set_userdata('who','User');
-    // $email = $this->input->post('email');
     $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
     $data['list'] = $this->UserM->dataPekerjaanM();
     $this->load->view('user/dataPekerjaanV',$data);
@@ -117,13 +117,18 @@ class User extends CI_Controller {
   public function formeEditDataPelamarC($id_pelamar) {
     $this->load->model('UserM');
     $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
-  	$data['list'] = $this->UserM->getDataPekerjaanM($id_pelamar);
-  	$this->load->view('user/editDataV',$data);
+  	$data['list'] = $this->UserM->getDataPekerjaanM('pendaftaran',$id_pelamar);
+    // $where = array('id_pelamar' => $id_pelamar);
+		// $data['list'] = $this->UserM->getDataPekerjaanM('pendaftaran',$where)->result();
+    $this->load->view('user/editDataV',$data);
   }
 
-  public function editDataPelamarC($id_pelamar)
+  public function editDataPelamarC()
   {
-    $data['foto_baru'] = $this->db->get_where('pendaftaran',['id_pelamar'])->row_array();
+    $this->load->model('UserM');
+
+    $data['pendaftaran'] = $this->db->get_where('pendaftaran',['id_pelamar'])->row_array();
+    $id_pelamar = $this->input->post('id_pelamar');
     $posisi = $this->input->post('posisi');
     $nama = $this->input->post('nama');
     $tgl_lahir = $this->input->post('tgl_lahir');
@@ -137,35 +142,42 @@ class User extends CI_Controller {
     $upload_image = $_FILES['foto']['name'];
     $upload_cv = $_FILES['cv']['name'];
 
-    if ( ($upload_image) || ($upload_cv) ){
+    if ($upload_image){
 
-      $config['allowed_types'] = 'gif|jpg|png|pdf|doc';
-      $config['max_sizes'] = '5048';
-      $config['upload_path'] = './assets/pelamar/';
-      $config['overwrite'] = true;
-
-      $this->load->library('upload',$config);
+      $config1['upload_path'] = './uploads/pelamar/foto';
+    	$config1['allowed_types'] = 'jpg|jpeg';
+    	$this->load->library('upload', $config1);
+      $config1['overwrite'] = true;
 
       if ($this->upload->do_upload('foto')) {
         $old_image = $data['pendaftaran']['foto'];
 
         if ($old_image != 'default.jpg') {
-          unlink(FCPATH . 'assets/pelamar/' . $old_image);
+          unlink(FCPATH . './uploads/pelamar/foto' . $old_image);
         }
         $new_img = $this->upload->data('file_name');
         $this->db->set('foto', $new_img);
-      } else if ($this->upload->do_upload('cv')) {
-              $old_cv = $data['pendaftaran']['cv'];
-              if ($old_cv != 'default.jpg') {
-                unlink(FCPATH . 'assets/pelamar/' . $old_cv);
-              }
-              $new_cv = $this->upload->data('file_name');
-              $this->db->set('cv', $new_cv);
-            }
-      else {
+      } else {
         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $this->upload->display_errors() . '</div>');
         redirect('user');
       }
+    } else if ($upload_cv){
+      $config2['upload_path'] = './uploads/pelamar/cv';
+    	$config2['allowed_types'] = 'pdf|doc';
+      $this->load->library('upload', $config2);
+      $config2['overwrite'] = true;
+
+        if ($this->upload->do_upload('cv')) {
+          $old_cv = $data['pendaftaran']['cv'];
+          if ($old_cv != 'default.jpg') {
+            unlink(FCPATH . './uploads/pelamar/cv' . $old_cv);
+          }
+          $new_cv = $this->upload->data('file_name');
+          $this->db->set('cv', $new_cv);
+        } else {
+          $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $this->upload->display_errors() . '</div>');
+          redirect('user');
+        }
     }
 
     $data = [
@@ -178,18 +190,18 @@ class User extends CI_Controller {
       'gender'=>$this->input->post('gender'),
       'alamat'=>$this->input->post('alamat'),
       'agama'=>$this->input->post('agama'),
-      'status'=>$this->input->post('status'),
-      'foto' => $foto,
-      'cv' => $cv,
+      'status'=>$this->input->post('status')
     ];
 
-    $this->db->where('id_pelamar',$this->input->post('id_pelamar'));
-    $this->db->update('pendaftaran',$data);
-    $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
-     Your data has been updated
-    </div>');
+    $this->UserM->editDataPekerjaanM($data,$id_pelamar);
     redirect('user');
 
+  }
+
+  public function delPelamarC($id_pelamar){
+    $this->load->model("UserM");
+    $this->UserM->delPelamarM($id_pelamar);
+    redirect($_SERVER['HTTP_REFERER']);
   }
 
 
