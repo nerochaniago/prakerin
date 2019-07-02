@@ -59,25 +59,26 @@
 
           <div class="container">
               <div class="row">
-                <?php foreach($loker_baru as $lo):?>
-                <div class="col m4" style="">
-                  <div class="card" style="margin-bottom:57px;">
-                    <div class="card-image">
-                      <img src="<?= base_url('assets/img/loker/') . $lo['gambar'];?>" style="height:15em;">
-                    </div>
-                    <div class="card-content">
-                      <h6 class="" style="color:green; font-family: Roboto;" style="margin-top:8px; display: inline-block;" ><b><?=$lo['posisi'];?></b></h6>
+                        <?php foreach($loker_baru as $lo):?>
+                        <div class="col m4" style="">
+                          <div class="card" style="margin-bottom:57px;">
+                            <div class="card-image">
+                              <img src="<?= base_url('assets/img/loker/') . $lo['gambar'];?>" style="height:15em;">
+                            </div>
+                            <div class="card-content">
+                              <h6 class="" style="color:green; font-family: Roboto;" style="margin-top:8px; display: inline-block;" ><b><?=$lo['posisi'];?></b></h6>
 
-                       <span class="new badge red" style="float:left; font-family: Roboto; font-size:13px;" data-badge-caption="Batas Penerimaan <?= date("d/F/Y",strtotime($lo['batas'])); ?> "></span><br />
+                               <span class="new badge red" style="float:left; font-family: Roboto; font-size:13px;" data-badge-caption="Batas Penerimaan <?= date("d/F/Y",strtotime($lo['batas'])); ?> "></span><br />
 
-                       <h7 style="font-family: Roboto; ">Lokasi : <?= character_limiter($lo['penempatan'],10)?></h7>
-                    </div>
-                    <div class="card-action" style="padding:6px;">
-                      <a href="<?= base_url();?>Pendaftar_C/detailLoker/<?= $lo['id_loker'];?>" class="btn green darken-1" style="font-family: Roboto;">Detail</a>
-                    </div>
-                  </div>
-                </div>
-                <?php endforeach;?>
+                               <h7 style="font-family: Roboto; ">Lokasi : <?= character_limiter($lo['penempatan'],10)?></h7>
+                            </div>
+                            <div class="card-action" style="padding:6px;">
+                              <a href="<?= base_url();?>Pendaftar_C/detailLoker/<?= $lo['id_loker'];?>" class="btn green darken-1" style="font-family: Roboto;">Detail</a>
+                            </div>
+                          </div>
+                        </div>
+
+                        <?php endforeach;?>
               </div>
             </div>
 
@@ -86,7 +87,7 @@
                 <div class="col m6 ">
 
                     <?=$this->pagination->create_links();?>
-                  
+
                 </div>
               </div>
             </div>
@@ -100,15 +101,29 @@
                 <div class="container">
                   <div class="row">
                     <div class="col l6 s12">
-                      <h5 class="white-text" style="font-family: Roboto;">Contact</h5>
-                      <p class="grey-text text-lighten-4" style="font-family: Roboto;">Jl. Terusan Buah Batu Komp BBCA No. 48 Bandung</p>
+                      <h5 class="white-text" style="font-family: Roboto; ">Contact</h5><br>
+                      <p class="grey-text text-lighten-4" style="font-family: Roboto; ">Jl. Terusan Buah Batu Komp BBCA No. 48 Bandung</p>
+                    </div>
+                    <div class="col l6 s12">
+                      <h5 class="white-text" style="font-family: Roboto; text-align:center;">Social Media</h5><br>
+                      <div class="col offset-l3">
+                        <a href="" style="display:block;"><img src="<?= base_url(); ?>assets/img/icons8-facebook-filled-35.png"></a>
+                        <a href="" style="display:block;"><img src="<?= base_url(); ?>assets/img/icons8-instagram-filled-35.png"></a>
+                        <a href="" style="display:block;"><img src="<?= base_url(); ?>assets/img/icons8-new-post-filled-35.png"></a>
+                      </div>
+                      <div class="col l6">
+                        <h6 style="margin-top:5px;">Puri Makmur Lestari</h6>
+                        <h6 style="margin-top:25.5px;">Puri Makmur Lestari</h6>
+                        <h6 style="margin-top:23px;">Puri Makmur Lestari</h6>
+                      </div>
+
                     </div>
                   </div>
                   <hr>
                 </div>
                 <div class="footer-copyright red darken-3">
                   <div class="container">
-                  <h7 style="color: black;  font-family: Roboto;"> <strong> © 2019 PT Puri Makmur Lestari </strong> </h7>
+                  <h6 style="color: white;  font-family: Roboto;">  © 2019 PT Puri Makmur Lestari </h6>
                   </div>
                 </div>
               </footer>
