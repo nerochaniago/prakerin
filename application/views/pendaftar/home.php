@@ -15,7 +15,20 @@
     <style>
     @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
     @import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
+    #active {
+      background-color:#42f581;
+
+    }
     </style>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('ul li a').click(function(){
+          $('li a').removeClass("active");
+          $(this).addClass("active");
+      });
+  })
+})
+    </script>
 
 </head>
 <body style="display: flex; min-height: 100vh; flex-direction: column;">
@@ -29,7 +42,7 @@
         </a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons green darken-2" style="padding-left: 10px; padding-right: 10px;">dehaze</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down ">
-                <li><a href="<?= base_url();?>Pendaftar_C"  style="color: green;"><i class="material-icons left">home</i>Home</a></li>
+                <li class="active"><a href="<?= base_url();?>Pendaftar_C"  style="color: green;"><i class="material-icons left">home</i>Home</a></li>
                 <li><a href="<?= base_url();?>Pendaftar_C/lowonganKerja"  style="color: green;"><i class="material-icons left">work</i>Lowongan Pekerjaan</a></li>
                 <li><a href="<?= base_url();?>Pendaftar_C/pengumuman"  style="color: green;"><i class="material-icons left">info</i>Pengumuman</a></li>
                 <li><a href="<?= base_url();?>Auth/login" style="color: green;" target="_blank"><i class="material-icons left">assignment_ind</i>Login</a></li>
@@ -52,29 +65,16 @@
       <li>
         <img src="https://lorempixel.com/580/250/nature/1"> <!-- random image -->
         <div class="caption center-align">
-          <h3>This is our big Tagline!</h3>
-          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
         </div>
       </li>
       <li>
         <img src="https://lorempixel.com/580/250/nature/2"> <!-- random image -->
         <div class="caption left-align">
-          <h3>Left Aligned Caption</h3>
-          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
         </div>
       </li>
       <li>
         <img src="https://lorempixel.com/580/250/nature/3"> <!-- random image -->
         <div class="caption right-align">
-          <h3>Right Aligned Caption</h3>
-          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-        </div>
-      </li>
-      <li>
-        <img src="https://lorempixel.com/580/250/nature/4"> <!-- random image -->
-        <div class="caption center-align">
-          <h3>This is our big Tagline!</h3>
-          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
         </div>
       </li>
     </ul>

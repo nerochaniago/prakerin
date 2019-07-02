@@ -15,7 +15,15 @@
     @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
     @import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
     </style>
-
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('ul li a').click(function(){
+          $('li a').removeClass("active");
+          $(this).addClass("active");
+      });
+    })
+    })
+    </script>
 
 </head>
   <body style="display: flex; min-height: 100vh; flex-direction: column;">
@@ -30,7 +38,7 @@
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons black" style="padding-left: 10px; padding-right: 10px;">dehaze</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down ">
                     <li><a href="<?= base_url();?>Pendaftar_C"  style="color: green;"><i class="material-icons left">home</i>Home</a></li>
-                    <li><a href="<?= base_url();?>Pendaftar_C/lowonganKerja"  style="color: green;"><i class="material-icons left">work</i>Lowongan Pekerjaan</a></li>
+                    <li class="active"><a href="<?= base_url();?>Pendaftar_C/lowonganKerja"  style="color: green;"><i class="material-icons left">work</i>Lowongan Pekerjaan</a></li>
                     <li><a href="<?= base_url();?>Pendaftar_C/pengumuman"  style="color: green;"><i class="material-icons left">info</i>Pengumuman</a></li>
                     <li><a href="<?= base_url();?>Auth/login" style="color: green;" target="_blank"><i class="material-icons left">assignment_ind</i>Login</a></li>
                 </ul>
@@ -65,7 +73,7 @@
                             <div class="card-image">
                               <img src="<?= base_url('assets/img/loker/') . $lo['gambar'];?>" style="height:15em;">
                             </div>
-                            <div class="card-content">
+                            <div class="card-content" style="box-sizing:border-box;">
                               <h6 class="" style="color:green; font-family: Roboto;" style="margin-top:8px; display: inline-block;" ><b><?=$lo['posisi'];?></b></h6>
 
                                <span class="new badge red" style="float:left; font-family: Roboto; font-size:13px;" data-badge-caption="Batas Penerimaan <?= date("d/F/Y",strtotime($lo['batas'])); ?> "></span><br />
