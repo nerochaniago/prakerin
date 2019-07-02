@@ -143,6 +143,8 @@ public function hapusLoker($id_loker){
   public function viewData($id_pelamar){
     $this->load->model("Excel_export_model");
     $this->Excel_export_model->viewDataM($id_pelamar);
+    $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+    $data['list'] = $this->Excel_export_model->getDataPekerjaanM('pendaftaran',$id_pelamar);
     $this->load->view('admin/viewDataV',$data);
   }
 

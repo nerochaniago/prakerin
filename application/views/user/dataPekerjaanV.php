@@ -156,7 +156,7 @@
           			 <?php
           				echo '<input type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" value="Update" onclick="if (confirm(\'Edit data ini??\')) location.href=\''.site_url('User/formeEditDataPelamarC/'.$a['id_pelamar']).'\'">
           				<br><br>
-          				<input type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" value="Delete" onclick="if (confirm(\'yakin anda akan menghapus Data ini??\')) location.href=\''.site_url('User/del_Calon/'.$a['id_pelamar']).'\'">';
+          				<input type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" value="Delete" onclick="if (confirm(\'yakin anda akan menghapus Data ini??\')) location.href=\''.site_url('User/delPelamarC/'.$a['id_pelamar']).'\'">';
           				?>
                 </td>
           		</tr>
