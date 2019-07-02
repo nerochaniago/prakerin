@@ -32,4 +32,12 @@ class lowongan_m extends CI_Model{
     return $this->db->get_where('loker_baru',['id_loker' => $id_loker])->row_array();
   }
 
+  public function getLowongan($limit,$start){
+    return $this->db->get('loker_baru',$limit,$start)->result_array();
+  }
+
+  public function countAllLoker(){
+    return $this->db->get('loker_baru')->num_rows();
+  }
+
 }
