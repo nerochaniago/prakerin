@@ -48,7 +48,7 @@
         <main>
           <div class="container" style="margin-top:15px;">
             <div class="row">
-                <div class="col m8">
+                <div class="col m12">
                   <div class="card">
                     <div class="card-content white-text">
                       <span class="card-title" style="color:green;">Lowongan Tersedia</span> <br>
@@ -61,15 +61,6 @@
                   </div>
                 </div>
 
-
-                <div class="col m4">
-                  <h6 style="margin-top:2px;">Lowongan Lainnya</h6>
-                  <div class="collection">
-                    <a href="#!" class="collection-item">Alvin</a>
-                    <a href="#!" class="collection-item active">Alvin</a>
-                    <a href="#!" class="collection-item">Alvin</a>
-                    <a href="#!" class="collection-item">Alvin</a>
-                  </div>
                 </div>
             </div>
           </div>
