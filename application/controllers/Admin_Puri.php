@@ -30,93 +30,117 @@ class Admin_Puri extends CI_Controller {
     $penempatan = $this->input->post('penempatan');
     $syarat = $this->input->post('syarat');
     $batas = $this->input->post('batas');
-    $upload_image = $_FILES['gambar']['name'];
-
-    if ($upload_image) {
+    $uploadImage = $_FILES['gambar']['name'];
+    if ($uploadImage) {
       // code...
       $config['allowed_types'] = 'gif|jpg|png';
       $config['max_sizes'] = '5048';
       $config['upload_path'] = './assets/img/loker/';
-
       $this->load->library('upload',$config);
 
       if ($this->upload->do_upload('gambar')) {
+            $upload_data = $this->upload->data();
+            $data = [
+                'posisi' => $posisi,
+                'penempatan' => $penempatan,
+                'syarat' => $syarat,
+                'batas' => $batas,
+                'gambar' => $upload_data['file_name']
+              ];
 
-          $new_img = $this->upload->data('file_name');
-
-
+              $this->db->insert('loker_baru',$data);
+              $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
+               Input Loker Berhasil
+              </div>');
+              redirect('Admin_Puri/lowongan');
       } else {
-          $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $this->upload->display_errors() . '</div>');
-          redirect('Admin_Puri/lowongan');
-      }
+              $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
+               gagal
+              </div>');
+              redirect('Admin_Puri/lowongan');
+    }
 
     }
     $data = [
-      'posisi' => $posisi,
-      'penempatan' => $penempatan,
-      'syarat' => $syarat,
-      'batas' => $batas,
-      'gambar' => $upload_image
-    ];
+        'posisi' => $posisi,
+        'penempatan' => $penempatan,
+        'syarat' => $syarat,
+        'batas' => $batas
+      ];
+      $this->db->insert('loker_baru',$data);
+      $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
+       Input Loker Berhasil
+      </div>');
+      redirect('Admin_Puri/lowongan');
 
-    $this->db->insert('loker_baru',$data);
 
-    $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
-     Input Loker Berhasil
-    </div>');
-    redirect('Admin_Puri/lowongan');
+
   }
 
 public function editLoker(){
-  $data['loker_baru'] = $this->db->get_where('loker_baru',['id_loker'])->row_array();
+
+  nchan sayang lia :* <3
+  
+  $data['loker_baru'] = $this->db->get_where('loker_baru',['id_loker' => $this->input->post('id_loker') ])->row_array();
   $posisi = $this->input->post('posisi');
   $penempatan = $this->input->post('penempatan');
   $syarat = $this->input->post('syarat');
   $batas = $this->input->post('batas');
-  $upload_image = $_FILES['gambar']['name'];
-
-  if ($upload_image) {
+  $uploadImage = $_FILES['gambar']['name'];
+  if ($uploadImage) {
     // code...
     $config['allowed_types'] = 'gif|jpg|png';
     $config['max_sizes'] = '5048';
     $config['upload_path'] = './assets/img/loker/';
     $config['overwrite'] = true;
-
     $this->load->library('upload',$config);
 
     if ($this->upload->do_upload('gambar')) {
       // code...
-
       $old_image = $data['loker_baru']['gambar'];
-
-      if ($old_image != 'default.jpg') {
+      if ($old_image) {
         // code...
         unlink(FCPATH . 'assets/img/loker/' . $old_image);
       }
-
       $new_img = $this->upload->data('file_name');
       $this->db->set('gambar', $new_img);
-      // $this->db->set('gambar', $new_img);
-    } else {
-      $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $this->upload->display_errors() . '</div>');
+
+      $data = [
+        'posisi' => $posisi,
+        'penempatan' => $penempatan,
+        'syarat' => $syarat,
+        'batas' => $batas
+      ];
+
+      $this->db->where('id_loker',$this->input->post('id_loker'));
+      $this->db->update('loker_baru',$data);
+      $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
+       Loker has been updated
+      </div>');
       redirect('Admin_Puri/lowongan');
-    }
+
+    } else {
+            $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
+             gagal
+            </div>');
+            redirect('Admin_Puri/lowongan');
+  }
   }
 
-  $data = [
-    'posisi' => $posisi,
-    'penempatan' => $penempatan,
-    'syarat' => $syarat,
-    'batas' => $batas
-  ];
+      $data = [
+        'posisi' => $posisi,
+        'penempatan' => $penempatan,
+        'syarat' => $syarat,
+        'batas' => $batas
+      ];
+      $this->db->where('id_loker',$this->input->post('id_loker'));
+      $this->db->update('loker_baru',$data);
+      $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
+       Loker has been updated
+      </div>');
+      redirect('Admin_Puri/lowongan');
+  }
 
-  $this->db->where('id_loker',$this->input->post('id_loker'));
-  $this->db->update('loker_baru',$data);
-  $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
-   Your account has been updated
-  </div>');
-  redirect('Admin_Puri/lowongan');
-}
 
 public function hapusLoker($id_loker){
   $this->lowongan_m->hapusLoker($id_loker);

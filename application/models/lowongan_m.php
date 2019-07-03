@@ -33,6 +33,7 @@ class lowongan_m extends CI_Model{
   }
 
   public function getLowongan($limit,$start){
+    $this->db->order_by('id_loker','DESC');
     return $this->db->get('loker_baru',$limit,$start)->result_array();
   }
 
