@@ -71,7 +71,7 @@
                   </form>
                   <hr>
                   <div class="text-center">
-                    <a class="small" href="<?= base_url();?>Auth/registration">Create an Account!</a>
+                    <span class=" text-gray-900 mb-4">Copyright &copy; PT Puri Makmur Lestari 2019</span>
                   </div>
                 </div>
               </div>
