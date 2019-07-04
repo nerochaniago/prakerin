@@ -79,8 +79,8 @@ class Admin_Puri extends CI_Controller {
 
 public function editLoker(){
 
-  nchan sayang lia :* <3
   
+
   $data['loker_baru'] = $this->db->get_where('loker_baru',['id_loker' => $this->input->post('id_loker') ])->row_array();
   $posisi = $this->input->post('posisi');
   $penempatan = $this->input->post('penempatan');

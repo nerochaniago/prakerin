@@ -30,7 +30,7 @@
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons black" style="padding-left: 10px; padding-right: 10px;">dehaze</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down ">
                     <li><a href="<?= base_url();?>Pendaftar_C"  style="color: green;"><i class="material-icons left">home</i>Home</a></li>
-                    <li><a href="<?= base_url();?>Pendaftar_C/lowonganKerja"  style="color: green;"><i class="material-icons left">work</i>Lowongan Pekerjaan</a></li>
+                    <li class="active"><a href="<?= base_url();?>Pendaftar_C/lowonganKerja"  style="color: green;"><i class="material-icons left">work</i>Lowongan Pekerjaan</a></li>
                     <li><a href="<?= base_url();?>Pendaftar_C/pengumuman"  style="color: green;"><i class="material-icons left">info</i>Pengumuman</a></li>
                     <li><a href="<?= base_url();?>Auth/login" style="color: green;" target="_blank"><i class="material-icons left">assignment_ind</i>Login</a></li>
                 </ul>
@@ -48,15 +48,18 @@
         <main>
           <div class="container" style="margin-top:15px;">
             <div class="row">
-                <div class="col m12">
+                <div class="col m12 s12">
                   <div class="card">
                     <div class="card-content white-text">
                       <span class="card-title" style="color:green;">Lowongan Tersedia</span> <br>
-                      <img src="<?= base_url('assets/img/loker/') . $loker_baru['gambar'];?>" width=100%;> <br><br>
-                      <p style="color:black;">Posisi : <?= $loker_baru['posisi'];?></p>
+                      <img src="<?= base_url('assets/img/loker/') . $loker_baru['gambar'];?>" width=95%;> <br><br>
+                      <p style="color:black;"><b>* Posisi :</b> <?= $loker_baru['posisi'];?></p>
+                      <p style="color:black;"><B>* Penempatan di</B>  <?= $loker_baru['penempatan'];?></p>
+                      <p style="color:black;"><b>* Persyaratan : </b>  <?= $loker_baru['syarat'];?></p>
+                      <p style="color:black;"><b>* Batas Penerimaan </b>  <?= date("d/F/Y",strtotime($loker_baru['batas'])); ?></p>
                     </div>
                     <div class="card-action">
-                      <a href="#">This is a link</a>
+                        <a href="<?= base_url();?>Auth/registration" class="btn green darken-1" style="font-family: Roboto;" target="_blank">Lamar Sekarang</a>
                     </div>
                   </div>
                 </div>
@@ -71,15 +74,29 @@
                 <div class="container">
                   <div class="row">
                     <div class="col l6 s12">
-                      <h5 class="white-text" style="font-family: Roboto;">Contact</h5>
-                      <p class="grey-text text-lighten-4" style="font-family: Roboto;">Jl. Terusan Buah Batu Komp BBCA No. 48 Bandung</p>
+                      <h5 class="white-text" style="font-family: Roboto; ">Contact</h5><br>
+                      <p class="grey-text text-lighten-4" style="font-family: Roboto; ">Jl. Terusan Buah Batu Komp BBCA No. 48 Bandung</p>
+                    </div>
+                    <div class="col l6 s12">
+                      <h5 class="white-text" style="font-family: Roboto; text-align:center;">Social Media</h5><br>
+                      <div class="col offset-l3">
+                        <a href="" style="display:block;"><img src="<?= base_url(); ?>assets/img/icons8-facebook-filled-35.png"></a>
+                        <a href="" style="display:block;"><img src="<?= base_url(); ?>assets/img/icons8-instagram-filled-35.png"></a>
+                        <a href="" style="display:block;"><img src="<?= base_url(); ?>assets/img/icons8-new-post-filled-35.png"></a>
+                      </div>
+                      <div class="col l6">
+                        <h6 style="margin-top:5px;">Puri Makmur Lestari</h6>
+                        <h6 style="margin-top:25.5px;">Puri Makmur Lestari</h6>
+                        <h6 style="margin-top:23px;">Puri Makmur Lestari</h6>
+                      </div>
+
                     </div>
                   </div>
                   <hr>
                 </div>
                 <div class="footer-copyright red darken-3">
                   <div class="container">
-                  <h7 style="color: black;  font-family: Roboto;"> <strong> © 2019 PT Puri Makmur Lestari </strong> </h7>
+                  <h6 style="color: white;  font-family: Roboto;">  © 2019 PT Puri Makmur Lestari </h6>
                   </div>
                 </div>
               </footer>
