@@ -158,7 +158,8 @@
             </div>
           </div>
           <div class="alert alert-info" role="alert">
-            <marquee><h3 style="color: red; font-weight: bold;"> Penting : Lengkapi Data Anda Pada Menu Registrasi</h3></marquee>
+            <marquee><h3 style="color: red; font-weight: bold;"> Penting : Lengkapi Data Anda Pada Menu Daftar Lowongan Pekerjaan</h3></marquee>
+            <h3><strong>*Hanya Dapat Mendaftar 1 Posisi Pekerjaan Sesuai Bidang</strong></h3>
           </div>
 
 

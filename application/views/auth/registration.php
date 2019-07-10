@@ -37,7 +37,7 @@
             <div class="p-5">
               <div class="text-center">
                 <img src="<?= base_url();?>assets/img/Logo Puri.png" alt="logo_pt_puri">
-                <h1 class="h4 text-gray-900 mb-4">Gunakan Email yang Valid Saat Mendaftar</h1>
+                <h1 class="h4 text-gray-900 mb-4"><strong>Gunakan Email yang Valid Saat Mendaftar</strong></h1>
               </div>
               <form class="user" method="post" action="<?= base_url()?>Auth/registration">
                 <div class="form-group">
