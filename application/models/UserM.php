@@ -1,6 +1,22 @@
 <?php
 class UserM extends CI_Model{
 
+  public function Excel_Export_pengumuman()
+  {
+    $this->load->model("excel_export_model");
+
+    $data["employee_data"] = $this->excel_export_model->fetch_data();
+    $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+    $this->load->view("admin/pelamar", $data);
+  }
+
+  public function fetch_data2(){
+    $this->db->order_by("id_pelamar", "DESC");
+    $this->db->where('hasil','ya');
+    $query = $this->db->get("pendaftaran");
+    return $query->result();
+  }
+
   public function dataLowonganM()
   {
     // return $this->db->get('loker_baru')->result_array();

@@ -47,7 +47,7 @@
         <!-- main content -->
         <main>
           <div align="center">
-            <div class="row"> Masukan Pekerjaan
+            <!-- <div class="row"> Masukan Pekerjaan
                         <?php foreach($loker_baru as $lo):?>
                         <div class="col m4" style="">
                           <div class="card" style="margin-bottom:57px;">
@@ -65,8 +65,8 @@
                           </div>
                         </div>
                         <?php endforeach;?>
-            </div>
-           <form method="post" action="<?php echo site_url('Admin_Puri/action2'); ?>">
+            </div> -->
+           <form method="post" action="<?php echo site_url('Pendaftar_C/action2'); ?>">
             <input type="submit" name="export2" class="btn btn-success" value="Export2" />
            </form>
           </div>
