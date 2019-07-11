@@ -153,12 +153,25 @@
         				<!-- Formulir pendaftaran Lowongan Pekerjaan -->
         				<p class="text-center">Formulir pendaftaran Lowongan Pekerjaan</p>
         				<!--Form input Posisi-->
-        				<div class="form-group row">
-        				    <label for="posisi" class="col-sm-2 col-form-label">Posisi</label>
-        				    <div class="col-sm-10">
-        				      <input type="text" class="form-control" name="posisi" placeholder="Posisi yang akan dilamar">
-        				    </div>
-        			  	</div>
+                <div class="form-group row">
+                  <label for="hasil" class="col-sm-2 col-form-label">Posisi</label>
+                  <div class="col-sm-10">
+                    <?php
+                      $dd_provinsi_attribute = 'class="form-control select2"';
+                      echo form_dropdown('posisi', $dd_provinsi, $provinsi_selected);
+                    ?>
+                  </div>
+                  <!--jquery dan select2-->
+                  <script src="<?php echo base_url('assets/js/jquery-1.11.2.min.js') ?>"></script>
+                  <script src="<?php echo base_url('assets/select2/js/select2.min.js') ?>"></script>
+                  <script>
+                      $(document).ready(function () {
+                          $(".select2").select2({
+                              placeholder: "Please Select"
+                          });
+                      });
+                  </script>
+                  </div>
         				<!-- Form input nama lengkap -->
         				<div class="form-group row">
         				    <label for="nama" class="col-sm-2 col-form-label">Nama Lengkap</label>
@@ -218,6 +231,20 @@
         				      	</div>
         				    </div>
         				</fieldset>
+                <!-- Form input Universitas -->
+        				<div class="form-group row">
+        				    <label for="nomor" class="col-sm-2 col-form-label">Universitas</label>
+        				    <div class="col-sm-10">
+        				      <input type="text" class="form-control" name="universitas" placeholder="Universitas">
+        				    </div>
+        			  	</div>
+                  <!-- Form input Jurusan -->
+          				<div class="form-group row">
+          				    <label for="nomor" class="col-sm-2 col-form-label">Jurusan</label>
+          				    <div class="col-sm-10">
+          				      <input type="text" class="form-control" name="jurusan" placeholder="Jurusan">
+          				    </div>
+          			  	</div>
         				<!-- Form input email -->
         				<div class="form-group row">
         				    <label for="email" class="col-sm-2 col-form-label">Email</label>

@@ -1,6 +1,29 @@
 <?php
 class UserM extends CI_Model{
 
+  public function dataLowonganM()
+  {
+    // return $this->db->get('loker_baru')->result_array();
+    // $this->db->select('posisi');
+    // $this->db->from('loker_baru');
+    // return $this->db->get()->result();
+
+    // ambil data dari db
+        $this->db->order_by('id_loker', 'asc');
+        $result = $this->db->get('loker_baru');
+        // bikin array
+        // please select berikut ini merupakan tambahan saja agar saat pertama
+        // diload akan ditampilkan text please select.
+        $dd[''] = 'Please Select';
+        if ($result->num_rows() > 0) {
+            foreach ($result->result() as $row) {
+            // tentukan value (sebelah kiri) dan labelnya (sebelah kanan)
+                $dd[$row->id_loker] = $row->posisi;
+            }
+        }
+        return $dd;
+  }
+
   public function add_pelamarM($data)
   {
     // $data1 = $this->session->email;
@@ -46,7 +69,7 @@ class UserM extends CI_Model{
     $this->db->where('id_pelamar', $id_pelamar);
     $query = $this->db->get('pendaftaran');
     $row = $query->row();
-    unlink("./uploads/pelamar/foto/$row->foto");
+    unlink("./uploads/pelamar/$row->foto");
     $this->db->delete('pendaftaran', array('id_pelamar' => $id_pelamar));
   }
 

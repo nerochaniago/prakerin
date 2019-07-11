@@ -47,9 +47,28 @@
         <!-- main content -->
         <main>
           <div align="center">
-
-
-
+            <div class="row"> Masukan Pekerjaan
+                        <?php foreach($loker_baru as $lo):?>
+                        <div class="col m4" style="">
+                          <div class="card" style="margin-bottom:57px;">
+                            <div class="card-image">
+                              <img src="<?= base_url('assets/img/loker/') . $lo['gambar'];?>" style="height:15em;">
+                            </div>
+                            <div class="card-content" style="box-sizing:border-box;">
+                              <h6 class="" style="color:green; font-family: Roboto;" style="margin-top:8px; display: inline-block;" ><b><?=$lo['posisi'];?></b></h6>
+                               <span class="new badge red" style="float:left; font-family: Roboto; font-size:13px;" data-badge-caption="Batas Penerimaan <?= date("d/F/Y",strtotime($lo['batas'])); ?> "></span><br />
+                               <h7 style="font-family: Roboto; ">Lokasi : <?= character_limiter($lo['penempatan'],10)?></h7>
+                            </div>
+                            <div class="card-action" style="padding:6px;">
+                              <a href="<?= base_url();?>Pendaftar_C/detailLoker/<?= $lo['id_loker'];?>" class="btn green darken-1" style="font-family: Roboto;">Detail</a>
+                            </div>
+                          </div>
+                        </div>
+                        <?php endforeach;?>
+            </div>
+           <form method="post" action="<?php echo site_url('Admin_Puri/action2'); ?>">
+            <input type="submit" name="export2" class="btn btn-success" value="Export2" />
+           </form>
           </div>
           </main>
 

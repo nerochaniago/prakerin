@@ -44,37 +44,52 @@
       <!-- Divider -->
       <hr class="sidebar-divider">
 
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item">
+        <a class="nav-link" href="<?= base_url();?>Admin_Puri">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
       <!-- Heading -->
       <div class="sidebar-heading" style="color: black;">
         User
       </div>
 
       <li class="nav-item">
-        <a class="nav-link" href="<?= base_url();?>User">
+        <a class="nav-link" href="charts.html">
           <i class="fas fa-fw fa-id-card"></i>
-          <span>Akun</span></a>
-          <a class="nav-link" href="<?= base_url();?>User/edit_user">
+          <span>Profile</span></a>
+          <a class="nav-link" href="charts.html">
             <i class="fas fa-fw fa-id-card"></i>
-            <span>Edit Akun</span></a>
+            <span>Edit Profile</span></a>
+      </li>
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading" style="color: black;">
+        Menu Loker
+      </div>
+
+      <li class="nav-item">
+        <a class="nav-link" href="<?= base_url();?>Admin_Puri/lowongan">
+          <i class= "fas fa-briefcase"></i>
+          <span>Manage Loker</span></a>
       </li>
 
       <!-- Heading -->
       <div class="sidebar-heading" style="color: black;">
-        Lowongan
+        Menu Pelamar
       </div>
 
       <li class="nav-item">
-          <a class="nav-link" href="<?= base_url();?>User/daftarLowonganC">
-            <i class="fas fa-fw fa-id-card"></i>
-            <span>Daftar Lowongan Pekerjaan</span></a>
+        <a class="nav-link" href="<?= base_url();?>Admin_Puri/Excel_Export">
+          <i class= "fas fa-briefcase"></i>
+          <span>Data Pelamar</span></a>
       </li>
-
-      <li class="nav-item">
-          <a class="nav-link" href="<?= base_url();?>User/dataPekerjaanC">
-            <i class="fas fa-fw fa-id-card"></i>
-            <span>Data Pekerjaan yang dilamar</span></a>
-      </li>
-
 
       <!-- Divider -->
       <hr class="sidebar-divider">
@@ -86,6 +101,8 @@
 
     </ul>
     <!-- End of Sidebar -->
+    <!-- Divider -->
+
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -219,6 +236,20 @@
                       </div>
                   </div>
               </fieldset>
+              <!-- Form input Universitas -->
+              <div class="form-group row">
+                  <label for="nomor" class="col-sm-2 col-form-label">Universitas</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="universitas" value="<?php echo $list['universitas']; ?>" readonly>
+                  </div>
+                </div>
+                <!-- Form input Jurusan -->
+                <div class="form-group row">
+                    <label for="nomor" class="col-sm-2 col-form-label">Jurusan</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="jurusan" value="<?php echo $list['jurusan']; ?>" readonly>
+                    </div>
+                  </div>
         				<!-- Form input email -->
         				<div class="form-group row">
         				    <label for="email" class="col-sm-2 col-form-label">Email</label>
@@ -270,7 +301,7 @@
                   <label for="foto" class="col-sm-2 col-form-label">Foto</label>
                   <div class="col-sm-10">
                     <div class="custom-file">
-                      <img src="<?= base_url('uploads/pelamar/foto/') . $list['foto'];?>" style="width: 100px; height: 150px;"><br>
+                      <img src="<?= base_url('uploads/pelamar/') . $list['foto'];?>" style="width: 100px; height: 150px;"><br>
                     </div>
                   </div>
                 </div><br><br><br>
@@ -279,15 +310,17 @@
                   <label for="cv" class="col-sm-2 col-form-label">CV</label>
                   <div class="col-sm-10">
                     <div class="custom-file">
-                      <button type="button" name="button" class="btn btn-primary">View</button>
+                      <button type="button" name="button" class="btn"><a href='<?= base_url('uploads/pelamar/') . $list['cv'];?>'> File PDF </a></button>
                     </div>
                   </div>
                 </div><br>
                 <!-- Validasi pendaftaran -->
                 <div class="form-group row">
                     <div class="col-sm-10">
-                      <button type="submit" class="btn btn-primary">Done</button>
-                      <button type="submit" class="btn btn-danger">Change Status</button>
+                      <button type="button" class="btn btn-primary">Done</button>
+                      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#masukkandatabaru">
+                        Change Status
+                      </button>
                     </div>
                 </div>
                 <br>
@@ -320,6 +353,42 @@
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
+
+  <!-- Modal Tambahkan Pelanggan -->
+  <div class="modal fade" id="masukkandatabaru" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Masukkan Data Baru</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="<?= base_url() ?>Admin_Puri/tambahStatusPelamar" method="POST">
+            <!-- <input type="hidden" name="id_pelamar" value="SP<?= str_pad(rand(0, pow(10, 4)-1), 4, '0', STR_PAD_LEFT); ?>"> -->
+            <div class="form-group">
+              <label for="id_pelanggan">Nama Pelamar</label>
+              <input type="text" class="form-control" id="nama" name="nama" value="<?= $list['nama'] ?>" readonly>
+            </div>
+            <hr/>
+            <div class="form-group">
+              <label for="hasil">Status Pelamar</label>
+              <select class="form-control" id="hasil" name="hasil">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <a class="btn btn-primary" href="<?= base_url('Admin_Puri/saveStatus');?>">Save</a>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 
   <!-- Logout Modal-->
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -356,5 +425,4 @@
     });
   </script>
 </body>
-
 </html>

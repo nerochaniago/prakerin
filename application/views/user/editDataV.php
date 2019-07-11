@@ -155,12 +155,19 @@
                 <input type="hidden" name="id_pelamar" value="<?= $list['id_pelamar'] ?>">
 
         				<!--Form input Posisi-->
-        				<div class="form-group row">
+        				<!-- <div class="form-group row">
         				    <label for="posisi" class="col-sm-2 col-form-label">Posisi</label>
         				    <div class="col-sm-10">
         				      <input type="text" class="form-control" name="posisi" value="<?= $list['posisi'] ?>">
         				    </div>
-        			  	</div>
+        			  	</div> -->
+                  <!--Form input Posisi-->
+                  <div class="form-group row">
+                    <label for="hasil" class="col-sm-2 col-form-label">Posisi</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="nama" value="<?= $list['posisi'] ?>" readonly>
+                    </div>
+                  </div>
         				<!-- Form input nama lengkap -->
         				<div class="form-group row">
         				    <label for="nama" class="col-sm-2 col-form-label">Nama Lengkap</label>
@@ -220,6 +227,20 @@
                       </div>
                   </div>
               </fieldset>
+              <!-- Form input Universitas -->
+              <div class="form-group row">
+                  <label for="nomor" class="col-sm-2 col-form-label">Universitas</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="universitas" value="<?php echo $list['universitas']; ?>">
+                  </div>
+                </div>
+                <!-- Form input Jurusan -->
+                <div class="form-group row">
+                    <label for="nomor" class="col-sm-2 col-form-label">Jurusan</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="jurusan" value="<?php echo $list['jurusan']; ?>">
+                    </div>
+                  </div>
         				<!-- Form input email -->
         				<div class="form-group row">
         				    <label for="email" class="col-sm-2 col-form-label">Email</label>
@@ -270,7 +291,7 @@
                 <div class="row">
                   <label for="foto" class="col-sm-2 col-form-label">Foto</label>
                   <div class="col-sm-10">
-                      <img src="<?= base_url('uploads/pelamar/foto/') . $list['foto'];?>" style="width: 100px; height: 150px;">
+                      <img src="<?= base_url('uploads/pelamar/') . $list['foto'];?>" style="width: 100px; height: 150px;">
                       <input type="file" class="custom-file-input" id="foto" name="foto" value="<??>">
                       <input type="file" class="form-control-file" accept="image/*" name="foto">
                   </div>
@@ -280,7 +301,7 @@
                   <label for="cv" class="col-sm-2 col-form-label">CV</label>
                   <div class="col-sm-10">
                     <div class="custom-file">
-                      <button type="button" name="button" class="btn btn-primary">View</button>
+                      <button type="button" name="button" class="btn"><a href='<?= base_url('uploads/pelamar/') . $list['cv'];?>'> File PDF </a></button>
                     </div>
                   </div>
                 </div><br>

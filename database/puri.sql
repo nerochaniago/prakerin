@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 28, 2019 at 11:53 AM
+-- Generation Time: Jul 11, 2019 at 01:12 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -121,20 +121,19 @@ CREATE TABLE `pendaftaran` (
   `email` varchar(50) NOT NULL,
   `foto` varchar(100) NOT NULL,
   `cv` varchar(100) NOT NULL,
-  `role_id` int(1) NOT NULL
+  `universitas` varchar(50) NOT NULL,
+  `jurusan` varchar(50) NOT NULL,
+  `hasil` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pendaftaran`
 --
 
-INSERT INTO `pendaftaran` (`id`, `id_pelamar`, `posisi`, `nama`, `tgl_lahir`, `tmpt_lahir`, `gender`, `status`, `agama`, `pendidikan`, `alamat`, `nomor`, `email`, `foto`, `cv`, `role_id`) VALUES
-(0, 2, 'a', 'a', '2019-06-04', 'a', 'a', 'a', 'a', '', 'a', 0, 'a', '', '', 0),
-(0, 3, 'b', 'b', '2019-06-14', 'b', 'b', 'b', 'b', '', 'b', 0, 'b', '', '', 0),
-(0, 4, 'c', 'c', '2019-06-01', 'c', 'c', 'c', 'c', '', 'c', 0, 'c', '', '', 0),
-(0, 5, 'd', 'd', '2019-06-14', 'd', 'd', 'dd', 'd', '', 'd', 0, 'd', '', '', 0),
-(0, 8, '0', 'baru', '2019-06-27', 'baru', 'Laki-laki', 'Lajang', 'islam', 'S2', 'baru', 0, 'baru@yahoo.com', '', '', 0),
-(0, 9, '0', 'uy', '2019-06-07', 'uy', 'Laki-laki', 'Lajang', 'islam', 'S2', 'a', 0, 'shyffainf@yahoo.com', '', '', 2);
+INSERT INTO `pendaftaran` (`id`, `id_pelamar`, `posisi`, `nama`, `tgl_lahir`, `tmpt_lahir`, `gender`, `status`, `agama`, `pendidikan`, `alamat`, `nomor`, `email`, `foto`, `cv`, `universitas`, `jurusan`, `hasil`) VALUES
+(0, 41, '', '', '0000-00-00', '', 'Laki-laki', 'Lajang', '', 'S2', '', 0, 'test@gmail.com', 'IMG-20190511-WA0002.jpg', '', '', '', ''),
+(0, 42, '', '', '0000-00-00', '', 'Laki-laki', 'Lajang', '', 'S2', '', 0, 'test@gmail.com', '1555700944104.jpg', '189330.jpg', '', '', ''),
+(0, 43, '', '', '0000-00-00', '', 'Laki-laki', 'Lajang', '', 'S2', '', 0, 'test@gmail.com', 'foto.jpg', 'CV.pdf', '', '', 'ya');
 
 -- --------------------------------------------------------
 
@@ -245,7 +244,7 @@ ALTER TABLE `loker_baru`
 -- AUTO_INCREMENT for table `pendaftaran`
 --
 ALTER TABLE `pendaftaran`
-  MODIFY `id_pelamar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_pelamar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 --
 -- AUTO_INCREMENT for table `user`
 --

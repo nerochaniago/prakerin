@@ -79,7 +79,7 @@ class Admin_Puri extends CI_Controller {
 
 public function editLoker(){
 
-  
+
 
   $data['loker_baru'] = $this->db->get_where('loker_baru',['id_loker' => $this->input->post('id_loker') ])->row_array();
   $posisi = $this->input->post('posisi');
@@ -197,7 +197,7 @@ public function hapusLoker($id_loker){
 
     $object->setActiveSheetIndex(0);
 
-    $table_columns = array("posisi", "nama", "tgl_lahir", "tmpt_lahir", "gender", "status", "agama", "alamat", "nomor", "email", "pendidikan");
+    $table_columns = array("posisi", "nama", "tgl_lahir", "tmpt_lahir", "gender", "status", "agama", "alamat", "nomor", "email", "pendidikan", "universitas", "jurusan");
 
     $column = 0;
 
@@ -226,8 +226,8 @@ public function hapusLoker($id_loker){
       $object->getActiveSheet()->setCellValueByColumnAndRow(8, $excel_row, $row->nomor);
       $object->getActiveSheet()->setCellValueByColumnAndRow(9, $excel_row, $row->email);
       $object->getActiveSheet()->setCellValueByColumnAndRow(10, $excel_row, $row->pendidikan);
-
-
+      $object->getActiveSheet()->setCellValueByColumnAndRow(11, $excel_row, $row->universitas);
+      $object->getActiveSheet()->setCellValueByColumnAndRow(12, $excel_row, $row->jurusan);
       $excel_row++;
 
     }
@@ -241,6 +241,59 @@ public function hapusLoker($id_loker){
     $berhasil = $object_writer->save('php://output');
 
   }
+
+  public function Excel_Export_pengumuman()
+  {
+    $this->load->model("excel_export_model");
+
+    $data["employee_data"] = $this->excel_export_model->fetch_data();
+    $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+    $this->load->view("admin/pelamar", $data);
+  }
+
+  public function action2(){
+
+    $this->load->model("excel_export_model");
+
+    $this->load->library("excel");
+
+    $object = new PHPExcel();
+
+    $object->setActiveSheetIndex(0);
+
+    $table_columns = array("posisi", "nama", "pendidikan", "universitas", "jurusan");
+
+    $column = 0;
+
+    foreach($table_columns as $field){
+
+      $object->getActiveSheet()->setCellValueByColumnAndRow($column, 1, $field);
+
+      $column++;
+
+    }
+
+    $employee_data = $this->excel_export_model->fetch_data2();
+
+    $excel_row = 2;
+
+    foreach($employee_data as $row){
+
+      $object->getActiveSheet()->setCellValueByColumnAndRow(0, $excel_row, $row->posisi);
+      $object->getActiveSheet()->setCellValueByColumnAndRow(1, $excel_row, $row->nama);
+      $object->getActiveSheet()->setCellValueByColumnAndRow(2, $excel_row, $row->pendidikan);
+      $object->getActiveSheet()->setCellValueByColumnAndRow(3, $excel_row, $row->universitas);
+      $object->getActiveSheet()->setCellValueByColumnAndRow(4, $excel_row, $row->jurusan);
+      $excel_row++;
+    }
+
+    $object_writer = PHPExcel_IOFactory::createWriter($object, 'Excel5');
+    header('Content-Type: application/vnd.ms-excel');
+    header('Content-Disposition: attachment;filename="Employee Data.xls"');
+    $berhasil = $object_writer->save('php://output');
+
+  }
+
 
 
 

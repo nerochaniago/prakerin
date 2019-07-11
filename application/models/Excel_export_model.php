@@ -3,20 +3,23 @@
 class Excel_export_model extends CI_Model{
 
                public function fetch_data(){
+                 $this->db->order_by("id_pelamar", "DESC");
+                 $query = $this->db->get("pendaftaran");
+                 return $query->result();
+               }
 
-                              $this->db->order_by("id_pelamar", "DESC");
-
-                              $query = $this->db->get("pendaftaran");
-
-                              return $query->result();
-
+               public function fetch_data2(){
+                 $this->db->order_by("id_pelamar", "DESC");
+                 $this->db->where('hasil','ya');
+                 $query = $this->db->get("pendaftaran");
+                 return $query->result();
                }
 
                public function getDataPekerjaanM($table,$where)
                {
                  $this->db->where('id_pelamar',$where);
-               	$mhs = $this->db->get($table);
-               	return $mhs->row_array();
+               	 $mhs = $this->db->get($table);
+               	 return $mhs->row_array();
                }
 
                public function delPelamarM($id_pelamar)

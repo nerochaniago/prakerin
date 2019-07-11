@@ -64,22 +64,32 @@ class User extends CI_Controller {
 
   public function daftarLowonganC()
   {
-    $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
     $this->load->model('UserM');
+    $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+    $data['list'] = $this->UserM->dataLowonganM();
+    $posisi = $this->input->post('posisi');
+    $data['posisi'] = $posisi;
+    // load model dan form helper
+        $this->load->model('UserM');
+        $this->load->helper('form_helper');
+        $data = array(
+            'user' => $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array(),
+            'button' => 'Posisi',
+            // 'action' => site_url('provinsi/create_action'),
+            'dd_provinsi' => $this->UserM->dataLowonganM(),
+            'provinsi_selected' => $this->input->post('posisi') ? $this->input->post('posisi') : '', // untuk edit ganti '' menjadi data dari database misalnya $row->provinsi
+	      );
     $this->load->view('user/daftarLowonganV',$data);
+
   }
 
   public function add_pelamar()
   {
     $this->load->model('UserM');
     $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
-    $config1['upload_path'] = './uploads/pelamar/foto';
-  	$config1['allowed_types'] = 'jpg|jpeg';
-  	$this->load->library('upload', $config1);
-
-    $config2['upload_path'] = './uploads/pelamar/cv';
-  	$config2['allowed_types'] = 'pdf|doc';
-    $this->load->library('upload', $config2);
+    $config['upload_path'] = './uploads/pelamar';
+  	$config['allowed_types'] = 'jpg|jpeg|pdf|doc';
+  	$this->load->library('upload', $config);
 
   	$this->upload->do_upload('foto');
     $foto = $this->upload->data('file_name');
@@ -99,7 +109,10 @@ class User extends CI_Controller {
   		'status'=>$this->input->post('status'),
   		'foto' => $foto,
   		'cv' => $cv,
-      'email'=>$this->session->email
+      'email'=>$this->session->email,
+      'universitas'=>$this->input->post('universitas'),
+      'jurusan'=>$this->input->post('jurusan'),
+      'hasil'=>$this->input->post('hasil')
   	);
 
     $this->UserM->add_pelamarM($data);
@@ -111,6 +124,17 @@ class User extends CI_Controller {
     $data['user'] = $this->load->model("UserM");
     $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
     $data['list'] = $this->UserM->dataPekerjaanM();
+    //
+    // $kota = $this->KotaModel->viewByProvinsi($id_loker);
+    // $lists = "<option value=''>Pilih</option>";
+    //
+    // foreach($kota as $data){
+    //   $lists .= "<option value='".$data->id."'>".$data->nama."</option>"; // Tambahkan tag option ke variabel $lists
+    // }
+    //
+    // $callback = array('list_kota'=>$lists); // Masukan variabel lists tadi ke dalam array $callback dengan index array : list_kota
+    // echo json_encode($callback); // konversi varibael $callback menjadi JSON
+
     $this->load->view('user/dataPekerjaanV',$data);
   }
 
@@ -126,9 +150,9 @@ class User extends CI_Controller {
   public function editDataPelamarC()
   {
     $this->load->model('UserM');
-
-    $data['pendaftaran'] = $this->db->get_where('pendaftaran',['id_pelamar'])->row_array();
-    $id_pelamar = $this->input->post('id_pelamar');
+    // $data['pendaftaran'] = $this->db->get_where('pendaftaran',['id_pelamar'])->row_array();
+    $data['pendaftaran'] = $this->db->get_where('pendaftaran',['id_pelamar' => $this->input->post('id_pelamar') ])->row_array();
+    // $id_pelamar = $this->input->post('id_pelamar');
     $posisi = $this->input->post('posisi');
     $nama = $this->input->post('nama');
     $tgl_lahir = $this->input->post('tgl_lahir');
@@ -139,21 +163,25 @@ class User extends CI_Controller {
     $alamat = $this->input->post('alamat');
     $agama = $this->input->post('agama');
     $status = $this->input->post('status');
-    $upload_image = $_FILES['foto']['name'];
-    $upload_cv = $_FILES['cv']['name'];
+    $foto = $_FILES['foto']['name'];
+    $cv = $_FILES['cv']['name'];
+    $universitas = $this->input->post('universitas');
+    $jurusan = $this->input->post('jurusan');
+    $hasil = $this->input->post('hasil');
 
-    if ($upload_image){
 
-      $config1['upload_path'] = './uploads/pelamar/foto';
-    	$config1['allowed_types'] = 'jpg|jpeg';
-    	$this->load->library('upload', $config1);
-      $config1['overwrite'] = true;
+    if ($foto){
+      $config['upload_path'] = './uploads/pelamar';
+    	$config['allowed_types'] = 'jpg|jpeg|pdf|doc';
+      $config['overwrite'] = true;
+    	$this->load->library('upload', $config);
 
       if ($this->upload->do_upload('foto')) {
         $old_image = $data['pendaftaran']['foto'];
-
-        if ($old_image != 'default.jpg') {
-          unlink(FCPATH . './uploads/pelamar/foto' . $old_image);
+        // var_dump($old_image);
+        // die;
+        if ($old_image) {
+          unlink(FCPATH . './uploads/pelamar' . $old_image);
         }
         $new_img = $this->upload->data('file_name');
         $this->db->set('foto', $new_img);
@@ -161,16 +189,11 @@ class User extends CI_Controller {
         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $this->upload->display_errors() . '</div>');
         redirect('user');
       }
-    } else if ($upload_cv){
-      $config2['upload_path'] = './uploads/pelamar/cv';
-    	$config2['allowed_types'] = 'pdf|doc';
-      $this->load->library('upload', $config2);
-      $config2['overwrite'] = true;
-
+    } else if ($cv){
         if ($this->upload->do_upload('cv')) {
           $old_cv = $data['pendaftaran']['cv'];
-          if ($old_cv != 'default.jpg') {
-            unlink(FCPATH . './uploads/pelamar/cv' . $old_cv);
+          if ($old_cv) {
+            unlink(FCPATH . './uploads/pelamar' . $old_cv);
           }
           $new_cv = $this->upload->data('file_name');
           $this->db->set('cv', $new_cv);
@@ -181,19 +204,39 @@ class User extends CI_Controller {
     }
 
     $data = [
-      'posisi'=>$this->input->post('posisi'),
-      'nama'=>$this->input->post('nama'),
-      'tgl_lahir'=>$this->input->post('tgl_lahir'),
-      'tmpt_lahir'=>$this->input->post('tmpt_lahir'),
-      'pendidikan'=>$this->input->post('pendidikan'),
-      'nomor'=>$this->input->post('nomor'),
-      'gender'=>$this->input->post('gender'),
-      'alamat'=>$this->input->post('alamat'),
-      'agama'=>$this->input->post('agama'),
-      'status'=>$this->input->post('status')
+      // 'posisi'=>$this->input->post('posisi'),
+      // 'nama'=>$this->input->post('nama'),
+      // 'tgl_lahir'=>$this->input->post('tgl_lahir'),
+      // 'tmpt_lahir'=>$this->input->post('tmpt_lahir'),
+      // 'pendidikan'=>$this->input->post('pendidikan'),
+      // 'nomor'=>$this->input->post('nomor'),
+      // 'gender'=>$this->input->post('gender'),
+      // 'alamat'=>$this->input->post('alamat'),
+      // 'agama'=>$this->input->post('agama'),
+      // 'status'=>$this->input->post('status')
+
+      'posisi'=> $posisi,
+      'nama'=> $nama,
+      'tgl_lahir'=> $tgl_lahir,
+      'tmpt_lahir'=> $tmpt_lahir,
+      'pendidikan'=> $pendidikan,
+      'nomor'=> $nomor,
+      'gender'=> $gender,
+      'alamat'=> $alamat,
+      'agama'=> $agama,
+      'status'=> $status,
+      'universitas'=> $universitas,
+      'jurusan'=> $jurusan,
+      'hasil'=> $hasil
+
     ];
 
-    $this->UserM->editDataPekerjaanM($data,$id_pelamar);
+    // $this->UserM->editDataPekerjaanM($data,$id_pelamar);
+    $this->db->where('id_pelamar',$this->input->post('id_pelamar'));
+    $this->db->update('pendaftaran',$data);
+    $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
+     Loker has been updated
+    </div>');
     redirect('user');
 
   }
