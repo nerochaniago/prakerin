@@ -164,7 +164,7 @@
           <!-- Pendaftaran Lowongan -->
         	<div class="container">
         		<div class="col-12 konten" style="background-color: white;">
-        			<form action="<?php echo site_url(); ?>/User/editDataPelamarC" method="POST" enctype="multipart/form-data">
+        			<form action="<?php echo site_url(); ?>/Admin_Puri/saveStatus" method="POST" enctype="multipart/form-data">
 
         				<!-- Formulir pendaftaran Lowongan Pekerjaan -->
         				<!-- <p class="text-center">Formulir pendaftaran Lowongan Pekerjaan</p> -->
@@ -314,13 +314,25 @@
                     </div>
                   </div>
                 </div><br>
+                <!-- Form input Status -->
+                <div class="row">
+                  <label for="cv" class="col-sm-2 col-form-label">Status</label>
+                  <div class="col-sm-10">
+                    <div class="custom-file">
+                      <select class="form-control" id="hasil" name="hasil">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                      </select>
+                    </div>
+                  </div>
+                </div><br>
                 <!-- Validasi pendaftaran -->
                 <div class="form-group row">
                     <div class="col-sm-10">
-                      <button type="button" class="btn btn-primary">Done</button>
-                      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#masukkandatabaru">
+                      <button type="submit" class="btn btn-primary">Done</button>
+                      <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#masukkandatabaru">
                         Change Status
-                      </button>
+                      </button> -->
                     </div>
                 </div>
                 <br>
@@ -365,8 +377,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="<?= base_url() ?>Admin_Puri/tambahStatusPelamar" method="POST">
-            <!-- <input type="hidden" name="id_pelamar" value="SP<?= str_pad(rand(0, pow(10, 4)-1), 4, '0', STR_PAD_LEFT); ?>"> -->
+          <form action="<?= base_url() ?>Admin_Puri/saveStatus" method="POST">
             <div class="form-group">
               <label for="id_pelanggan">Nama Pelamar</label>
               <input type="text" class="form-control" id="nama" name="nama" value="<?= $list['nama'] ?>" readonly>
@@ -381,7 +392,8 @@
             </div>
         </div>
         <div class="modal-footer">
-          <a class="btn btn-primary" href="<?= base_url('Admin_Puri/saveStatus');?>">Save</a>
+          <!-- <a class="btn btn-primary" href="<?= base_url('Admin_Puri/add_pelamar');?>">Save</a> -->
+          <button class="btn btn-primary">Save</button>
         </div>
         </form>
       </div>

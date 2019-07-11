@@ -192,8 +192,7 @@
                                <td>
                                  <!-- <button type="submit"  class="btn btn-primary" data-toggle="modal" data-target="#viewnya" >View</button> -->
                                  <a href="<?php echo site_url('Admin_Puri/viewData/'.$pelamar->id_pelamar); ?>" onclick="return confirm('Apakah Anda Ingin Melihat Data <?=$pelamar->id_pelamar;?> ?');" class="btn btn-primary" data-popup="tooltip" data-placement="top" title="View Data"><i class="glyphicon glyphicon-file"></i>View</a>
-
-                                 <button type="submit"  class="btn btn-secondary">CV</button>
+          
                                  <a href="<?php echo site_url('Admin_Puri/delPelamarC/'.$pelamar->id_pelamar); ?>" onclick="return confirm('Apakah Anda Ingin Menghapus Data <?=$pelamar->id_pelamar;?> ?');" class="btn btn-danger btn-circle" data-popup="tooltip" data-placement="top" title="Hapus Data"><i class="fa fa-trash"></i></a>
                                  <!-- <input type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" value="Delete" onclick="if (confirm(\'yakin anda akan menghapus Data ini??\')) location.href=\''.site_url('Admin_Puri/delAllPendaftarAdmin_Puri/delPelamarC'.$pelamar['id_pelamar']).'\'">'; -->
                                </td>

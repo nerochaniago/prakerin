@@ -294,6 +294,26 @@ public function hapusLoker($id_loker){
 
   }
 
+  public function saveStatus()
+  {
+    $this->load->model('AdminM');
+    $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+    $hasil = $this->input->post('hasil');
+
+    $data = array('hasil'=>$hasil
+                  );
+    // $this->AdminM->add_statusM($data);
+
+    $this->db->where('id_pelamar',$this->input->post('id_pelamar'));
+    $this->db->update('pendaftaran',$data);
+    $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
+     Status has been updated
+    </div>');
+    redirect('Admin_Puri');
+
+    // redirect('admin');
+  }
+
 
 
 

@@ -74,7 +74,7 @@ class User extends CI_Controller {
         $this->load->helper('form_helper');
         $data = array(
             'user' => $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array(),
-            'button' => 'Posisi',
+            'button' => 'posisi',
             // 'action' => site_url('provinsi/create_action'),
             'dd_provinsi' => $this->UserM->dataLowonganM(),
             'provinsi_selected' => $this->input->post('posisi') ? $this->input->post('posisi') : '', // untuk edit ganti '' menjadi data dari database misalnya $row->provinsi
@@ -167,7 +167,6 @@ class User extends CI_Controller {
     $cv = $_FILES['cv']['name'];
     $universitas = $this->input->post('universitas');
     $jurusan = $this->input->post('jurusan');
-    $hasil = $this->input->post('hasil');
 
 
     if ($foto){
@@ -227,8 +226,6 @@ class User extends CI_Controller {
       'status'=> $status,
       'universitas'=> $universitas,
       'jurusan'=> $jurusan,
-      'hasil'=> $hasil
-
     ];
 
     // $this->UserM->editDataPekerjaanM($data,$id_pelamar);

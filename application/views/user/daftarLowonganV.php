@@ -301,6 +301,7 @@
                   <label for="title">CV</label>
                   <input type="file" class="form-control-file" accept="PDF/*" name="cv">
                 </div>
+                <input type="hidden" name="hasil" value="no">
                 <!-- Validasi pendaftaran -->
                 <div class="form-group row">
                     <div class="col-sm-10">
