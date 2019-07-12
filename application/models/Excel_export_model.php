@@ -10,7 +10,7 @@ class Excel_export_model extends CI_Model{
 
                public function fetch_data2(){
                  $this->db->order_by("id_pelamar", "DESC");
-                 $this->db->where('hasil','ya');
+                 $this->db->where('hasil','yes');
                  $query = $this->db->get("pendaftaran");
                  return $query->result();
                }

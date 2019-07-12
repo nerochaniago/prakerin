@@ -10,13 +10,6 @@ class UserM extends CI_Model{
     $this->load->view("admin/pelamar", $data);
   }
 
-  public function fetch_data2(){
-    $this->db->order_by("id_pelamar", "DESC");
-    $this->db->where('hasil','ya');
-    $query = $this->db->get("pendaftaran");
-    return $query->result();
-  }
-
   public function dataLowonganM()
   {
     // return $this->db->get('loker_baru')->result_array();
