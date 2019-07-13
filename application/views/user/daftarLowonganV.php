@@ -293,12 +293,12 @@
         				</fieldset>
                 <!-- Form input Foto -->
                 <div class="form-group row">
-                  <label for="title">Foto Formal</label>
+                  <label for="title">Foto Formal  *(hanya support file bertipe jpg|jpeg|png, selain itu tidak bisa diterima)</label>
                   <input type="file" class="form-control-file" accept="image/*" name="foto">
                 </div>
                 <!-- Form input CV -->
                 <div class="form-group row">
-                  <label for="title">CV</label>
+                  <label for="title">CV *(hanya support file bertipe pdf, selain itu tidak bisa diterima)</label>
                   <input type="file" class="form-control-file" accept="PDF/*" name="cv">
                 </div>
                 <input type="hidden" name="hasil" value="no">

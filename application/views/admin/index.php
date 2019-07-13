@@ -53,22 +53,8 @@
       </li>
 
 
-      <!-- Divider -->
-      <hr class="sidebar-divider">
+    
 
-      <!-- Heading -->
-      <div class="sidebar-heading" style="color: black;">
-        User
-      </div>
-
-      <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-id-card"></i>
-          <span>Profile</span></a>
-          <a class="nav-link" href="charts.html">
-            <i class="fas fa-fw fa-id-card"></i>
-            <span>Edit Profile</span></a>
-      </li>
       <hr class="sidebar-divider">
 
       <!-- Heading -->
@@ -164,6 +150,7 @@
 
 
         </div>
+
         <!-- /.container-fluid -->
 
       </div>
@@ -218,6 +205,7 @@
 
   <!-- Custom scripts for all pages-->
   <script src="<?= base_url();?>assets/js/sb-admin-2.min.js"></script>
+
 
 </body>
 

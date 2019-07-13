@@ -178,6 +178,12 @@ public function hapusLoker($id_loker){
     redirect($_SERVER['HTTP_REFERER']);
   }
 
+  public function delAllUser(){
+    $this->load->model("Excel_export_model");
+    $this->Excel_export_model->delAllUser();
+    redirect($_SERVER['HTTP_REFERER']);
+  }
+
   public function Excel_Export()
   {
     $this->load->model("excel_export_model");

@@ -88,7 +88,7 @@ class User extends CI_Controller {
     $this->load->model('UserM');
     $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
     $config['upload_path'] = './uploads/pelamar';
-  	$config['allowed_types'] = 'jpg|jpeg|pdf|doc';
+  	$config['allowed_types'] = 'jpg|jpeg|pdf|doc|png';
   	$this->load->library('upload', $config);
 
   	$this->upload->do_upload('foto');
@@ -111,8 +111,7 @@ class User extends CI_Controller {
   		'cv' => $cv,
       'email'=>$this->session->email,
       'universitas'=>$this->input->post('universitas'),
-      'jurusan'=>$this->input->post('jurusan'),
-      'hasil'=>$this->input->post('hasil')
+      'jurusan'=>$this->input->post('jurusan')
   	);
 
     $this->UserM->add_pelamarM($data);

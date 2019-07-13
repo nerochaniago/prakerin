@@ -57,21 +57,7 @@
 
 
       <!-- Divider -->
-      <hr class="sidebar-divider">
 
-      <!-- Heading -->
-      <div class="sidebar-heading" style="color: black;">
-        User
-      </div>
-
-      <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-id-card"></i>
-          <span>Profile</span></a>
-          <a class="nav-link" href="charts.html">
-            <i class="fas fa-fw fa-id-card"></i>
-            <span>Edit Profile</span></a>
-      </li>
       <hr class="sidebar-divider">
 
       <!-- Heading -->
@@ -180,6 +166,7 @@
                                <th>Nama</th>
                                <th>Email</th>
                                <th>Posisi</th>
+                               <th>Hasil Berkas</th>
                                <th>Aksi</th>
                              </tr>
                            </thead>
@@ -189,10 +176,11 @@
                                <td><?= $pelamar->nama ?></td>
                                <td><?= $pelamar->email ?></td>
                                <td><?= $pelamar->posisi ?></td>
+                               <td><?= $pelamar->hasil ?></td>
                                <td>
                                  <!-- <button type="submit"  class="btn btn-primary" data-toggle="modal" data-target="#viewnya" >View</button> -->
                                  <a href="<?php echo site_url('Admin_Puri/viewData/'.$pelamar->id_pelamar); ?>" onclick="return confirm('Apakah Anda Ingin Melihat Data <?=$pelamar->id_pelamar;?> ?');" class="btn btn-primary" data-popup="tooltip" data-placement="top" title="View Data"><i class="glyphicon glyphicon-file"></i>View</a>
-          
+
                                  <a href="<?php echo site_url('Admin_Puri/delPelamarC/'.$pelamar->id_pelamar); ?>" onclick="return confirm('Apakah Anda Ingin Menghapus Data <?=$pelamar->id_pelamar;?> ?');" class="btn btn-danger btn-circle" data-popup="tooltip" data-placement="top" title="Hapus Data"><i class="fa fa-trash"></i></a>
                                  <!-- <input type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" value="Delete" onclick="if (confirm(\'yakin anda akan menghapus Data ini??\')) location.href=\''.site_url('Admin_Puri/delAllPendaftarAdmin_Puri/delPelamarC'.$pelamar['id_pelamar']).'\'">'; -->
                                </td>
@@ -209,14 +197,18 @@
                  <br>
                  <div class="container-fluid">
                    <div align="center">
-                   <form method="post" action="<?php echo site_url('Admin_Puri/delAllPendaftar/'); ?>"  style="">
-                     <input type="submit" name="delete" class="btn btn-danger" value="Delete All" style="float: right"/>
-                   </form>
-                   <!-- <input type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" value="Delete" onclick="if (confirm(\'yakin anda akan menghapus Data ini??\')) location.href=\''.site_url('Admin_Puri/delAllPendaftar'.$pelamar['id_pelamar']).'\'">'; -->
 
                    <form method="post" action="<?php echo site_url('Admin_Puri/action'); ?>">
-                     <input type="submit" name="export" class="btn btn-success" value="Export All" style="float: right; margin-right: 2px;"/>
+                     <input type="submit" name="export" class="btn btn-success" value="Export All Pendaftar" style="float: right; "/>
                    </form>
+
+                     <form method="post" action="<?php echo site_url(); ?>Admin_Puri/delAllUser/"  style="">
+                       <input type="submit" name="delete" class="btn btn-warning" value="Delete All User" style="float: right; margin-right:15px;"/>
+                     </form>
+                     <br><br>
+                     <form method="post" action="<?php echo site_url('Pendaftar_C/action2'); ?>">
+                      <input type="submit" name="export2" class="btn btn-info" value="Export yang Diterima" style="float: right; "/>
+                     </form>
                    </div>
                  </div>
       </div>

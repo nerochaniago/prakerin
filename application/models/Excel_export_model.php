@@ -27,7 +27,8 @@ class Excel_export_model extends CI_Model{
                  $this->db->where('id_pelamar', $id_pelamar);
                  $query = $this->db->get('pendaftaran');
                  $row = $query->row();
-                 unlink("./uploads/pelamar/foto/$row->foto");
+                 unlink("./uploads/pelamar/$row->foto");
+                 unlink("./uploads/pelamar/$row->cv");
                  $this->db->delete('pendaftaran', array('id_pelamar' => $id_pelamar));
                }
 
@@ -42,8 +43,16 @@ class Excel_export_model extends CI_Model{
                  // $this->db->delete('pendaftaran');
                  $query = $this->db->get('pendaftaran');
                  $row = $query->row();
-                 unlink("./uploads/pelamar/foto/$row->foto");
+                 unlink("./uploads/pelamar/$row->foto");
+                 unlink("./uploads/pelamar/$row->cv");
                  $this->db->empty_table('pendaftaran');
+               }
+
+               public function delAllUser(){
+                  $role = 2;
+                  $this->db->where('role_id', $role);
+                  $query = $this->db->get('user');
+                  $this->db->delete('user', array('role_id' => $role));
                }
 
 }
