@@ -114,19 +114,7 @@ class User extends CI_Controller {
       'jurusan'=>$this->input->post('jurusan')
   	);
 
-    // $this->UserM->add_pelamarM($data);
-    $query = "SELECT email FROM pendaftaran WHERE email = '$_POST[email]'";
-    if ($query){
-      $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
-       Anda Sudah mendaftar Lowongan Pekerjaan lain
-      </div>');echo "Anda Sudah Mendaftar";
-    }
-    else {
-      $this->db->insert('pendaftaran',$data);
-      $this->session->set_flashdata('message','<div class="alert alert-info" role="alert">
-       Pendaftaran Berhasil, Pengumuman akan di umumkan pada website resmi www.purimakmurlestari.co.id
-      </div>');
-    }
+    $this->UserM->add_pelamarM($data);
   	redirect('User');
   }
 
