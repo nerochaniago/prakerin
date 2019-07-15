@@ -52,28 +52,21 @@
       <li class="nav-item">
         <a class="nav-link" href="<?= base_url();?>User">
           <i class="fas fa-fw fa-id-card"></i>
-          <span>Akun</span></a>
-          <a class="nav-link" href="<?= base_url();?>User/edit_user">
-            <i class="fas fa-fw fa-id-card"></i>
-            <span>Edit Akun</span></a>
-      </li>
+          <span>Dashboard</span></a>
+
 
       <!-- Heading -->
       <div class="sidebar-heading" style="color: black;">
-        Lowongan
+        Berkas
       </div>
 
       <li class="nav-item">
           <a class="nav-link" href="<?= base_url();?>User/daftarLowonganC">
-            <i class="fas fa-fw fa-id-card"></i>
-            <span>Daftar Lowongan Pekerjaan</span></a>
+            <i class=""></i>
+            <span style="color:#fff700;"><strong>Daftar Lowongan Pekerjaan</strong></span></a>
       </li>
 
-      <li class="nav-item">
-          <a class="nav-link" href="<?= base_url();?>User/dataPekerjaanC">
-            <i class="fas fa-fw fa-id-card"></i>
-            <span>Data Pekerjaan yang dilamar</span></a>
-      </li>
+
 
       <!-- Divider -->
       <hr class="sidebar-divider">
@@ -135,7 +128,7 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Akun</h1>
+          <h1 class="h3 mb-4 text-gray-800">Dashboard</h1>
 
           <div class="row">
             <div class="col-lg-6">
@@ -159,7 +152,7 @@
           </div>
           <div class="alert alert-info" role="alert">
             <marquee><h3 style="color: red; font-weight: bold;"> Penting : Lengkapi Data Anda Pada Menu Daftar Lowongan Pekerjaan</h3></marquee>
-            <h3><strong>*Hanya Dapat Mendaftar 1 Posisi Pekerjaan Sesuai Bidang</strong></h3>
+            <h3><strong>*Hanya Dapat Mendaftar 1 Posisi Pekerjaan</strong></h3>
           </div>
 
 

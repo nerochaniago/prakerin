@@ -22,8 +22,6 @@ class Admin_Puri extends CI_Controller {
     $this->load->view('admin/lowongan',$data);
   }
 
-
-
   public function tambahLowongan(){
 
     $posisi = $this->input->post('posisi');
@@ -161,7 +159,10 @@ public function hapusLoker($id_loker){
   public function delPelamarC($id_pelamar){
     $this->load->model("Excel_export_model");
     $this->Excel_export_model->delPelamarM($id_pelamar);
-    redirect($_SERVER['HTTP_REFERER']);
+    $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
+     Pelamar has been deleted
+    </div>');
+    redirect('Admin_Puri/Excel_Export');
   }
 
   public function viewData($id_pelamar){
@@ -178,13 +179,138 @@ public function hapusLoker($id_loker){
     redirect($_SERVER['HTTP_REFERER']);
   }
 
+  public function delAllUser(){
+    $this->load->model("Excel_export_model");
+    $this->Excel_export_model->delAllUser();
+    $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
+     All user has been deleted
+    </div>');
+    redirect('Admin_Puri/Excel_Export');;
+  }
+
   public function Excel_Export()
   {
-    $this->load->model("excel_export_model");
-
-    $data["employee_data"] = $this->excel_export_model->fetch_data();
+    $this->load->model("Excel_export_model");
     $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+    $data["pelamar"] = $this->Excel_export_model->fetch_data();
     $this->load->view("admin/pelamar", $data);
+  }
+
+
+  public function Publish(){
+    $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
+    $data['publish_hasil'] = $this->lowongan_m->getPublishHasil();
+    $this->load->view('admin/hasil',$data);
+  }
+
+  public function tambahHasil(){
+    $judul = $this->input->post('judul');
+    $tanggal = $this->input->post('tanggal');
+    $isi = $this->input->post('isi');
+    $file = $_FILES['file']['name'];
+    if ($file) {
+      // code...
+      $config['allowed_types'] = 'gif|jpg|png|xls|xlsx|csv';
+      $config['upload_path'] = './hasil_seleksi/';
+      $this->load->library('upload',$config);
+
+      if ($this->upload->do_upload('file')) {
+            $upload_data = $this->upload->data();
+            $data = [
+                'judul' => $judul,
+                'tanggal' => $tanggal,
+                'isi' => $isi,
+                'file' => $upload_data['file_name']
+              ];
+
+              $this->db->insert('publish_hasil',$data);
+              $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
+               Input Hasil Seleksi Berhasil
+              </div>');
+              redirect('Admin_Puri/Publish');
+      } else {
+              $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
+               gagal
+              </div>');
+              redirect('Admin_Puri/Publish');
+    }
+
+    }
+    $data = [
+      'judul' => $judul,
+      'tanggal' => $tanggal,
+      'isi' => $isi,
+      'file' => $upload_data['file_name']
+      ];
+      $this->db->insert('publish_hasil',$data);
+      $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
+       Input Hasil Seleksi Berhasil
+      </div>');
+      redirect('Admin_Puri/Publish');
+  }
+
+  public function editHasil(){
+    $data['publish_hasil'] = $this->db->get_where('publish_hasil',['id_hasil' => $this->input->post('id_hasil') ])->row_array();
+    $judul = $this->input->post('judul');
+    $tanggal = $this->input->post('tanggal');
+    $isi = $this->input->post('isi');
+    $file = $_FILES['file']['name'];
+    if ($file) {
+      // code...
+      $config['allowed_types'] = 'gif|jpg|png|xls|xlsx|csv';
+      $config['upload_path'] = './hasil_seleksi/';
+      $config['overwrite'] = true;
+      $this->load->library('upload',$config);
+      if ($this->upload->do_upload('file')) {
+        $old_file = $data['publish_hasil']['file'];
+        if ($old_file) {
+          // code...
+          unlink(FCPATH . 'hasil_seleksi/' . $old_file);
+        }
+        $new_file = $this->upload->data('file_name');
+        $this->db->set('file', $new_file);
+
+        $data = [
+          'judul' => $judul,
+          'tanggal' => $tanggal,
+          'isi' => $isi
+        ];
+
+        $this->db->where('id_hasil',$this->input->post('id_hasil'));
+        $this->db->update('publish_hasil',$data);
+        $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
+         Hasil seleksi has been updated
+        </div>');
+        redirect('Admin_Puri/Publish');
+
+      } else {
+              $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
+               gagal
+              </div>');
+              redirect('Admin_Puri/Publish');
+    }
+
+
+    }
+            $data = [
+              'judul' => $judul,
+              'tanggal' => $tanggal,
+              'isi' => $isi
+            ];
+            $this->db->where('id_hasil',$this->input->post('id_hasil'));
+            $this->db->update('publish_hasil',$data);
+            $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
+             Hasil seleksi has been updated
+            </div>');
+            redirect('Admin_Puri/Publish');
+  }
+
+  public function hapusHasil($id_hasil){
+    $this->lowongan_m->hapusHasil($id_hasil);
+    $this->session->set_flashdata('message','<div class="alert alert-warning" role="alert">
+     Data Hasil Seleksi Berhasil Dihapus
+    </div>');
+    redirect('Admin_Puri/Publish');
   }
 
   public function action(){
@@ -257,7 +383,7 @@ public function hapusLoker($id_loker){
     $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
      Status has been updated
     </div>');
-    redirect('Admin_Puri');
+    redirect('Admin_Puri/Excel_Export');
 
     // redirect('admin');
   }

@@ -63,7 +63,7 @@ class Pendaftar_C extends CI_Controller {
 
       $object->setActiveSheetIndex(0);
 
-      $table_columns = array("posisi", "nama", "pendidikan", "universitas", "jurusan");
+      $table_columns = array("Posisi", "Nama", "Email","Pendidikan", "Universitas", "Jurusan");
 
       $column = 0;
 
@@ -83,9 +83,10 @@ class Pendaftar_C extends CI_Controller {
 
         $object->getActiveSheet()->setCellValueByColumnAndRow(0, $excel_row, $row->posisi);
         $object->getActiveSheet()->setCellValueByColumnAndRow(1, $excel_row, $row->nama);
-        $object->getActiveSheet()->setCellValueByColumnAndRow(2, $excel_row, $row->pendidikan);
-        $object->getActiveSheet()->setCellValueByColumnAndRow(3, $excel_row, $row->universitas);
-        $object->getActiveSheet()->setCellValueByColumnAndRow(4, $excel_row, $row->jurusan);
+        $object->getActiveSheet()->setCellValueByColumnAndRow(2, $excel_row, $row->email);
+        $object->getActiveSheet()->setCellValueByColumnAndRow(3, $excel_row, $row->pendidikan);
+        $object->getActiveSheet()->setCellValueByColumnAndRow(4, $excel_row, $row->universitas);
+        $object->getActiveSheet()->setCellValueByColumnAndRow(5, $excel_row, $row->jurusan);
         $excel_row++;
       }
 

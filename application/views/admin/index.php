@@ -48,27 +48,13 @@
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
         <a class="nav-link" href="<?= base_url();?>Admin_Puri">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <i class="fas fa-fw fa-tachometer-alt" style="color:#f09e24;"></i>
           <span>Dashboard</span></a>
       </li>
 
 
-      <!-- Divider -->
-      <hr class="sidebar-divider">
 
-      <!-- Heading -->
-      <div class="sidebar-heading" style="color: black;">
-        User
-      </div>
 
-      <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-id-card"></i>
-          <span>Profile</span></a>
-          <a class="nav-link" href="charts.html">
-            <i class="fas fa-fw fa-id-card"></i>
-            <span>Edit Profile</span></a>
-      </li>
       <hr class="sidebar-divider">
 
       <!-- Heading -->
@@ -78,7 +64,7 @@
 
       <li class="nav-item">
         <a class="nav-link" href="<?= base_url();?>Admin_Puri/lowongan">
-          <i class= "fas fa-briefcase"></i>
+          <i class= "fas fa-briefcase" style="color:#f09e24;"></i>
           <span>Manage Loker</span></a>
       </li>
 
@@ -89,8 +75,17 @@
 
       <li class="nav-item">
         <a class="nav-link" href="<?= base_url();?>Admin_puri/Excel_Export">
-          <i class= "fas fa-briefcase"></i>
+          <i class= "fas fa-briefcase" style="color:#f09e24;"></i>
           <span>Data Pelamar</span></a>
+      </li>
+      <div class="sidebar-heading" style="color: black;">
+        Menu Publish
+      </div>
+
+      <li class="nav-item">
+        <a class="nav-link" href="<?= base_url();?>Admin_puri/Publish">
+          <i class= "fas fa-briefcase" style="color:#f09e24;"></i>
+          <span>Data Publish Hasil</span></a>
       </li>
 
 
@@ -160,10 +155,20 @@
           <!-- Page Heading -->
           <h1 class="h3 mb-4 text-gray-800">Dashboard Sistem Informasi PT Puri Makmur Lestari</h1>
 
+          <div class="container">
+            <div class="row">
+              <div class="col md 8">
+                  <img src="<?= base_url();?>assets/img/Logo Puri.png" alt="logo_pt_puri" width="450em;">
+              </div>
+
+            </div>
+
+          </div>
 
 
 
         </div>
+
         <!-- /.container-fluid -->
 
       </div>
@@ -218,6 +223,7 @@
 
   <!-- Custom scripts for all pages-->
   <script src="<?= base_url();?>assets/js/sb-admin-2.min.js"></script>
+
 
 </body>
 
