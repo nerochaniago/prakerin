@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.9
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 11, 2019 at 01:12 PM
--- Server version: 10.1.13-MariaDB
--- PHP Version: 5.6.23
+-- Waktu pembuatan: 15 Jul 2019 pada 04.39
+-- Versi server: 10.1.31-MariaDB
+-- Versi PHP: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -23,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `import`
+-- Struktur dari tabel `import`
 --
 
 CREATE TABLE `import` (
@@ -33,7 +35,7 @@ CREATE TABLE `import` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `import`
+-- Dumping data untuk tabel `import`
 --
 
 INSERT INTO `import` (`id`, `name`, `email`) VALUES
@@ -49,7 +51,7 @@ INSERT INTO `import` (`id`, `name`, `email`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `loker`
+-- Struktur dari tabel `loker`
 --
 
 CREATE TABLE `loker` (
@@ -64,7 +66,7 @@ CREATE TABLE `loker` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `loker`
+-- Dumping data untuk tabel `loker`
 --
 
 INSERT INTO `loker` (`id_loker`, `posisi`, `penempatan`, `syarat`, `batas`, `status_loker`, `gambar`, `role_id`) VALUES
@@ -75,7 +77,7 @@ INSERT INTO `loker` (`id_loker`, `posisi`, `penempatan`, `syarat`, `batas`, `sta
 -- --------------------------------------------------------
 
 --
--- Table structure for table `loker_baru`
+-- Struktur dari tabel `loker_baru`
 --
 
 CREATE TABLE `loker_baru` (
@@ -88,21 +90,10 @@ CREATE TABLE `loker_baru` (
   `gambar` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `loker_baru`
---
-
-INSERT INTO `loker_baru` (`id_loker`, `role_id`, `posisi`, `penempatan`, `syarat`, `batas`, `gambar`) VALUES
-(1, 1, 'testing aja', '', '', '0000-00-00', ''),
-(2, 1, 'test', '', '', '0000-00-00', ''),
-(3, 1, '12', '', '', '0000-00-00', ''),
-(4, 1, '12', '', '', '0000-00-00', ''),
-(5, 1, 'puri', '', '', '0000-00-00', '');
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pendaftaran`
+-- Struktur dari tabel `pendaftaran`
 --
 
 CREATE TABLE `pendaftaran` (
@@ -127,18 +118,32 @@ CREATE TABLE `pendaftaran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pendaftaran`
+-- Dumping data untuk tabel `pendaftaran`
 --
 
 INSERT INTO `pendaftaran` (`id`, `id_pelamar`, `posisi`, `nama`, `tgl_lahir`, `tmpt_lahir`, `gender`, `status`, `agama`, `pendidikan`, `alamat`, `nomor`, `email`, `foto`, `cv`, `universitas`, `jurusan`, `hasil`) VALUES
-(0, 41, '', '', '0000-00-00', '', 'Laki-laki', 'Lajang', '', 'S2', '', 0, 'test@gmail.com', 'IMG-20190511-WA0002.jpg', '', '', '', ''),
-(0, 42, '', '', '0000-00-00', '', 'Laki-laki', 'Lajang', '', 'S2', '', 0, 'test@gmail.com', '1555700944104.jpg', '189330.jpg', '', '', ''),
-(0, 43, '', '', '0000-00-00', '', 'Laki-laki', 'Lajang', '', 'S2', '', 0, 'test@gmail.com', 'foto.jpg', 'CV.pdf', '', '', 'ya');
+(0, 10, '', 'ustad nero', '0000-00-00', '', 'Laki-laki', 'Lajang', '', 'S2', '', 0, 'nerochaniago@student.telkomuniversity.ac.id', '', '', '', '', 'No'),
+(0, 11, '', 'ustad nero 2', '0000-00-00', '', 'Laki-laki', 'Lajang', '', 'S2', '', 0, 'test@gmail.com', '', '', '', '', ''),
+(0, 12, '', 'aaa', '0000-00-00', '', 'Laki-laki', 'Lajang', '', 'S2', '', 0, 'shyffainf@yahoo.com', '', '', '', '', 'Yes');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `publish_hasil`
+--
+
+CREATE TABLE `publish_hasil` (
+  `id_hasil` int(11) NOT NULL,
+  `judul` varchar(255) NOT NULL,
+  `tanggal` date NOT NULL,
+  `isi` text NOT NULL,
+  `file` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -153,19 +158,20 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
 (3, 'nero chaniago', 'nerochaniago19@gmail.com', 'default.jpg', '$2y$10$VME1rtUk8qDXD5J1KJZT5erO99yrH94YFK9VmUBFq7wllbwQOJHUm', 1, 1, 1558746937),
-(4, 'shyffa ilmallia noer fhadillah', 'shyffainf@yahoo.com', 'download.png', '$2y$10$9LPlNGk0nHo5jmUB/aoILeQCUE3xYFMdBFyHv5GKyRX6OeqL9dcty', 2, 1, 1558750388),
-(5, 'test', 'test@gmail.com', 'captain-america-1600x900-artwork-hd-8107.jpg', '$2y$10$zuX8uXQZ2tOSmmElvbZcJOLw8XgsurAeByIt6zyUHBKq49Dm5TQ0a', 2, 1, 1558913293),
-(9, 'shyffailmallia@yahoo.com', 'shyffailmallia@yahoo.com', 'default.jpg', '$2y$10$idIO9Lsq4l8l9jImsNrkBuBtm52vWZFubCwRyonw0aqDhsw/TO.n6', 1, 1, 1561455413);
+(9, 'shyffailmallia@yahoo.com', 'shyffailmallia@yahoo.com', 'default.jpg', '$2y$10$idIO9Lsq4l8l9jImsNrkBuBtm52vWZFubCwRyonw0aqDhsw/TO.n6', 1, 1, 1561455413),
+(13, 'shyffa ilmallia noer fhadillah', 'nerochaniago@student.telkomuniversity.ac.id', 'default.jpg', '$2y$10$0w9GtV9VhXCOoJotc24UBer6xHfSLVZzMbR8.EeoCKYpUxt9MafRa', 2, 1, 1563073377),
+(14, 'shyffa ilmallia noer fhadillah', 'shyffainf@yahoo.com', 'default.jpg', '$2y$10$NkJsqPhWv6.kYoIofNEsj.yEI7wsCpjxIeMVx.XQgi5ZvmvxgInKG', 2, 1, 1563074489),
+(15, 'ustad nero chaniago', 'test@gmail.com', 'default.jpg', '$2y$10$7PU8L43KbPWHTjyzmtge8uRXr2dTOC7sirJ8IZtBFdn4VhLdVWtXa', 2, 1, 1563074519);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_role`
+-- Struktur dari tabel `user_role`
 --
 
 CREATE TABLE `user_role` (
@@ -174,7 +180,7 @@ CREATE TABLE `user_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user_role`
+-- Dumping data untuk tabel `user_role`
 --
 
 INSERT INTO `user_role` (`id`, `role`) VALUES
@@ -186,75 +192,94 @@ INSERT INTO `user_role` (`id`, `role`) VALUES
 --
 
 --
--- Indexes for table `import`
+-- Indeks untuk tabel `import`
 --
 ALTER TABLE `import`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `loker`
+-- Indeks untuk tabel `loker`
 --
 ALTER TABLE `loker`
   ADD PRIMARY KEY (`id_loker`);
 
 --
--- Indexes for table `loker_baru`
+-- Indeks untuk tabel `loker_baru`
 --
 ALTER TABLE `loker_baru`
   ADD PRIMARY KEY (`id_loker`);
 
 --
--- Indexes for table `pendaftaran`
+-- Indeks untuk tabel `pendaftaran`
 --
 ALTER TABLE `pendaftaran`
   ADD PRIMARY KEY (`id_pelamar`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `publish_hasil`
+--
+ALTER TABLE `publish_hasil`
+  ADD PRIMARY KEY (`id_hasil`);
+
+--
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user_role`
+-- Indeks untuk tabel `user_role`
 --
 ALTER TABLE `user_role`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `import`
+-- AUTO_INCREMENT untuk tabel `import`
 --
 ALTER TABLE `import`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
--- AUTO_INCREMENT for table `loker`
+-- AUTO_INCREMENT untuk tabel `loker`
 --
 ALTER TABLE `loker`
   MODIFY `id_loker` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
 --
--- AUTO_INCREMENT for table `loker_baru`
+-- AUTO_INCREMENT untuk tabel `loker_baru`
 --
 ALTER TABLE `loker_baru`
-  MODIFY `id_loker` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_loker` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT for table `pendaftaran`
+-- AUTO_INCREMENT untuk tabel `pendaftaran`
 --
 ALTER TABLE `pendaftaran`
-  MODIFY `id_pelamar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id_pelamar` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `publish_hasil`
+--
+ALTER TABLE `publish_hasil`
+  MODIFY `id_hasil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
 --
--- AUTO_INCREMENT for table `user_role`
+-- AUTO_INCREMENT untuk tabel `user_role`
 --
 ALTER TABLE `user_role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

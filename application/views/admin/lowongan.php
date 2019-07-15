@@ -53,27 +53,12 @@
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
         <a class="nav-link" href="<?= base_url();?>Admin_Puri">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <i class="fas fa-fw fa-tachometer-alt" style="color:#f09e24;"></i>
           <span>Dashboard</span></a>
       </li>
 
 
-      <!-- Divider -->
-      <hr class="sidebar-divider">
 
-      <!-- Heading -->
-      <div class="sidebar-heading" style="color: black;">
-        User
-      </div>
-
-      <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-id-card"></i>
-          <span>Profile</span></a>
-          <a class="nav-link" href="charts.html">
-            <i class="fas fa-fw fa-id-card"></i>
-            <span>Edit Profile</span></a>
-      </li>
       <hr class="sidebar-divider">
 
       <!-- Heading -->
@@ -83,19 +68,28 @@
 
       <li class="nav-item">
         <a class="nav-link" href="<?= base_url();?>Admin_Puri/lowongan">
-          <i class= "fas fa-briefcase"></i>
+          <i class= "fas fa-briefcase" style="color:#f09e24;"></i>
           <span>Manage Loker</span></a>
       </li>
-
-      <!-- Heading -->
       <div class="sidebar-heading" style="color: black;">
         Menu Pelamar
       </div>
 
       <li class="nav-item">
-        <a class="nav-link" href="<?= base_url();?>Admin_Puri/Excel_Export">
-          <i class= "fas fa-briefcase"></i>
+        <a class="nav-link" href="<?= base_url();?>Admin_puri/Excel_Export">
+          <i class= "fas fa-briefcase" style="color:#f09e24;"></i>
           <span>Data Pelamar</span></a>
+      </li>
+
+      <!-- Heading -->
+      <div class="sidebar-heading" style="color: black;">
+        Menu Publish
+      </div>
+
+      <li class="nav-item">
+        <a class="nav-link" href="<?= base_url();?>Admin_puri/Publish">
+          <i class= "fas fa-briefcase" style="color:#f09e24;"></i>
+          <span>Data Publish Hasil</span></a>
       </li>
 
 
@@ -222,7 +216,7 @@
 
   <div class="form-group row justify-content-end">
     <div class="col-sm-10">
-    <button type="submit" name="button" style="float:right">Add Loker</button>
+    <button class="btn btn-success" type="submit" name="button" style="float:right">Add Loker</button>
     </div>
       </form>
   </div>

@@ -47,27 +47,14 @@
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
         <a class="nav-link" href="<?= base_url();?>Admin_Puri">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <i class="fas fa-fw fa-tachometer-alt" style="color:#f09e24;"></i>
           <span>Dashboard</span></a>
       </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider">
 
-      <!-- Heading -->
-      <div class="sidebar-heading" style="color: black;">
-        User
-      </div>
 
-      <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-id-card"></i>
-          <span>Profile</span></a>
-          <a class="nav-link" href="charts.html">
-            <i class="fas fa-fw fa-id-card"></i>
-            <span>Edit Profile</span></a>
-      </li>
-      <hr class="sidebar-divider">
 
       <!-- Heading -->
       <div class="sidebar-heading" style="color: black;">
@@ -76,7 +63,7 @@
 
       <li class="nav-item">
         <a class="nav-link" href="<?= base_url();?>Admin_Puri/lowongan">
-          <i class= "fas fa-briefcase"></i>
+          <i class= "fas fa-briefcase" style="color:#f09e24;"></i>
           <span>Manage Loker</span></a>
       </li>
 
@@ -86,9 +73,18 @@
       </div>
 
       <li class="nav-item">
-        <a class="nav-link" href="<?= base_url();?>Admin_Puri/Excel_Export">
-          <i class= "fas fa-briefcase"></i>
+        <a class="nav-link" href="<?= base_url();?>Admin_puri/Excel_Export">
+          <i class= "fas fa-briefcase" style="color:#f09e24;"></i>
           <span>Data Pelamar</span></a>
+      </li>
+      <div class="sidebar-heading" style="color: black;">
+        Menu Publish
+      </div>
+
+      <li class="nav-item">
+        <a class="nav-link" href="<?= base_url();?>Admin_puri/Publish">
+          <i class= "fas fa-briefcase" style="color:#f09e24;"></i>
+          <span>Data Publish Hasil</span></a>
       </li>
 
       <!-- Divider -->
@@ -310,10 +306,12 @@
                   <label for="cv" class="col-sm-2 col-form-label">CV</label>
                   <div class="col-sm-10">
                     <div class="custom-file">
-                      <button type="button" name="button" class="btn"><a href='<?= base_url('uploads/pelamar/') . $list['cv'];?>'> File PDF </a></button>
+                      <button type="button" name="button" class="btn"><a href='<?= base_url('uploads/pelamar/') . $list['cv'];?>'>Download File CV </a></button>
+                      
                     </div>
                   </div>
-                </div><br>
+                </div>
+                <br>
                 <!-- Form input Status -->
                 <div class="row">
                   <label for="cv" class="col-sm-2 col-form-label">Status</label>

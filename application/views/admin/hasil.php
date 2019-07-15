@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.bootstrap4.min.css">
 	<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
 
-  <title>Data Pelamar | PT Puri Makmur Lestari</title>
+  <title>Menu Loker | PT Puri Makmur Lestari</title>
 
   <!-- Custom fonts for this template-->
   <link href="<?= base_url();?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -161,83 +161,146 @@
           </div>
           <!-- content utama -->
           <!-- Page Heading -->
-                   <h1 class="h3 mb-4 text-gray-800">List Data Pelamar</h1>
-                   <hr style="background-color: green;height: 2px;">
+          <h1 class="h3 mb-4 text-gray-800" style="font-family: "Roboto", sans-serif;">Input Hasil Seleksi</h1>
+          <hr style="background-color: green;height: 2px;">
+          <div class="row">
+            <div class="col-lg-8">
+                <?= form_open_multipart('Admin_Puri/tambahHasil'); ?>
+              <div class="form-group row">
+                <label for="subjek" class="col-sm-2 col-form-label">Subjek</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="judul" name="judul">
+                </div>
+          </div>
+          <div class="form-group row">
+            <label for="tanggal" class="col-sm-2 col-form-label">Tanggal Upload</label>
+            <div class="col-sm-10">
+              <input type="date" class="form-control" id="tanggal" name="tanggal" >
+            </div>
+        </div>
+      <div class="form-group row">
+        <label for="isi" class="col-sm-2 col-form-label">Isi</label>
+        <div class="col-sm-10">
+          <textarea class="form-control texteditor" id="isi" name="isi" cols="50" rows="4" > </textarea>
+        </div>
+  </div>
 
-                   <div class="container">
-                     <div class="row">
-                       <div class="col-lg-12">
-                         <table id="table_id" class="table table-striped table-bordered responsive table-sm">
-                         <!-- <table id="data-table" class="table table-bordered table-striped "> -->
-                           <thead>
-                             <tr>
-                               <th>Nama</th>
-                               <th>Email</th>
-                               <th>Posisi</th>
-                               <th>Hasil Berkas</th>
-                               <th>Aksi</th>
-                             </tr>
-                           </thead>
-                           <tbody>
-                             <?php foreach ($pelamar as $pelamar) : ?>
-                             <tr>
-                               <td><?= $pelamar->nama ?></td>
-                               <td><?= $pelamar->email ?></td>
-                               <td><?= $pelamar->posisi ?></td>
-                               <td>
-                                  <?php
-                                  if($pelamar->hasil == 'Yes'){
-                                  ?>
-                                  <span class="badge badge-pill badge-success"><?= $pelamar->hasil ?></span>
-                                  <?php
-                                  }
-                                  else if($pelamar->hasil == 'No'){
-                                  ?>
-                                  <span class="badge badge-pill badge-danger"><?= $pelamar->hasil ?></span>
-                                  <?php
-                                  }
-                                  else if($pelamar->hasil == ''){
-                                  ?>
-                                  <span class="badge badge-pill badge-info">Belum di Proses</span>
-                                  <?php
-                                  }
-                                ?>
 
-                               </td>
-                               <td>
-                                 <!-- <button type="submit"  class="btn btn-primary" data-toggle="modal" data-target="#viewnya" >View</button> -->
-                                 <a href="<?php echo site_url('Admin_Puri/viewData/'.$pelamar->id_pelamar); ?>" onclick="return confirm('Apakah Anda Ingin Melihat Data <?=$pelamar->id_pelamar;?> ?');" class="btn btn-primary" data-popup="tooltip" data-placement="top" title="View Data"><i class="glyphicon glyphicon-file"></i>View</a>
+      <div class="form-group row">
+      <div class="col-sm-2">
+        File Excel xls / csv
+      </div>
+      <div class="col-sm-10">
+        <div class="row">
+          <div class="col-sm-9">
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="file" name="file">
+              <label class="custom-file-label" for="file">xls / csv</label>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
 
-                                 <a href="<?php echo site_url('Admin_Puri/delPelamarC/'.$pelamar->id_pelamar); ?>" onclick="return confirm('Apakah Anda Ingin Menghapus Data <?=$pelamar->id_pelamar;?> ?');" class="btn btn-danger btn-circle" data-popup="tooltip" data-placement="top" title="Hapus Data"><i class="fa fa-trash"></i></a>
-                                 <!-- <input type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" value="Delete" onclick="if (confirm(\'yakin anda akan menghapus Data ini??\')) location.href=\''.site_url('Admin_Puri/delAllPendaftarAdmin_Puri/delPelamarC'.$pelamar['id_pelamar']).'\'">'; -->
-                               </td>
-                             </tr>
-                             <?php endforeach; ?>
-                           </tbody>
-                         </table>
-                       </div>
+  <div class="form-group row justify-content-end">
+    <div class="col-sm-10">
+    <button type="submit" class="btn btn-success "name="button" style="float:right">Add</button>
+    </div>
+      </form>
+  </div>
+  <br>
+        </div>
+      </div>
+
+
+                 <!-- /.container-fluid -->
+
+               </div>
+               <div class="container-fluid">
+                 <h1 class="h3 mb-4 text-gray-800">List File Hasil Seleksi</h1>
+                 <hr style="background-color: green;height: 2px;">
+                 <div class="container">
+                   <div class="row">
+                     <div class="col-lg-12">
+                       <table id="table_id" class="table table-striped table-bordered">
+                         <thead>
+                           <tr>
+                             <th>Subjek</th>
+                             <th>Tanggal Upload</th>
+                             <th>Isi Berita</th>
+                             <th>Nama File Upload</th>
+                             <th>Aksi</th>
+                           </tr>
+                         </thead>
+                         <tbody>
+                             <?php foreach ($publish_hasil as $ps):?>
+                           <tr>
+                             <td><?= $ps['judul'];?></td>
+                             <td><?= date("d/F/Y",strtotime($ps['tanggal'])); ?></td>
+                             <td><?= $ps['isi'];?></td>
+                             <td><?= $ps['file'];?></td>
+                             <td>
+                               <div class="btn-group">
+                                 <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#editHasil<?= $ps['id_hasil']; ?>">
+                                   Edit
+                                 </button>
+                                 <a href="<?= base_url();?>Admin_Puri/hapusHasil/<?= $ps['id_hasil'];?>" class="btn btn-sm btn-danger" onclick="return confirm('yakin?');">Hapus</a>
+                               </div>
+                               <div class="modal fade" id="editHasil<?= $ps['id_hasil'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                 <div class="modal-dialog" role="document">
+                                         <div class="modal-content">
+                                           <div class="modal-header">
+                                             <h5 class="modal-title" id="exampleModalLabel">Edit Hasil Seleksi</h5>
+                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                               <span aria-hidden="true">&times;</span>
+                                             </button>
+                                           </div>
+                                           <div class="modal-body">
+                                             <?= form_open_multipart('Admin_Puri/editHasil'); ?>
+                                             <input type="hidden" name="id_hasil" value="<?= $ps['id_hasil'] ?>">
+                                             <div class="form-group row">
+                                               <label for="subjek" class="col-sm-2 col-form-label">Subjek</label>
+                                                 <input type="text" class="form-control" id="judul" name="judul" value="<?= $ps['judul'] ?>">
+                                         </div>
+                                         <div class="form-group row">
+                                           <label for="tanggal" class="col-sm-2 col-form-label">Tanggal Upload</label>
+                                             <input type="date" class="form-control" id="tanggal" name="tanggal" value="<?=$ps['tanggal']?>">
+                                       </div>
+                                     <div class="form-group row">
+                                       <label for="isi" class="col-sm-2 col-form-label">Isi</label>
+                                         <textarea class="form-control texteditor" id="isi" name="isi"  ><?= $ps['isi'];?> </textarea>
+                                 </div>
+                                     <div class="form-group row">
+                                     <div class="col-sm-2">
+                                       File Excel xls / csv
+                                     </div>
+                                     <div class="col-sm-10">
+                                       <div class="row">
+                                         <div class="col-sm-9">
+                                           <div class="custom-file">
+                                             <input type="file" class="custom-file-input" id="file" name="file">
+                                             <label class="custom-file-label" for="file"><?=$ps['file']?></label>
+                                           </div>
+                                         </div>
+                                       </div>
+                                     </div>
+                                 </div>
+
+                                 <div class="modal-footer">
+                                         <button type="submit" class="btn btn-success">Edit</button>
+                                       </div>
+                                       </form>
+
+                             </td>
+                           </tr>
+                           <?php endforeach; ?>
+                         </tbody>
+                       </table>
+
                      </div>
                    </div>
                  </div>
-
-                 <!-- /.container-fluid -->
-                 <br>
-                 <div class="container-fluid">
-                   <div align="center">
-
-                   <form method="post" action="<?php echo site_url('Admin_Puri/action'); ?>">
-                     <input type="submit" name="export" class="btn btn-success" value="Export All Pendaftar" style="float: right; "/>
-                   </form>
-
-                     <form method="post" action="<?php echo site_url(); ?>Admin_Puri/delAllUser/" onclick="return confirm('Apakah Anda Ingin Menghapus All User?')" style="">
-                       <input type="submit" name="delete" class="btn btn-warning" value="Delete All User" style="float: right; margin-right:15px;"/>
-                     </form>
-                     <br><br>
-                     <form method="post" action="<?php echo site_url('Pendaftar_C/action2'); ?>">
-                      <input type="submit" name="export2" class="btn btn-info" value="Export yang Diterima" style="float: right; "/>
-                     </form>
-                   </div>
-                 </div>
+               </div>
       </div>
 
       <!-- End of Main Content -->
@@ -321,12 +384,18 @@
 	<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
 	<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 	<script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
+  <script src="<?= base_url();?>assets/ckeditor/ckeditor.js"></script>
+  <script src="<?= base_url();?>assets/ckeditor/adapters/jquery.js"></script>
+  <script type="text/javascript">
+      $('textarea.texteditor').ckeditor();
+  </script>
 
 	<script>
 		$(document).ready(function () {
 			var table = $('#table_id').DataTable({
 				lengthChange: true,
-         scrollY: 400
+         scrollY: 400,
+         scrollX: 400
 
 			});
 

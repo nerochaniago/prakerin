@@ -52,27 +52,18 @@
       <li class="nav-item">
         <a class="nav-link" href="<?= base_url();?>User">
           <i class="fas fa-fw fa-id-card"></i>
-          <span>Akun</span></a>
-          <a class="nav-link" href="<?= base_url();?>User/edit_user">
-            <i class="fas fa-fw fa-id-card"></i>
-            <span>Edit Akun</span></a>
-      </li>
+          <span>Dashboard</span></a>
+
 
       <!-- Heading -->
       <div class="sidebar-heading" style="color: black;">
-        Lowongan
+        Berkas
       </div>
 
       <li class="nav-item">
           <a class="nav-link" href="<?= base_url();?>User/daftarLowonganC">
-            <i class="fas fa-fw fa-id-card"></i>
-            <span>Daftar Lowongan Pekerjaan</span></a>
-      </li>
-
-      <li class="nav-item">
-          <a class="nav-link" href="<?= base_url();?>User/dataPekerjaanC">
-            <i class="fas fa-fw fa-id-card"></i>
-            <span>Data Pekerjaan yang dilamar</span></a>
+            <i class=""></i>
+            <span style="color:#fff700;"><strong>Daftar Lowongan Pekerjaan</strong></span></a>
       </li>
 
 
@@ -136,7 +127,8 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Pendaftaran Lowongan Pekerjaan</h1>
+          <h1 class="h3 mb-4 text-gray-800"  style="font-family: Roboto; color:black;">Pendaftaran Lowongan Pekerjaan</h1>
+          <p style="font-family: Roboto; color:black;">Hasil Seleksi akan di beritahukan pada website PT PURI MAKMUR LESTARI</p>
 
           <div class="row">
             <div class="col-lg-6">
@@ -146,15 +138,14 @@
 
           <!-- Pendaftaran Lowongan -->
         	<div class="container">
-        		<div class="col-12 konten" style="background-color: white;">
-        			<p>Formulir Pendaftaran</p>
+        		<div class="col-12 konten" style="background-color: #05fae1; padding-left:50px; padding-right:50px;">
         			<form action="<?php echo site_url(); ?>/User/add_pelamar" method="POST" enctype="multipart/form-data">
 
         				<!-- Formulir pendaftaran Lowongan Pekerjaan -->
-        				<p class="text-center">Formulir pendaftaran Lowongan Pekerjaan</p>
+        				<p class="text-center" style="font-family: Roboto; color:black; padding-top:15px;">Formulir pendaftaran Lowongan Pekerjaan</p>
         				<!--Form input Posisi-->
                 <div class="form-group row">
-                  <label for="hasil" class="col-sm-2 col-form-label">Posisi</label>
+                  <label for="hasil" class="col-sm-2 col-form-label" style="font-family: Roboto; color:black;">Posisi</label>
                   <div class="col-sm-10">
                     <?php
                       $dd_provinsi_attribute = 'class="form-control select2"';
@@ -174,35 +165,35 @@
                   </div>
         				<!-- Form input nama lengkap -->
         				<div class="form-group row">
-        				    <label for="nama" class="col-sm-2 col-form-label">Nama Lengkap</label>
+        				    <label for="nama" class="col-sm-2 col-form-label" style="font-family: Roboto; color:black;">Nama Lengkap</label>
         				    <div class="col-sm-10">
         				      <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap">
         				    </div>
         			  	</div>
         				<!-- Form input tempat lahir -->
         			  	<div class="form-group row">
-        				    <label for="tmpt_lahir" class="col-sm-2 col-form-label">Tempat Lahir</label>
+        				    <label for="tmpt_lahir" class="col-sm-2 col-form-label" style="font-family: Roboto; color:black;">Tempat Lahir</label>
         				    <div class="col-sm-10">
         				      <input type="text" class="form-control" name="tmpt_lahir" placeholder="Tempat Lahir">
         				    </div>
         			  	</div>
         				<!-- Form input tanggal lahir -->
         			  	<div class="form-group row">
-        				    <label for="tgl_lahir" class="col-sm-2 col-form-label">Tanggal Lahir</label>
+        				    <label for="tgl_lahir" class="col-sm-2 col-form-label" style="font-family: Roboto; color:black;">Tanggal Lahir</label>
         				    <div class="col-sm-10">
         				      <input type="date" class="form-control" name="tgl_lahir" placeholder="Tanggal Lahir">
         				    </div>
         			  	</div>
         			  	<!-- Form input alamat -->
         				<div class="form-group row">
-        				    <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
+        				    <label for="alamat" class="col-sm-2 col-form-label" style="font-family: Roboto; color:black;">Alamat</label>
         				    <div class="col-sm-10">
         				      	<input type="text" class="form-control" name="alamat" placeholder="Alamat">
         				    </div>
         				</div>
                 <!-- Form input agama -->
               <div class="form-group row">
-                  <label for="agama" class="col-sm-2 col-form-label">Agama</label>
+                  <label for="agama" class="col-sm-2 col-form-label" style="font-family: Roboto; color:black;">Agama</label>
                   <div class="col-sm-10">
                       <input type="text" class="form-control" name="agama" placeholder="Agama">
                   </div>
@@ -210,51 +201,51 @@
         				<!-- Form input pendidikan terakhir -->
         			  	<fieldset class="form-group">
         				    <div class="row">
-        				      	<legend class="col-form-label col-sm-2 pt-0">Pendidikan Terakhir</legend>
+        				      	<legend class="col-form-label col-sm-2 pt-0" style="font-family: Roboto; color:black;">Pendidikan Terakhir</legend>
         				     	<div class="col-sm-10">
                         <div class="form-check">
                           <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan1" value="D3" checked>
-                          <label class="form-check-label" for="pendidikan1">D3</label>
+                          <label class="form-check-label" for="pendidikan1" style="font-family: Roboto; color:black;">D3</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan2" value="S1">
-                            <label class="form-check-label" for="pendidikan2">S1</label>
+                            <label class="form-check-label" for="pendidikan2" style="font-family: Roboto; color:black;">S1</label>
                         </div>
         				        	<div class="form-check">
         						        <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan3" value="S2" checked>
-        						        <label class="form-check-label" for="pendidikan3">S2</label>
+        						        <label class="form-check-label" for="pendidikan3" style="font-family: Roboto; color:black;">S2</label>
         				        	</div>
         				        	<div class="form-check">
         					          	<input class="form-check-input" type="radio" name="pendidikan" id="pendidikan4" value="S3">
-        					          	<label class="form-check-label" for="pendidikan4">S3</label>
+        					          	<label class="form-check-label" for="pendidikan4" style="font-family: Roboto; color:black;">S3</label>
         				        	</div>
         				      	</div>
         				    </div>
         				</fieldset>
                 <!-- Form input Universitas -->
         				<div class="form-group row">
-        				    <label for="nomor" class="col-sm-2 col-form-label">Universitas</label>
+        				    <label for="nomor" class="col-sm-2 col-form-label" style="font-family: Roboto; color:black;">Universitas</label>
         				    <div class="col-sm-10">
         				      <input type="text" class="form-control" name="universitas" placeholder="Universitas">
         				    </div>
         			  	</div>
                   <!-- Form input Jurusan -->
           				<div class="form-group row">
-          				    <label for="nomor" class="col-sm-2 col-form-label">Jurusan</label>
+          				    <label for="nomor" class="col-sm-2 col-form-label" style="font-family: Roboto; color:black;">Jurusan</label>
           				    <div class="col-sm-10">
           				      <input type="text" class="form-control" name="jurusan" placeholder="Jurusan">
           				    </div>
           			  	</div>
         				<!-- Form input email -->
         				<div class="form-group row">
-        				    <label for="email" class="col-sm-2 col-form-label">Email</label>
+        				    <label for="email" class="col-sm-2 col-form-label" style="font-family: Roboto; color:black;">Email</label>
         				    <div class="col-sm-10">
-        				      	<input type="email" class="form-control" name="email" value="<?php echo $user['email']; ?>" readonly>
+        				      	<input style="font-family: Roboto; color:black;" type="email" class="form-control" name="email" value="<?php echo $user['email']; ?>" readonly>
         				    </div>
         				</div>
         				<!-- Form input nomor hp -->
         				<div class="form-group row">
-        				    <label for="nomor" class="col-sm-2 col-form-label">Nomor HP</label>
+        				    <label for="nomor" class="col-sm-2 col-form-label" style="font-family: Roboto; color:black;">Nomor HP</label>
         				    <div class="col-sm-10">
         				      <input type="number" class="form-control" name="nomor" placeholder="Nomor HP">
         				    </div>
@@ -262,15 +253,15 @@
         				<!-- Form input jenis kelamin -->
         				<fieldset class="form-group">
         				    <div class="row">
-        				      	<legend class="col-form-label col-sm-2 pt-0">Jenis Kelamin</legend>
+        				      	<legend class="col-form-label col-sm-2 pt-0" style="font-family: Roboto; color:black;">Jenis Kelamin</legend>
         				     	<div class="col-sm-10">
         				        	<div class="form-check">
         						        <input class="form-check-input" type="radio" name="gender" id="gender" value="Laki-laki" checked>
-        						        <label class="form-check-label" for="gender">Laki - Laki</label>
+        						        <label class="form-check-label" for="gender" style="font-family: Roboto; color:black;">Laki - Laki</label>
         				        	</div>
         				        	<div class="form-check">
         					          	<input class="form-check-input" type="radio" name="gender" id="gender" value="Perempuan">
-        					          	<label class="form-check-label" for="gender">Perempuan</label>
+        					          	<label class="form-check-label" for="gender" style="font-family: Roboto; color:black;">Perempuan</label>
         				        	</div>
         				      	</div>
         				    </div>
@@ -278,27 +269,27 @@
                 <!-- Form input status -->
         				<fieldset class="form-group">
         				    <div class="row">
-        				      	<legend class="col-form-label col-sm-2 pt-0">Status</legend>
+        				      	<legend class="col-form-label col-sm-2 pt-0" style="font-family: Roboto; color:black;">Status</legend>
         				     	<div class="col-sm-10">
         				        	<div class="form-check">
         						        <input class="form-check-input" type="radio" name="status" id="status" value="Lajang" checked>
-        						        <label class="form-check-label" for="status">Lajang</label>
+        						        <label class="form-check-label" for="status" style="font-family: Roboto; color:black;">Lajang</label>
         				        	</div>
         				        	<div class="form-check">
         					          	<input class="form-check-input" type="radio" name="status" id="status" value="Menikah">
-        					          	<label class="form-check-label" for="status">Menikah</label>
+        					          	<label class="form-check-label" for="status" style="font-family: Roboto; color:black;">Menikah</label>
         				        	</div>
         				      	</div>
         				    </div>
         				</fieldset>
                 <!-- Form input Foto -->
                 <div class="form-group row">
-                  <label for="title">Foto Formal  *(hanya support file bertipe jpg|jpeg|png, selain itu tidak bisa diterima)</label>
+                  <label for="title" style="font-family: Roboto; color:black;">Foto Formal  *(hanya support file bertipe jpg|jpeg|png, selain itu tidak bisa diterima)</label>
                   <input type="file" class="form-control-file" accept="image/*" name="foto">
                 </div>
                 <!-- Form input CV -->
                 <div class="form-group row">
-                  <label for="title">CV *(hanya support file bertipe pdf, selain itu tidak bisa diterima)</label>
+                  <label for="title" style="font-family: Roboto; color:black;">CV *(hanya support file bertipe pdf, selain itu tidak bisa diterima)</label>
                   <input type="file" class="form-control-file" accept="PDF/*" name="cv">
                 </div>
                 <input type="hidden" name="hasil" value="no">

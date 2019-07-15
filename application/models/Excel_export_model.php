@@ -3,8 +3,8 @@
 class Excel_export_model extends CI_Model{
 
                public function fetch_data(){
-                 $this->db->order_by("id_pelamar", "DESC");
-                 $query = $this->db->get("pendaftaran");
+                 $this->db->order_by('id_pelamar','DESC');
+                 $query = $this->db->get('pendaftaran');
                  return $query->result();
                }
 

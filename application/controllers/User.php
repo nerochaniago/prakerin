@@ -115,6 +115,9 @@ class User extends CI_Controller {
   	);
 
     $this->UserM->add_pelamarM($data);
+    $this->session->set_flashdata('message','<div class="alert alert-info" role="alert">
+     Pendaftaran Berhasil, Pengumuman akan di umumkan pada website resmi www.purimakmurlestari.co.id
+    </div>');
   	redirect('User');
   }
 
