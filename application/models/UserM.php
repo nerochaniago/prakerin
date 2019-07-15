@@ -12,11 +12,6 @@ class UserM extends CI_Model{
 
   public function dataLowonganM()
   {
-    // return $this->db->get('loker_baru')->result_array();
-    // $this->db->select('posisi');
-    // $this->db->from('loker_baru');
-    // return $this->db->get()->result();
-
     // ambil data dari db
         $this->db->order_by('id_loker', 'asc');
         $result = $this->db->get('loker_baru');
@@ -27,7 +22,7 @@ class UserM extends CI_Model{
         if ($result->num_rows() > 0) {
             foreach ($result->result() as $row) {
             // tentukan value (sebelah kiri) dan labelnya (sebelah kanan)
-                $dd[$row->id_loker] = $row->posisi;
+                $dd[$row->posisi] = $row->posisi;
             }
         }
         return $dd;
@@ -35,17 +30,15 @@ class UserM extends CI_Model{
 
   public function add_pelamarM($data)
   {
-    // $data1 = $this->session->email;
-    //
-    // // $data1 = $this->db->query('SELECT email FROM pendaftaran');
-    //
-    // if ($data1 > 0) {
-    // $this->session->set_flashdata('Anda sudah mendaftar', '<div class="alert alert-danger" role="alert">' . $this->upload->display_errors() . '</div>');
-
-    // }
-    // else {
+    $query = "SELECT email FROM pendaftaran WHERE email = '$_POST[email]'";
+    if ($query){
+      $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
+       Anda Sudah mendaftar Lowongan Pekerjaan lain
+      </div>');echo "Anda Sudah Mendaftar";
+    }
+    else {
       $this->db->insert('pendaftaran',$data);
-    // }
+    }
   }
 
   public function dataPekerjaanM()
@@ -53,7 +46,7 @@ class UserM extends CI_Model{
     $this->db->select('*');
     $this->db->from('pendaftaran pen');
     $this->db->where('email', $this->session->userdata('email'));
-    return $this->db->get()->result_array();
+    return $this->db->get()->result_array();  
   }
 
   public function getDataPekerjaanM($table,$where)

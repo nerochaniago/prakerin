@@ -76,8 +76,8 @@ class User extends CI_Controller {
             'user' => $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array(),
             'button' => 'posisi',
             // 'action' => site_url('provinsi/create_action'),
-            'dd_provinsi' => $this->UserM->dataLowonganM(),
-            'provinsi_selected' => $this->input->post('$row->id_loker') ? $this->input->post('$row->posisi') : '', // untuk edit ganti '' menjadi data dari database misalnya $row->provinsi
+            'dd_lowongan' => $this->UserM->dataLowonganM(),
+            'lowongan_selected' => $this->input->post('$row->posisi') // untuk edit ganti '' menjadi data dari database misalnya $row->provinsi
 	      );
     $this->load->view('user/daftarLowonganV',$data);
 
@@ -114,10 +114,19 @@ class User extends CI_Controller {
       'jurusan'=>$this->input->post('jurusan')
   	);
 
-    $this->UserM->add_pelamarM($data);
-    $this->session->set_flashdata('message','<div class="alert alert-info" role="alert">
-     Pendaftaran Berhasil, Pengumuman akan di umumkan pada website resmi www.purimakmurlestari.co.id
-    </div>');
+    // $this->UserM->add_pelamarM($data);
+    $query = "SELECT email FROM pendaftaran WHERE email = '$_POST[email]'";
+    if ($query){
+      $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
+       Anda Sudah mendaftar Lowongan Pekerjaan lain
+      </div>');echo "Anda Sudah Mendaftar";
+    }
+    else {
+      $this->db->insert('pendaftaran',$data);
+      $this->session->set_flashdata('message','<div class="alert alert-info" role="alert">
+       Pendaftaran Berhasil, Pengumuman akan di umumkan pada website resmi www.purimakmurlestari.co.id
+      </div>');
+    }
   	redirect('User');
   }
 
@@ -126,17 +135,6 @@ class User extends CI_Controller {
     $data['user'] = $this->load->model("UserM");
     $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
     $data['list'] = $this->UserM->dataPekerjaanM();
-    //
-    // $kota = $this->KotaModel->viewByProvinsi($id_loker);
-    // $lists = "<option value=''>Pilih</option>";
-    //
-    // foreach($kota as $data){
-    //   $lists .= "<option value='".$data->id."'>".$data->nama."</option>"; // Tambahkan tag option ke variabel $lists
-    // }
-    //
-    // $callback = array('list_kota'=>$lists); // Masukan variabel lists tadi ke dalam array $callback dengan index array : list_kota
-    // echo json_encode($callback); // konversi varibael $callback menjadi JSON
-
     $this->load->view('user/dataPekerjaanV',$data);
   }
 
@@ -144,8 +142,6 @@ class User extends CI_Controller {
     $this->load->model('UserM');
     $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
   	$data['list'] = $this->UserM->getDataPekerjaanM('pendaftaran',$id_pelamar);
-    // $where = array('id_pelamar' => $id_pelamar);
-		// $data['list'] = $this->UserM->getDataPekerjaanM('pendaftaran',$where)->result();
     $this->load->view('user/editDataV',$data);
   }
 
@@ -179,8 +175,6 @@ class User extends CI_Controller {
 
       if ($this->upload->do_upload('foto')) {
         $old_image = $data['pendaftaran']['foto'];
-        // var_dump($old_image);
-        // die;
         if ($old_image) {
           unlink(FCPATH . './uploads/pelamar' . $old_image);
         }
@@ -205,17 +199,6 @@ class User extends CI_Controller {
     }
 
     $data = [
-      // 'posisi'=>$this->input->post('posisi'),
-      // 'nama'=>$this->input->post('nama'),
-      // 'tgl_lahir'=>$this->input->post('tgl_lahir'),
-      // 'tmpt_lahir'=>$this->input->post('tmpt_lahir'),
-      // 'pendidikan'=>$this->input->post('pendidikan'),
-      // 'nomor'=>$this->input->post('nomor'),
-      // 'gender'=>$this->input->post('gender'),
-      // 'alamat'=>$this->input->post('alamat'),
-      // 'agama'=>$this->input->post('agama'),
-      // 'status'=>$this->input->post('status')
-
       'posisi'=> $posisi,
       'nama'=> $nama,
       'tgl_lahir'=> $tgl_lahir,

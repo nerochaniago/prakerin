@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Daftar Lowongan | PT Puri Makmur Lestari</title>
+  <title>Lihat Data | PT Puri Makmur Lestari</title>
 
   <!-- Custom fonts for this template-->
   <link href="<?= base_url();?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -214,20 +214,24 @@
                       <legend class="col-form-label col-sm-2 pt-0">Pendidikan Terakhir</legend>
                     <div class="col-sm-10">
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan1" value="D3" readonly>
-                        <label class="form-check-label" for="pendidikan1">D3</label>
+                        <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan1" value="D3" <?php
+    echo set_value('pendaftaran', $list['pendidikan']) == 'D3' ? "checked" : ""; ?> readonly>
+                        <label class="form-check-label" for="D3">D3</label>
                       </div>
                       <div class="form-check">
-                          <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan2" value="S1" readonly>
-                          <label class="form-check-label" for="pendidikan2">S1</label>
+                          <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan2" value="S1" <?php
+      echo set_value('pendaftaran', $list['pendidikan']) == 'S1' ? "checked" : ""; ?> readonly>
+                          <label class="form-check-label" for="S1">S1</label>
                       </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan3" value="S2" checked readonly>
-                          <label class="form-check-label" for="pendidikan3">S2</label>
+                          <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan3" value="S2" <?php
+      echo set_value('pendaftaran', $list['pendidikan']) == 'S2' ? "checked" : ""; ?> readonly>
+                          <label class="form-check-label" for="S2">S2</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan4" value="S3" readonly>
-                            <label class="form-check-label" for="pendidikan4">S3</label>
+                            <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan4" value="S3" <?php
+        echo set_value('pendaftaran', $list['pendidikan']) == 'S3' ? "checked" : ""; ?> readonly>
+                            <label class="form-check-label" for="S3">S3</label>
                         </div>
                       </div>
                   </div>
@@ -266,12 +270,14 @@
         				      	<legend class="col-form-label col-sm-2 pt-0">Jenis Kelamin</legend>
         				     	<div class="col-sm-10">
         				        	<div class="form-check">
-        						        <input class="form-check-input" type="radio" name="gender" id="gender" value="Laki-laki" checked readonly>
-        						        <label class="form-check-label" for="gender">Laki - Laki</label>
+        						        <input class="form-check-input" type="radio" name="gender" id="gender" value="Laki-laki" <?php
+        echo set_value('pendaftaran', $list['gender']) == 'Laki-laki' ? "checked" : ""; ?> readonly>
+        						        <label class="form-check-label" for="Laki-laki">Laki - Laki</label>
         				        	</div>
         				        	<div class="form-check">
-        					          	<input class="form-check-input" type="radio" name="gender" id="gender" value="Perempuan" readonly>
-        					          	<label class="form-check-label" for="gender">Perempuan</label>
+        					          	<input class="form-check-input" type="radio" name="gender" id="gender" value="Perempuan" <?php
+          echo set_value('pendaftaran', $list['gender']) == 'Perempuan' ? "checked" : ""; ?> readonly>
+        					          	<label class="form-check-label" for="Perempuan">Perempuan</label>
         				        	</div>
         				      	</div>
         				    </div>
@@ -282,12 +288,14 @@
         				      	<legend class="col-form-label col-sm-2 pt-0">Status</legend>
         				     	<div class="col-sm-10">
         				        	<div class="form-check">
-        						        <input class="form-check-input" type="radio" name="status" id="status" value="Lajang" checked readonly>
-        						        <label class="form-check-label" for="status">Lajang</label>
+        						        <input class="form-check-input" type="radio" name="status" id="status" value="Lajang" checked <?php
+        echo set_value('pendaftaran', $list['status']) == 'Lajang' ? "checked" : ""; ?> readonly>
+        						        <label class="form-check-label" for="Lajang">Lajang</label>
         				        	</div>
         				        	<div class="form-check">
-        					          	<input class="form-check-input" type="radio" name="status" id="status" value="Menikah" readonly>
-        					          	<label class="form-check-label" for="status">Menikah</label>
+        					          	<input class="form-check-input" type="radio" name="status" id="status" value="Menikah" <?php
+          echo set_value('pendaftaran', $list['status']) == 'Menikah' ? "checked" : ""; ?> readonly>
+        					          	<label class="form-check-label" for="Menikah">Menikah</label>
         				        	</div>
         				      </div>
         				    </div>
@@ -307,7 +315,7 @@
                   <div class="col-sm-10">
                     <div class="custom-file">
                       <button type="button" name="button" class="btn"><a href='<?= base_url('uploads/pelamar/') . $list['cv'];?>'>Download File CV </a></button>
-                      
+
                     </div>
                   </div>
                 </div>

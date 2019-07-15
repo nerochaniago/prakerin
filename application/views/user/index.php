@@ -54,7 +54,6 @@
           <i class="fas fa-fw fa-id-card"></i>
           <span>Dashboard</span></a>
 
-
       <!-- Heading -->
       <div class="sidebar-heading" style="color: black;">
         Berkas
@@ -66,8 +65,14 @@
             <span style="color:#fff700;"><strong>Daftar Lowongan Pekerjaan</strong></span></a>
       </li>
 
+      <!-- Divider -->
+      <hr class="sidebar-divider">
 
-
+      <li class="nav-item">
+          <a class="nav-link" href="<?= base_url();?>User/dataPekerjaanC">
+            <i class="fas fa-fw fa-id-card"></i>
+            <span>Data Pekerjaan yang dilamar</span></a>
+      </li>
       <!-- Divider -->
       <hr class="sidebar-divider">
 

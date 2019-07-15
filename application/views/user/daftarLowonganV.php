@@ -54,7 +54,6 @@
           <i class="fas fa-fw fa-id-card"></i>
           <span>Dashboard</span></a>
 
-
       <!-- Heading -->
       <div class="sidebar-heading" style="color: black;">
         Berkas
@@ -66,7 +65,14 @@
             <span style="color:#fff700;"><strong>Daftar Lowongan Pekerjaan</strong></span></a>
       </li>
 
+      <!-- Divider -->
+      <hr class="sidebar-divider">
 
+      <li class="nav-item">
+          <a class="nav-link" href="<?= base_url();?>User/dataPekerjaanC">
+            <i class="fas fa-fw fa-id-card"></i>
+            <span>Data Pekerjaan yang dilamar</span></a>
+      </li>
       <!-- Divider -->
       <hr class="sidebar-divider">
 
@@ -148,8 +154,8 @@
                   <label for="hasil" class="col-sm-2 col-form-label" style="font-family: Roboto; color:black;">Posisi</label>
                   <div class="col-sm-10">
                     <?php
-                      $dd_provinsi_attribute = 'class="form-control select2"';
-                      echo form_dropdown('posisi', $dd_provinsi, $provinsi_selected);
+                      $dd_lowongan_attribute = 'class="form-control select2"';
+                      echo form_dropdown('posisi', $dd_lowongan, $lowongan_selected);
                     ?>
                   </div>
                   <!--jquery dan select2-->

@@ -52,30 +52,27 @@
       <li class="nav-item">
         <a class="nav-link" href="<?= base_url();?>User">
           <i class="fas fa-fw fa-id-card"></i>
-          <span>Akun</span></a>
-          <a class="nav-link" href="<?= base_url();?>User/edit_user">
-            <i class="fas fa-fw fa-id-card"></i>
-            <span>Edit Akun</span></a>
-      </li>
+          <span>Dashboard</span></a>
 
       <!-- Heading -->
       <div class="sidebar-heading" style="color: black;">
-        Lowongan
+        Berkas
       </div>
 
       <li class="nav-item">
           <a class="nav-link" href="<?= base_url();?>User/daftarLowonganC">
-            <i class="fas fa-fw fa-id-card"></i>
-            <span>Daftar Lowongan Pekerjaan</span></a>
+            <i class=""></i>
+            <span style="color:#fff700;"><strong>Daftar Lowongan Pekerjaan</strong></span></a>
       </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
 
       <li class="nav-item">
           <a class="nav-link" href="<?= base_url();?>User/dataPekerjaanC">
             <i class="fas fa-fw fa-id-card"></i>
             <span>Data Pekerjaan yang dilamar</span></a>
       </li>
-
-
       <!-- Divider -->
       <hr class="sidebar-divider">
 
@@ -154,9 +151,7 @@
           			<td><?php echo $a['posisi']?></td>
           			<td>
           			 <?php
-          				echo '<input type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" value="Update" onclick="if (confirm(\'Edit data ini??\')) location.href=\''.site_url('User/formeEditDataPelamarC/'.$a['id_pelamar']).'\'">
-          				<br><br>
-          				<input type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" value="Delete" onclick="if (confirm(\'yakin anda akan menghapus Data ini??\')) location.href=\''.site_url('User/delPelamarC/'.$a['id_pelamar']).'\'">';
+          				echo '<input type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" value="Delete" onclick="if (confirm(\'yakin anda akan menghapus Data ini??\')) location.href=\''.site_url('User/delPelamarC/'.$a['id_pelamar']).'\'">';
           				?>
                 </td>
           		</tr>

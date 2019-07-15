@@ -203,30 +203,34 @@
                       <input type="text" class="form-control" name="agama" value="<?= $list['agama'] ?>">
                   </div>
               </div>
-        				<!-- Form input pendidikan terakhir -->
-                <fieldset class="form-group">
-                  <div class="row">
-                      <legend class="col-form-label col-sm-2 pt-0">Pendidikan Terakhir</legend>
-                    <div class="col-sm-10">
+              <!-- Form input pendidikan terakhir -->
+              <fieldset class="form-group">
+                <div class="row">
+                    <legend class="col-form-label col-sm-2 pt-0">Pendidikan Terakhir</legend>
+                  <div class="col-sm-10">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan1" value="D3" <?php
+  echo set_value('pendaftaran', $list['pendidikan']) == 'D3' ? "checked" : ""; ?> >
+                      <label class="form-check-label" for="D3">D3</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan2" value="S1" <?php
+    echo set_value('pendaftaran', $list['pendidikan']) == 'S1' ? "checked" : ""; ?> >
+                        <label class="form-check-label" for="S1">S1</label>
+                    </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan1" value="D3">
-                        <label class="form-check-label" for="pendidikan1">D3</label>
+                        <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan3" value="S2" <?php
+    echo set_value('pendaftaran', $list['pendidikan']) == 'S2' ? "checked" : ""; ?> >
+                        <label class="form-check-label" for="S2">S2</label>
                       </div>
                       <div class="form-check">
-                          <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan2" value="S1">
-                          <label class="form-check-label" for="pendidikan2">S1</label>
+                          <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan4" value="S3" <?php
+      echo set_value('pendaftaran', $list['pendidikan']) == 'S3' ? "checked" : ""; ?> >
+                          <label class="form-check-label" for="S3">S3</label>
                       </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan3" value="S2" checked>
-                          <label class="form-check-label" for="pendidikan3">S2</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan4" value="S3">
-                            <label class="form-check-label" for="pendidikan4">S3</label>
-                        </div>
-                      </div>
-                  </div>
-              </fieldset>
+                    </div>
+                </div>
+            </fieldset>
               <!-- Form input Universitas -->
               <div class="form-group row">
                   <label for="nomor" class="col-sm-2 col-form-label">Universitas</label>
@@ -255,38 +259,43 @@
         				      <input type="number" class="form-control" name="nomor" value="<?php echo $list['nomor']; ?>">
         				    </div>
         			  	</div>
-        				<!-- Form input jenis kelamin -->
-                <fieldset class="form-group">
-        				    <div class="row">
-        				      	<legend class="col-form-label col-sm-2 pt-0">Jenis Kelamin</legend>
-        				     	<div class="col-sm-10">
-        				        	<div class="form-check">
-        						        <input class="form-check-input" type="radio" name="gender" id="gender" value="Laki-laki" checked>
-        						        <label class="form-check-label" for="gender">Laki - Laki</label>
-        				        	</div>
-        				        	<div class="form-check">
-        					          	<input class="form-check-input" type="radio" name="gender" id="gender" value="Perempuan">
-        					          	<label class="form-check-label" for="gender">Perempuan</label>
-        				        	</div>
-        				      	</div>
-        				    </div>
-        				</fieldset>
+                  <!-- Form input jenis kelamin -->
+                  <fieldset class="form-group">
+          				    <div class="row">
+          				      	<legend class="col-form-label col-sm-2 pt-0">Jenis Kelamin</legend>
+          				     	<div class="col-sm-10">
+          				        	<div class="form-check">
+          						        <input class="form-check-input" type="radio" name="gender" id="gender" value="Laki-laki" <?php
+          echo set_value('pendaftaran', $list['gender']) == 'Laki-laki' ? "checked" : ""; ?> >
+          						        <label class="form-check-label" for="Laki-laki">Laki - Laki</label>
+          				        	</div>
+          				        	<div class="form-check">
+          					          	<input class="form-check-input" type="radio" name="gender" id="gender" value="Perempuan" <?php
+            echo set_value('pendaftaran', $list['gender']) == 'Perempuan' ? "checked" : ""; ?> >
+          					          	<label class="form-check-label" for="Perempuan">Perempuan</label>
+          				        	</div>
+          				      	</div>
+          				    </div>
+          				</fieldset>
                 <!-- Form input status -->
-        				<fieldset class="form-group">
-        				    <div class="row">
-        				      	<legend class="col-form-label col-sm-2 pt-0">Status</legend>
-        				     	<div class="col-sm-10">
-        				        	<div class="form-check">
-        						        <input class="form-check-input" type="radio" name="status" id="status" value="Lajang" checked>
-        						        <label class="form-check-label" for="status">Lajang</label>
-        				        	</div>
-        				        	<div class="form-check">
-        					          	<input class="form-check-input" type="radio" name="status" id="status" value="Menikah">
-        					          	<label class="form-check-label" for="status">Menikah</label>
-        				        	</div>
-        				      </div>
-        				    </div>
-        				</fieldset>
+                <!-- Form input status -->
+                <fieldset class="form-group">
+                    <div class="row">
+                        <legend class="col-form-label col-sm-2 pt-0">Status</legend>
+                      <div class="col-sm-10">
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="status" id="status" value="Lajang" checked <?php
+        echo set_value('pendaftaran', $list['status']) == 'Lajang' ? "checked" : ""; ?>>
+                            <label class="form-check-label" for="Lajang">Lajang</label>
+                          </div>
+                          <div class="form-check">
+                              <input class="form-check-input" type="radio" name="status" id="status" value="Menikah" <?php
+          echo set_value('pendaftaran', $list['status']) == 'Menikah' ? "checked" : ""; ?>>
+                              <label class="form-check-label" for="Menikah">Menikah</label>
+                          </div>
+                      </div>
+                    </div>
+                </fieldset>
                 <!-- Form input Foto -->
                 <div class="row">
                   <label for="foto" class="col-sm-2 col-form-label">Foto</label>
