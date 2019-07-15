@@ -239,8 +239,7 @@ public function hapusLoker($id_loker){
     $data = [
       'judul' => $judul,
       'tanggal' => $tanggal,
-      'isi' => $isi,
-      'file' => $upload_data['file_name']
+      'isi' => $isi
       ];
       $this->db->insert('publish_hasil',$data);
       $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">

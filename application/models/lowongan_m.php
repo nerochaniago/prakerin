@@ -15,10 +15,15 @@ class lowongan_m extends CI_Model{
   public function getPublishHasil(){
      $this->db->select('p.id_hasil,p.judul,p.tanggal,p.isi,p.file');
      $this->db->from('publish_hasil p');
+     $this->db->order_by('id_hasil','DESC');
      $this->db->group_by('id_hasil');
      return $this->db->get()->result_array();
 
  	}
+
+  public function getPublishHasilID($id_hasil){
+    return $this->db->get_where('publish_hasil',['id_hasil' => $id_hasil])->row_array();
+  }
 
   public function hapusLoker($id_loker) {
     $this->db->where('id_loker',$id_loker);

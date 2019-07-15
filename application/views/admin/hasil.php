@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.bootstrap4.min.css">
 	<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
 
-  <title>Menu Loker | PT Puri Makmur Lestari</title>
+  <title>Hasil Seleksi | PT Puri Makmur Lestari</title>
 
   <!-- Custom fonts for this template-->
   <link href="<?= base_url();?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -222,7 +222,7 @@
                  <div class="container">
                    <div class="row">
                      <div class="col-lg-12">
-                       <table id="table_id" class="table table-striped table-bordered">
+                       <table id="table_id" class="table table-striped ">
                          <thead>
                            <tr>
                              <th>Subjek</th>

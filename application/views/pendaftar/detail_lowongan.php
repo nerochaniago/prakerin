@@ -29,9 +29,9 @@
             </a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons black" style="padding-left: 10px; padding-right: 10px;">dehaze</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down ">
-                    <li><a href="<?= base_url();?>Pendaftar_C"  style="color: green;"><i class="material-icons left">home</i>Home</a></li>
+                    <li><a href="<?= base_url();?>"  style="color: green;"><i class="material-icons left">home</i>Home</a></li>
                     <li class="active"><a href="<?= base_url();?>Pendaftar_C/lowonganKerja"  style="color: green;"><i class="material-icons left">work</i>Lowongan Pekerjaan</a></li>
-                    <li><a href="<?= base_url();?>Pendaftar_C/pengumuman"  style="color: green;"><i class="material-icons left">info</i>Pengumuman</a></li>
+                    <li><a href="<?= base_url();?>Pendaftar_C/pengumuman"  style="color: green;"><i class="material-icons left">info</i>Hasil Seleksi</a></li>
                     <li><a href="<?= base_url();?>Auth/login" style="color: green;" target="_blank"><i class="material-icons left">assignment_ind</i>Login</a></li>
                 </ul>
 
@@ -39,9 +39,11 @@
             </nav>
         </div>
         <!-- sidenav -->
-        <ul class="sidenav green" id="mobile-demo">
-            <li class="white"><a href="<?= base_url();?>Pendaftar_C/lowonganKerja">Lowongan Pekerjaan</a></li>
-            <li class="white"><a href="<?= base_url();?>Auth/login" target="_blank">Login</a></li>
+        <ul class="sidenav white" id="mobile-demo">
+            <li class="green"><a href="<?= base_url();?>"><i class="material-icons left">home</i>Home</a></li>
+            <li class="green"><a href="<?= base_url();?>Pendaftar_C/lowonganKerja"><i class="material-icons left">work</i>Lowongan Pekerjaan</a></li>
+            <li class="green"><a href="<?= base_url();?>Pendaftar_C/pengumuman"><i class="material-icons left">info</i>Hasil Seleksi</a></li>
+            <li class="green"><a href="<?= base_url();?>Auth/login" target="_blank"><i class="material-icons left">assignment_ind</i>Login</a></li>
         </ul>
 
         <!-- main content -->

@@ -43,7 +43,15 @@ class Pendaftar_C extends CI_Controller {
     }
 
     public function pengumuman() {
-      $this->load->view('pendaftar/pengumuman');
+      $this->load->model('lowongan_m');
+      $data['publish_hasil'] = $this->lowongan_m->getPublishHasil();
+      $this->load->view('pendaftar/pengumuman',$data);
+    }
+
+    public function detailPengumuman($id_hasil){
+      $this->load->model('lowongan_m');
+      $data['publish_hasil'] = $this->lowongan_m->getPublishHasilID($id_hasil);
+      $this->load->view('pendaftar/detail_pengumuman',$data);
     }
 
     public function detailLoker($id_loker){

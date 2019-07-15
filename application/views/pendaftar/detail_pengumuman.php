@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Hasil | PT Puri Makmur Lestari</title>
+    <title>Detail Hasil | PT Puri Makmur Lestari</title>
     <!-- My materialize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -52,33 +52,22 @@
           <div class="container">
             <div class="row">
               <div class="col l12 s12">
-                <h2 style="font-weight: bold; font-family: Roboto; color: green;" >Pengumuman Hasil Seleksi</h2>
+                <h4 style="font-weight: bold; font-family: Roboto; color: green;" ><?= $publish_hasil['judul'];?></h4>
               </div>
             </div>
           </div>
-         <?php foreach ($publish_hasil as $p) : ?>
-           <div class="container">
-             <div class="row">
-               <div class="col m12">
-                 <div class="card horizontal" style="background-color:#dce6e6;">
-                       <div class="card-stacked">
-                         <div class="card-content">
-                           <h5 style="color:black;font-family: Roboto;"><?= $p['judul'];?></h5>
-                           <h6 style="margin-top:3px;font-family: Roboto; color:grey;"><i class="tiny material-icons">account_circle</i>Published by Admin Pada <?= date("d/F/Y",strtotime($p['tanggal']));?></h6>
-                           <br>
-                           <p>
-                             <?php $limiter_word = word_limiter($p['isi'],15) ?>
-                             <?= $limiter_word ?></p>
-                         </div>
-                         <div class="card-action">
-                           <a href="<?= base_url();?>Pendaftar_C/detailPengumuman/<?= $p['id_hasil'];?>" class="btn green darken-1">Detail</a>
-                         </div>
-                       </div>
-                     </div>
-               </div>
-             </div>
-           </div>
-          <?php endforeach; ?>
+          <div class="container">
+            <div class="row">
+              <div class="col l12">
+                <?= $publish_hasil['isi']?>
+                <br><br><br>
+
+                  <a href='<?= base_url('hasil_seleksi/') . $publish_hasil['file'];?>' class="btn green darken-1">Download Hasil</a>
+
+              </div>
+            </div>
+          </div>
+
           </main>
 
           <!-- footer -->
