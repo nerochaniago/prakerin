@@ -77,7 +77,7 @@ class User extends CI_Controller {
             'button' => 'posisi',
             // 'action' => site_url('provinsi/create_action'),
             'dd_provinsi' => $this->UserM->dataLowonganM(),
-            'provinsi_selected' => $this->input->post('posisi') ? $this->input->post('posisi') : '', // untuk edit ganti '' menjadi data dari database misalnya $row->provinsi
+            'provinsi_selected' => $this->input->post('$row->id_loker') ? $this->input->post('$row->posisi') : '', // untuk edit ganti '' menjadi data dari database misalnya $row->provinsi
 	      );
     $this->load->view('user/daftarLowonganV',$data);
 
