@@ -30,7 +30,7 @@ class UserM extends CI_Model{
 
   public function add_pelamarM($data)
   {
-    // $this->db->insert('pendaftaran',$data);
+    $this->db->insert('pendaftaran',$data);
 
 
     // $emailnya = $this->input->POST['email'];
@@ -45,9 +45,9 @@ class UserM extends CI_Model{
     // }
     // else {
     //   $this->db->insert('pendaftaran',$data);
-    //   $this->session->set_flashdata('message','<div class="alert alert-info" role="alert">
-    //    Pendaftaran Berhasil, Pengumuman akan di umumkan pada website resmi www.purimakmurlestari.co.id
-    //   </div>');
+      $this->session->set_flashdata('message','<div class="alert alert-info" role="alert">
+       Pendaftaran Berhasil, Pengumuman akan di umumkan pada website resmi www.purimakmurlestari.co.id
+      </div>');
     // }
   }
 
