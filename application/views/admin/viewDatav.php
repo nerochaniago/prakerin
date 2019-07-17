@@ -34,7 +34,7 @@
     <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url();?>user">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url();?>Admin_Puri">
         <div class="sidebar-brand-icon ">
           <img src="<?= base_url();?>assets/img/Logo Puri.png" alt="logo_pt_puri">
         </div>
@@ -167,45 +167,45 @@
                 <input type="hidden" name="id_pelamar" value="<?= $list['id_pelamar'] ?>">
 
         				<!--Form input Posisi-->
-        				<div class="form-group row">
+        				<div class="form-group row" style="padding-top: 10px;">
         				    <label for="posisi" class="col-sm-2 col-form-label">Posisi</label>
         				    <div class="col-sm-10">
-        				      <input type="text" class="form-control" name="posisi" value="<?= $list['posisi'] ?>" readonly>
+        				      <input style="font-family: Roboto; color:black;" type="text" class="form-control" name="posisi" value="<?= $list['posisi'] ?>" readonly>
         				    </div>
         			  	</div>
         				<!-- Form input nama lengkap -->
         				<div class="form-group row">
         				    <label for="nama" class="col-sm-2 col-form-label">Nama Lengkap</label>
         				    <div class="col-sm-10">
-        				      <input type="text" class="form-control" name="nama" value="<?= $list['nama'] ?>" readonly>
+        				      <input style="font-family: Roboto; color:black;" type="text" class="form-control" name="nama" value="<?= $list['nama'] ?>" readonly>
         				    </div>
         			  	</div>
         				<!-- Form input tempat lahir -->
         			  	<div class="form-group row">
         				    <label for="tmpt_lahir" class="col-sm-2 col-form-label">Tempat Lahir</label>
         				    <div class="col-sm-10">
-        				      <input type="text" class="form-control" name="tmpt_lahir" value="<?= $list['tmpt_lahir'] ?>" readonly>
+        				      <input style="font-family: Roboto; color:black;" type="text" class="form-control" name="tmpt_lahir" value="<?= $list['tmpt_lahir'] ?>" readonly>
         				    </div>
         			  	</div>
         				<!-- Form input tanggal lahir -->
         			  	<div class="form-group row">
         				    <label for="tgl_lahir" class="col-sm-2 col-form-label">Tanggal Lahir</label>
         				    <div class="col-sm-10">
-        				      <input type="date" class="form-control" name="tgl_lahir" value="<?= $list['tgl_lahir'] ?>" readonly>
+        				      <input style="font-family: Roboto; color:black;" type="date" class="form-control" name="tgl_lahir" value="<?= $list['tgl_lahir'] ?>" readonly>
         				    </div>
         			  	</div>
         			  	<!-- Form input alamat -->
         				<div class="form-group row">
         				    <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
         				    <div class="col-sm-10">
-        				      	<input type="text" class="form-control" name="alamat" placeholder="Alamat"value="<?= $list['alamat'] ?>" readonly>
+        				      	<input style="font-family: Roboto; color:black;" type="text" class="form-control" name="alamat" placeholder="Alamat"value="<?= $list['alamat'] ?>" readonly>
         				    </div>
         				</div>
                 <!-- Form input agama -->
               <div class="form-group row">
                   <label for="agama" class="col-sm-2 col-form-label">Agama</label>
                   <div class="col-sm-10">
-                      <input type="text" class="form-control" name="agama" value="<?= $list['agama'] ?>" readonly>
+                      <input style="font-family: Roboto; color:black;" type="text" class="form-control" name="agama" value="<?= $list['agama'] ?>" readonly>
                   </div>
               </div>
         				<!-- Form input pendidikan terakhir -->
@@ -216,22 +216,22 @@
                       <div class="form-check">
                         <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan1" value="D3" <?php
     echo set_value('pendaftaran', $list['pendidikan']) == 'D3' ? "checked" : ""; ?> readonly>
-                        <label class="form-check-label" for="D3">D3</label>
+                        <label class="form-check-label" for="D3" style="font-family: Roboto; color:black;">D3</label>
                       </div>
                       <div class="form-check">
                           <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan2" value="S1" <?php
       echo set_value('pendaftaran', $list['pendidikan']) == 'S1' ? "checked" : ""; ?> readonly>
-                          <label class="form-check-label" for="S1">S1</label>
+                          <label class="form-check-label" for="S1" style="font-family: Roboto; color:black;">S1</label>
                       </div>
                         <div class="form-check">
                           <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan3" value="S2" <?php
       echo set_value('pendaftaran', $list['pendidikan']) == 'S2' ? "checked" : ""; ?> readonly>
-                          <label class="form-check-label" for="S2">S2</label>
+                          <label class="form-check-label" for="S2" style="font-family: Roboto; color:black;">S2</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan4" value="S3" <?php
         echo set_value('pendaftaran', $list['pendidikan']) == 'S3' ? "checked" : ""; ?> readonly>
-                            <label class="form-check-label" for="S3">S3</label>
+                            <label class="form-check-label" for="S3" style="font-family: Roboto; color:black;">S3</label>
                         </div>
                       </div>
                   </div>
@@ -240,28 +240,28 @@
               <div class="form-group row">
                   <label for="nomor" class="col-sm-2 col-form-label">Universitas</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" name="universitas" value="<?php echo $list['universitas']; ?>" readonly>
+                    <input style="font-family: Roboto; color:black;" type="text" class="form-control" name="universitas" value="<?php echo $list['universitas']; ?>" readonly>
                   </div>
                 </div>
                 <!-- Form input Jurusan -->
                 <div class="form-group row">
                     <label for="nomor" class="col-sm-2 col-form-label">Jurusan</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" name="jurusan" value="<?php echo $list['jurusan']; ?>" readonly>
+                      <input style="font-family: Roboto; color:black;" type="text" class="form-control" name="jurusan" value="<?php echo $list['jurusan']; ?>" readonly>
                     </div>
                   </div>
         				<!-- Form input email -->
         				<div class="form-group row">
         				    <label for="email" class="col-sm-2 col-form-label">Email</label>
         				    <div class="col-sm-10">
-        				      	<input type="email" class="form-control" name="email" value="<?php echo $list['email']; ?>" readonly>
+        				      	<input style="font-family: Roboto; color:black;" type="email" class="form-control" name="email" value="<?php echo $list['email']; ?>" readonly>
         				    </div>
         				</div>
         				<!-- Form input nomor hp -->
         				<div class="form-group row">
         				    <label for="nomor" class="col-sm-2 col-form-label">Nomor HP</label>
         				    <div class="col-sm-10">
-        				      <input type="number" class="form-control" name="nomor" value="<?php echo $list['nomor']; ?>" readonly>
+        				      <input style="font-family: Roboto; color:black;" type="number" class="form-control" name="nomor" value="<?php echo $list['nomor']; ?>" readonly>
         				    </div>
         			  	</div>
         				<!-- Form input jenis kelamin -->
@@ -272,12 +272,12 @@
         				        	<div class="form-check">
         						        <input class="form-check-input" type="radio" name="gender" id="gender" value="Laki-laki" <?php
         echo set_value('pendaftaran', $list['gender']) == 'Laki-laki' ? "checked" : ""; ?> readonly>
-        						        <label class="form-check-label" for="Laki-laki">Laki - Laki</label>
+        						        <label class="form-check-label" for="Laki-laki" style="font-family: Roboto; color:black;">Laki - Laki</label>
         				        	</div>
         				        	<div class="form-check">
         					          	<input class="form-check-input" type="radio" name="gender" id="gender" value="Perempuan" <?php
           echo set_value('pendaftaran', $list['gender']) == 'Perempuan' ? "checked" : ""; ?> readonly>
-        					          	<label class="form-check-label" for="Perempuan">Perempuan</label>
+        					          	<label class="form-check-label" for="Perempuan" style="font-family: Roboto; color:black;">Perempuan</label>
         				        	</div>
         				      	</div>
         				    </div>
@@ -290,12 +290,12 @@
         				        	<div class="form-check">
         						        <input class="form-check-input" type="radio" name="status" id="status" value="Lajang" checked <?php
         echo set_value('pendaftaran', $list['status']) == 'Lajang' ? "checked" : ""; ?> readonly>
-        						        <label class="form-check-label" for="Lajang">Lajang</label>
+        						        <label class="form-check-label" for="Lajang" style="font-family: Roboto; color:black;">Lajang</label>
         				        	</div>
         				        	<div class="form-check">
         					          	<input class="form-check-input" type="radio" name="status" id="status" value="Menikah" <?php
           echo set_value('pendaftaran', $list['status']) == 'Menikah' ? "checked" : ""; ?> readonly>
-        					          	<label class="form-check-label" for="Menikah">Menikah</label>
+        					          	<label class="form-check-label" for="Menikah" style="font-family: Roboto; color:black;">Menikah</label>
         				        	</div>
         				      </div>
         				    </div>
@@ -326,8 +326,8 @@
                   <div class="col-sm-10">
                     <div class="custom-file">
                       <select class="form-control" id="hasil" name="hasil">
-                        <option value="Yes">Yes</option>
-                        <option value="No">No</option>
+                        <option value="Yes" style="font-family: Roboto; color:black;">Yes</option>
+                        <option value="No" style="font-family: Roboto; color:black;">No</option>
                       </select>
                     </div>
                   </div>
@@ -335,7 +335,8 @@
                 <!-- Validasi pendaftaran -->
                 <div class="form-group row">
                     <div class="col-sm-10">
-                      <button type="submit" class="btn btn-primary">Done</button>
+                      <button type="submit" class="btn btn-primary">Update Status</button>
+                      <a href="<?= base_url();?>Admin_Puri/Excel_Export" class="btn btn-danger ml-2">Kembali</a>
                       <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#masukkandatabaru">
                         Change Status
                       </button> -->

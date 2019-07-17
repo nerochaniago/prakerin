@@ -39,7 +39,7 @@
     <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url();?>user">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url();?>Admin_Puri">
         <div class="sidebar-brand-icon ">
           <img src="<?= base_url();?>assets/img/Logo Puri.png" alt="logo_pt_puri">
         </div>
@@ -247,7 +247,7 @@
               <div class="col-lg-12">
                 <table id="table_id" class="table table-striped table-bordered responsive ">
                   <thead>
-                    <tr>
+                    <tr style="font-family: Roboto; color:black;">
                       <th>Posisi</th>
                       <th>Penempatan</th>
                       <th>Syarat</th>
@@ -258,7 +258,7 @@
                   </thead>
                   <tbody>
                     <?php foreach ($loker_baru as $lo):?>
-                    <tr>
+                    <tr style="font-family: Roboto; color:black;">
                       <td><?=$lo['posisi'];?></td>
                       <td><?=$lo['penempatan'];?></td>
                       <td><?=$lo['syarat'];?></td>
@@ -298,7 +298,7 @@
 
                                       <div class="form-group">
                                         <label for="persyaratan">Persyaratan</label>
-                                          <textarea class="form-control texteditor" id="syarat" name="syarat"  ><?= $lo['syarat'];?> </textarea>
+                                          <textarea class="form-control texteditor" cols="50" rows="4"  id="syarat" name="syarat"  ><?= $lo['syarat'];?> </textarea>
                                   </div>
                                   <div class="form-group">
                                     <label for="batas">Batas Penerimaan</label>
@@ -318,7 +318,7 @@
                             <div class="modal-footer">
                                     <button type="submit" class="btn btn-success">Edit</button>
                                   </div>
-                                  </form>
+                          </form>
                     </tr>
                     <?php endforeach; ?>
                   </tbody>
@@ -390,18 +390,18 @@
 	<script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
   <script src="<?= base_url();?>assets/ckeditor/ckeditor.js"></script>
   <script src="<?= base_url();?>assets/ckeditor/adapters/jquery.js"></script>
-
-
   <script type="text/javascript">
       $('textarea.texteditor').ckeditor();
   </script>
 
 
+
+
 <script>
 		$(document).ready(function () {
 			var table = $('#table_id').DataTable({
-				lengthChange: true,
-         scrollY: 400
+         scrollY: 400,
+         "paging":   false
 
 			});
 
