@@ -37,7 +37,7 @@
     <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url();?>user">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url();?>Admin_Puri">
         <div class="sidebar-brand-icon ">
           <img src="<?= base_url();?>assets/img/Logo Puri.png" alt="logo_pt_puri">
         </div>
@@ -395,7 +395,8 @@
 			var table = $('#table_id').DataTable({
 				lengthChange: true,
          scrollY: 400,
-         scrollX: 400
+         scrollX: 400,
+         "paging":   false
 
 			});
 

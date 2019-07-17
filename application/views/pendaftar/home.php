@@ -19,6 +19,9 @@
       background-color:#42f581;
 
     }
+    .slider h3 {
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
     </style>
     <script type="text/javascript">
     $(document).ready(function(){
@@ -34,18 +37,18 @@
 <body style="display: flex; min-height: 100vh; flex-direction: column;">
     <!--- Navbar --->
     <div class="navbar-fixed">
-        <nav class="white darken-2">
+        <nav class="white darken-2" style="height:5em ">
 
             <div class="nav-wrapper">
-            <a href="<?= base_url(); ?>" class="brand-logo" style="margin-left:5px;">
-        <img src="<?= base_url(); ?>assets/img/Logo Puri.png" alt="logo" style="width: 60px; margin-top: 5px; ">
+            <a href="<?= base_url(); ?>" class="brand-logo" style="margin-left:8px;">
+        <img src="<?= base_url(); ?>assets/img/Logo Puri.png" alt="logo" style="width: 75px; margin-top: 5px; ">
         </a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons green darken-2" style="padding-left: 10px; padding-right: 10px;">dehaze</i></a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons black" style="padding-left: 10px; padding-right: 10px; height:2.9em ">dehaze</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down ">
-                <li class="active"><a href="<?= base_url();?>"  style="color: green;"><i class="material-icons left">home</i>Home</a></li>
-                <li><a href="<?= base_url();?>Pendaftar_C/lowonganKerja"  style="color: green;"><i class="material-icons left">work</i>Lowongan Pekerjaan</a></li>
-                <li><a href="<?= base_url();?>Pendaftar_C/pengumuman"  style="color: green;"><i class="material-icons left">info</i>Hasil Seleksi</a></li>
-                <li><a href="<?= base_url();?>Auth/login" style="color: green;" target="_blank"><i class="material-icons left">assignment_ind</i>Login</a></li>
+                <li class="active" style="height:5em"><a href="<?= base_url();?>"  style="color: green;"><i class="material-icons left">home</i>Home</a></li>
+                <li style="height:5em"><a href="<?= base_url();?>Pendaftar_C/lowonganKerja"  style="color: green;"><i class="material-icons left">work</i>Lowongan Pekerjaan</a></li>
+                <li style="height:5em"><a href="<?= base_url();?>Pendaftar_C/pengumuman"  style="color: green;"><i class="material-icons left">info</i>Hasil Seleksi</a></li>
+                <li style="height:5em"><a href="<?= base_url();?>Auth/login" style="color: green;" target="_blank"><i class="material-icons left">assignment_ind</i>Login</a></li>
             </ul>
 
             </div>
@@ -64,7 +67,8 @@
     <ul class="slides">
       <li>
         <img src="https://lorempixel.com/580/250/nature/1"> <!-- random image -->
-        <div class="caption center-align">
+        <div class="caption left-align">
+          <h3 style="color:white; font-family: Roboto;">PT PURI MAKMUR LESTARI</h3>
         </div>
       </li>
       <li>
@@ -98,15 +102,14 @@
               <div class="col l6 s12">
                 <h5 class="white-text" style="font-family: Roboto; text-align:center;">Social Media</h5><br>
                 <div class="col offset-l3">
-                  <a href="" style="display:block;"><img src="<?= base_url(); ?>assets/img/icons8-facebook-filled-35.png"></a>
-                  <a href="" style="display:block;"><img src="<?= base_url(); ?>assets/img/icons8-instagram-filled-35.png"></a>
-                  <a href="" style="display:block;"><img src="<?= base_url(); ?>assets/img/icons8-new-post-filled-35.png"></a>
+                  <div class="" style="margin-left:23.5px;">
+                    <a href="" style=""><img src="<?= base_url(); ?>assets/img/icons8-facebook-filled.png"></a>
+                    <a href="" style=""><img src="<?= base_url(); ?>assets/img/icons8-instagram-48.png"></a>
+                    <a href="" style=""><img src="<?= base_url(); ?>assets/img/icons8-gmail-48.png"></a>
+                  </div>
+
                 </div>
-                <div class="col l6">
-                  <h6 style="margin-top:5px;">Puri Makmur Lestari</h6>
-                  <h6 style="margin-top:25.5px;">Puri Makmur Lestari</h6>
-                  <h6 style="margin-top:23px;">Puri Makmur Lestari</h6>
-                </div>
+
 
               </div>
             </div>
@@ -130,7 +133,8 @@
 
     const slider = document.querySelectorAll('.slider');
     M.Slider.init(slider,{
-      indicators : false
+      indicators : false,
+      height : 550
     });
 
     const parallax = document.querySelectorAll('.parallax');

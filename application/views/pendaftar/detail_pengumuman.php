@@ -21,18 +21,18 @@
   <body style="display: flex; min-height: 100vh; flex-direction: column;">
         <!--- Navbar --->
         <div class="navbar-fixed">
-            <nav class="white darken-2">
+            <nav class="white darken-2" style="height:5em ">
 
                 <div class="nav-wrapper">
-                <a href="<?= base_url(); ?>" class="brand-logo" style="margin-left:5px;">
-            <img src="<?= base_url(); ?>assets/img/Logo Puri.png" alt="logo" style="width: 60px; margin-top: 5px; ">
+                <a href="<?= base_url(); ?>" class="brand-logo" style="margin-left:8px;">
+            <img src="<?= base_url(); ?>assets/img/Logo Puri.png" alt="logo" style="width: 75px; margin-top: 5px; ">
             </a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons black" style="padding-left: 10px; padding-right: 10px;">dehaze</i></a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons black" style="padding-left: 10px; padding-right: 10px; height:2.9em">dehaze</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down ">
-                    <li><a href="<?= base_url();?>"  style="color: green;"><i class="material-icons left">home</i>Home</a></li>
-                    <li><a href="<?= base_url();?>Pendaftar_C/lowonganKerja"  style="color: green;"><i class="material-icons left">work</i>Lowongan Pekerjaan</a></li>
-                    <li class="active"><a href="<?= base_url();?>Pendaftar_C/pengumuman"  style="color: green;"><i class="material-icons left">info</i>Hasil Seleksi</a></li>
-                    <li><a href="<?= base_url();?>Auth/login" style="color: green;" target="_blank"><i class="material-icons left">assignment_ind</i>Login</a></li>
+                    <li style="height:5em "><a href="<?= base_url();?>"  style="color: green;"><i class="material-icons left">home</i>Home</a></li>
+                    <li style="height:5em "><a href="<?= base_url();?>Pendaftar_C/lowonganKerja"  style="color: green;"><i class="material-icons left">work</i>Lowongan Pekerjaan</a></li>
+                    <li class="active" style="height:5em "><a href="<?= base_url();?>Pendaftar_C/pengumuman"  style="color: green;"><i class="material-icons left">info</i>Hasil Seleksi</a></li>
+                    <li style="height:5em "><a href="<?= base_url();?>Auth/login" style="color: green;" target="_blank"><i class="material-icons left">assignment_ind</i>Login</a></li>
                 </ul>
 
                 </div>
