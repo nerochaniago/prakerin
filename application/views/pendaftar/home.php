@@ -88,7 +88,21 @@
 
 
     <main>
-
+      <div class="container">
+        <div class="row">
+          <div class="col l12">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col l12">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+        </div>
+      </div>
     </main>
 
     <!-- footer -->
@@ -98,6 +112,8 @@
               <div class="col l6 s12">
                 <h5 class="white-text" style="font-family: Roboto; ">Contact</h5><br>
                 <p class="grey-text text-lighten-4" style="font-family: Roboto; ">Jl. Terusan Buah Batu Komp BBCA No. 48 Bandung</p>
+                <p style="font-family: Roboto; ">Email : rekrutmen@purimakmurlestari.co.id</p>
+                <p style="font-family: Roboto; ">Call : </p>
               </div>
               <div class="col l6 s12">
                 <h5 class="white-text" style="font-family: Roboto; text-align:center;">Social Media</h5><br>
@@ -105,7 +121,7 @@
                   <div class="" style="margin-left:23.5px;">
                     <a href="" style=""><img src="<?= base_url(); ?>assets/img/icons8-facebook-filled.png"></a>
                     <a href="" style=""><img src="<?= base_url(); ?>assets/img/icons8-instagram-48.png"></a>
-                    <a href="" style=""><img src="<?= base_url(); ?>assets/img/icons8-gmail-48.png"></a>
+                    <a  style=""><img src="<?= base_url(); ?>assets/img/icons8-whatsapp-48.png"></a>
                   </div>
 
                 </div>
@@ -117,7 +133,7 @@
           </div>
           <div class="footer-copyright red darken-3">
             <div class="container">
-            <h6 style="color: white;  font-family: Roboto;">  © 2019 PT Puri Makmur Lestari </h6>
+            <h6 style="margin-left: 10px; font-family: Roboto;">  © 2019 PT Puri Makmur Lestari </h6>
             </div>
           </div>
         </footer>
