@@ -78,7 +78,7 @@
                             <div class="card-content" style="box-sizing:border-box;">
                               <h6 class="" style="color:green; font-family: Roboto;" style="margin-top:8px; display: inline-block;" ><b><?=$lo['posisi'];?></b></h6>
 
-                               <span class="new badge red" style="float:left; font-family: Roboto; font-size:13px;" data-badge-caption="Batas Penerimaan <?= date("d/F/Y",strtotime($lo['batas'])); ?> "></span><br />
+                               <span class="new badge red" style="margin-left: 2px; font-family: Roboto; font-size:13px; width:20em;" data-badge-caption=" " > Batas Penerimaan : <?= date("d/F/Y",strtotime($lo['batas'])); ?></span><br />
 
                                <h7 style="font-family: Roboto; ">Lokasi : <?= character_limiter($lo['penempatan'],10)?></h7>
                             </div>
