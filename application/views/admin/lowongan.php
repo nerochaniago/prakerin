@@ -245,7 +245,7 @@
           <div class="container">
             <div class="row">
               <div class="col-lg-12">
-                <table id="table_id" class="table table-striped table-bordered responsive ">
+                <table id="table_id" class="table table-striped table-bordered ">
                   <thead>
                     <tr style="font-family: Roboto; color:black;">
                       <th>Posisi</th>
@@ -401,6 +401,7 @@
 		$(document).ready(function () {
 			var table = $('#table_id').DataTable({
          scrollY: 400,
+         scrollX: 400,
          "paging":   false
 
 			});
