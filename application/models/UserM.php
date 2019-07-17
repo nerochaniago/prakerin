@@ -31,7 +31,10 @@ class UserM extends CI_Model{
   public function add_pelamarM($data)
   {
     $this->db->insert('pendaftaran',$data);
+<<<<<<< HEAD
+=======
 
+>>>>>>> ac48f0b3317049ef8b8ef1d8e8477b12a21a3537
 
     // $emailnya = $this->input->POST['email'];
     // $query = "SELECT email FROM pendaftaran WHERE email = $emailnya";
@@ -64,7 +67,6 @@ class UserM extends CI_Model{
     $this->db->where('id_pelamar',$where);
   	$mhs = $this->db->get($table);
   	return $mhs->row_array();
-    // return $this->db->get_where($table,$where);
   }
 
   public function editDataPekerjaanM($data, $id_pelamar)

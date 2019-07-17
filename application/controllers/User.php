@@ -26,10 +26,8 @@ class User extends CI_Controller {
       $name = $this->input->post('name');
       $email = $this->input->post('email');
 
-
       $uploadImage = $_FILES['image']['name'];
       if ($uploadImage) {
-        // code...
         $config['allowed_types'] = 'gif|jpg|png';
         $config['max_sizes'] = '2048';
         $config['upload_path'] = './assets/img/profile/';
@@ -154,7 +152,6 @@ class User extends CI_Controller {
     $universitas = $this->input->post('universitas');
     $jurusan = $this->input->post('jurusan');
 
-
     if ($foto){
       $config['upload_path'] = './uploads/pelamar';
     	$config['allowed_types'] = 'jpg|jpeg|pdf|doc';
@@ -201,7 +198,6 @@ class User extends CI_Controller {
       'jurusan'=> $jurusan,
     ];
 
-    // $this->UserM->editDataPekerjaanM($data,$id_pelamar);
     $this->db->where('id_pelamar',$this->input->post('id_pelamar'));
     $this->db->update('pendaftaran',$data);
     $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
