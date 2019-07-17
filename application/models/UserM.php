@@ -30,8 +30,7 @@ class UserM extends CI_Model{
 
   public function add_pelamarM($data)
   {
-    // $this->db->insert('pendaftaran',$data);
-
+    $this->db->insert('pendaftaran',$data);
 
     // $emailnya = $this->input->POST['email'];
     // $query = "SELECT email FROM pendaftaran WHERE email = $emailnya";
@@ -45,9 +44,9 @@ class UserM extends CI_Model{
     // }
     // else {
     //   $this->db->insert('pendaftaran',$data);
-    //   $this->session->set_flashdata('message','<div class="alert alert-info" role="alert">
-    //    Pendaftaran Berhasil, Pengumuman akan di umumkan pada website resmi www.purimakmurlestari.co.id
-    //   </div>');
+      $this->session->set_flashdata('message','<div class="alert alert-info" role="alert">
+       Pendaftaran Berhasil, Pengumuman akan di umumkan pada website resmi www.purimakmurlestari.co.id
+      </div>');
     // }
   }
 
@@ -64,7 +63,6 @@ class UserM extends CI_Model{
     $this->db->where('id_pelamar',$where);
   	$mhs = $this->db->get($table);
   	return $mhs->row_array();
-    // return $this->db->get_where($table,$where);
   }
 
   public function editDataPekerjaanM($data, $id_pelamar)
