@@ -93,6 +93,26 @@ class User extends CI_Controller {
     $foto = $this->upload->data('file_name');
     $this->upload->do_upload('cv');
     $cv = $this->upload->data('file_name');
+    $this->upload->do_upload('sertif1');
+    $foto = $this->upload->data('file_name');
+    $this->upload->do_upload('sertif2');
+    $cv = $this->upload->data('file_name');
+    $this->upload->do_upload('sertif3');
+    $foto = $this->upload->data('file_name');
+    $this->upload->do_upload('ijazah');
+    $cv = $this->upload->data('file_name');
+    $this->upload->do_upload('nilai');
+    $foto = $this->upload->data('file_name');
+    $this->upload->do_upload('skkb');
+    $cv = $this->upload->data('file_name');
+    $this->upload->do_upload('ks');
+    $foto = $this->upload->data('file_name');
+    $this->upload->do_upload('ktp');
+    $cv = $this->upload->data('file_name');
+    $this->upload->do_upload('kk');
+    $foto = $this->upload->data('file_name');
+    $this->upload->do_upload('npwp');
+    $cv = $this->upload->data('file_name');
 
   	$data = array(
   		'posisi'=>$this->input->post('posisi'),
@@ -109,7 +129,18 @@ class User extends CI_Controller {
   		'cv' => $cv,
       'email'=>$this->session->email,
       'universitas'=>$this->input->post('universitas'),
-      'jurusan'=>$this->input->post('jurusan')
+      'jurusan'=>$this->input->post('jurusan'),
+      'sertif1'=> $sertif1,
+      'sertif2'=> $sertif2,
+      'sertif3'=> $sertif3,
+      'ijazah'=> $ijazah,
+      'nilai'=> $nilai,
+      'skkb'=> $skkb,
+      'ks'=> $ks,
+      'ktp'=> $ktp,
+      'kk'=> $kk,
+      'npwp'=> $npwp,
+      'kelengkapan'=> $kelengkapan      
   	);
 
     $this->UserM->add_pelamarM($data);
