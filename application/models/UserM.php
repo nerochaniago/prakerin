@@ -31,11 +31,6 @@ class UserM extends CI_Model{
   public function add_pelamarM($data)
   {
     $this->db->insert('pendaftaran',$data);
-<<<<<<< HEAD
-=======
-
->>>>>>> ac48f0b3317049ef8b8ef1d8e8477b12a21a3537
-
     // $emailnya = $this->input->POST['email'];
     // $query = "SELECT email FROM pendaftaran WHERE email = $emailnya";
     // $cekdulu= "SELECT email FROM pendaftaran WHERE email='$this->session->email'"; //username dan $_POST[un] diganti sesuai dengan yang kalian gunakan

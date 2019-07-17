@@ -353,6 +353,8 @@ public function hapusLoker($id_loker){
       $object->getActiveSheet()->setCellValueByColumnAndRow(10, $excel_row, $row->pendidikan);
       $object->getActiveSheet()->setCellValueByColumnAndRow(11, $excel_row, $row->universitas);
       $object->getActiveSheet()->setCellValueByColumnAndRow(12, $excel_row, $row->jurusan);
+      $object->getActiveSheet()->setCellValueByColumnAndRow(13, $excel_row, $row->kelengkapan);
+
       $excel_row++;
 
     }

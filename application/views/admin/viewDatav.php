@@ -315,11 +315,120 @@
                   <div class="col-sm-10">
                     <div class="custom-file">
                       <button type="button" name="button" class="btn"><a href='<?= base_url('uploads/pelamar/') . $list['cv'];?>'>Download File CV </a></button>
-
                     </div>
                   </div>
                 </div>
                 <br>
+                <!-- Form input Sertifikat Pelatihan/kursus/pengalaman Kerja -->
+                <div class="row">
+                  <label for="cv" class="col-sm-2 col-form-label">Sertifikat Pelatihan/kursus/pengalaman Kerja</label>
+                  <div class="col-sm-10">
+                    <div class="custom-file">
+                      <button type="button" name="button" class="btn"><a href='<?= base_url('uploads/pelamar/') . $list['sertif1'];?>'>Download File sertifikat </a></button>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <!-- Form input Sertifikat Pelatihan/kursus/pengalaman Kerja -->
+                <div class="row">
+                  <label for="cv" class="col-sm-2 col-form-label">Sertifikat Pelatihan/kursus/pengalaman Kerja</label>
+                  <div class="col-sm-10">
+                    <div class="custom-file">
+                      <button type="button" name="button" class="btn"><a href='<?= base_url('uploads/pelamar/') . $list['sertif2'];?>'>Download File sertifikat </a></button>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <!-- Form input Sertifikat Pelatihan/kursus/pengalaman Kerja -->
+                <div class="row">
+                  <label for="cv" class="col-sm-2 col-form-label">Sertifikat Pelatihan/kursus/pengalaman Kerja</label>
+                  <div class="col-sm-10">
+                    <div class="custom-file">
+                      <button type="button" name="button" class="btn"><a href='<?= base_url('uploads/pelamar/') . $list['sertif3'];?>'>Download File sertifikat </a></button>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <!-- Form input Sertifikat Ijazah Pendidikan -->
+                <div class="row">
+                  <label for="cv" class="col-sm-2 col-form-label">Ijazah</label>
+                  <div class="col-sm-10">
+                    <div class="custom-file">
+                      <button type="button" name="button" class="btn"><a href='<?= base_url('uploads/pelamar/') . $list['ijazah'];?>'>Download File Ijazah </a></button>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <!-- Form input Sertifikat Transkip Pendidikan Terakhir-->
+                <div class="row">
+                  <label for="cv" class="col-sm-2 col-form-label">Nilai</label>
+                  <div class="col-sm-10">
+                    <div class="custom-file">
+                      <button type="button" name="button" class="btn"><a href='<?= base_url('uploads/pelamar/') . $list['nilai'];?>'>Download File Nilai </a></button>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <!-- Form input Sertifikat Surat Keterangan Kelakuan baik -->
+                <div class="row">
+                  <label for="cv" class="col-sm-2 col-form-label">Surat Keterangan Kelakuan Baik</label>
+                  <div class="col-sm-10">
+                    <div class="custom-file">
+                      <button type="button" name="button" class="btn"><a href='<?= base_url('uploads/pelamar/') . $list['skkb'];?>'>Download File SKKB </a></button>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <!-- Form input Sertifikat Keterangan Sehat -->
+                <div class="row">
+                  <label for="cv" class="col-sm-2 col-form-label">Sertifikat Keterangan Sehat</label>
+                  <div class="col-sm-10">
+                    <div class="custom-file">
+                      <button type="button" name="button" class="btn"><a href='<?= base_url('uploads/pelamar/') . $list['ks'];?>'>Download File Keterangan Sehat </a></button>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <!-- Form input KTP -->
+                <div class="row">
+                  <label for="cv" class="col-sm-2 col-form-label">KTP</label>
+                  <div class="col-sm-10">
+                    <div class="custom-file">
+                      <button type="button" name="button" class="btn"><a href='<?= base_url('uploads/pelamar/') . $list['ktp'];?>'>Download File KTP </a></button>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <!-- Form input Kartu Keluarga -->
+                <div class="row">
+                  <label for="cv" class="col-sm-2 col-form-label">Kartu Keluarga</label>
+                  <div class="col-sm-10">
+                    <div class="custom-file">
+                      <button type="button" name="button" class="btn"><a href='<?= base_url('uploads/pelamar/') . $list['kk'];?>'>Download File KK </a></button>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <!-- Form input NPWP -->
+                <div class="row">
+                  <label for="cv" class="col-sm-2 col-form-label">NPWP</label>
+                  <div class="col-sm-10">
+                    <div class="custom-file">
+                      <button type="button" name="button" class="btn"><a href='<?= base_url('uploads/pelamar/') . $list['npwp'];?>'>Download File NPWP </a></button>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <!-- Form input Kelengkapan -->
+                <div class="row">
+                  <label for="cv" class="col-sm-2 col-form-label">Kelengkapan Berkas</label>
+                  <div class="col-sm-10">
+                    <div class="custom-file">
+                      <input style="font-family: Roboto; color:black;" type="textarea" class="form-control" name="Kelengkapan" placeholder="Keterangan Kelengkapan Berkas" >
+
+                    </div>
+                  </div>
+                </div><br>
                 <!-- Form input Status -->
                 <div class="row">
                   <label for="cv" class="col-sm-2 col-form-label">Status</label>
@@ -332,6 +441,7 @@
                     </div>
                   </div>
                 </div><br>
+
                 <!-- Validasi pendaftaran -->
                 <div class="form-group row">
                     <div class="col-sm-10">
