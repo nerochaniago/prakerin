@@ -210,7 +210,7 @@ public function hapusLoker($id_loker){
     $file = $_FILES['file']['name'];
     if ($file) {
       // code...
-      $config['allowed_types'] = 'gif|jpg|png|xls|xlsx|csv';
+      $config['allowed_types'] = 'gif|jpg|png|xls|xlsx|csv|pdf|doc|docx';
       $config['upload_path'] = './hasil_seleksi/';
       $this->load->library('upload',$config);
 
@@ -256,7 +256,7 @@ public function hapusLoker($id_loker){
     $file = $_FILES['file']['name'];
     if ($file) {
       // code...
-      $config['allowed_types'] = 'gif|jpg|png|xls|xlsx|csv';
+      $config['allowed_types'] = 'gif|jpg|png|xls|xlsx|csv|pdf|doc|docx';
       $config['upload_path'] = './hasil_seleksi/';
       $config['overwrite'] = true;
       $this->load->library('upload',$config);
