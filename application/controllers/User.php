@@ -93,26 +93,42 @@ class User extends CI_Controller {
     $foto = $this->upload->data('file_name');
     $this->upload->do_upload('cv');
     $cv = $this->upload->data('file_name');
-    $this->upload->do_upload('sertif1');
-    $foto = $this->upload->data('file_name');
-    $this->upload->do_upload('sertif2');
-    $cv = $this->upload->data('file_name');
-    $this->upload->do_upload('sertif3');
-    $foto = $this->upload->data('file_name');
+    $cek1 = $this->upload->do_upload('sertif1');
+    if ($cek1) {
+      $sertif1 = $this->upload->data('file_name');
+    } else {
+      $sertif1 = '';
+    }
+    $cek2= $this->upload->do_upload('sertif2');
+    if ($cek2) {
+      $sertif2 = $this->upload->data('file_name');
+    } else {
+      $sertif2 = '';
+    }
+    $cek3= $this->upload->do_upload('sertif3');
+    if ($cek3) {
+      $sertif3 = $this->upload->data('file_name');
+    } else {
+      $sertif3 = '';
+    }
     $this->upload->do_upload('ijazah');
-    $cv = $this->upload->data('file_name');
+    $ijazah = $this->upload->data('file_name');
     $this->upload->do_upload('nilai');
-    $foto = $this->upload->data('file_name');
+    $nilai = $this->upload->data('file_name');
     $this->upload->do_upload('skkb');
-    $cv = $this->upload->data('file_name');
+    $skkb = $this->upload->data('file_name');
     $this->upload->do_upload('ks');
-    $foto = $this->upload->data('file_name');
+    $ks = $this->upload->data('file_name');
     $this->upload->do_upload('ktp');
-    $cv = $this->upload->data('file_name');
+    $ktp = $this->upload->data('file_name');
     $this->upload->do_upload('kk');
-    $foto = $this->upload->data('file_name');
-    $this->upload->do_upload('npwp');
-    $cv = $this->upload->data('file_name');
+    $kk = $this->upload->data('file_name');
+    $cek4= $this->upload->do_upload('npwp');
+    if ($cek4) {
+      $npwp = $this->upload->data('file_name');
+    } else {
+      $npwp = '';
+    }
 
   	$data = array(
   		'posisi'=>$this->input->post('posisi'),
@@ -139,8 +155,7 @@ class User extends CI_Controller {
       'ks'=> $ks,
       'ktp'=> $ktp,
       'kk'=> $kk,
-      'npwp'=> $npwp,
-      'kelengkapan'=> $kelengkapan      
+      'npwp'=> $npwp
   	);
 
     $this->UserM->add_pelamarM($data);

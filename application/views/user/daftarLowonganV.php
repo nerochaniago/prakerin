@@ -144,7 +144,7 @@
 
           <!-- Pendaftaran Lowongan -->
         	<div class="container">
-        		<div class="col-12 konten" style="background-color: #05fae1; padding-left:50px; padding-right:50px;">
+        		<div class="col-12 konten" style="background-color:; padding-left:50px; padding-right:50px;">
         			<form action="<?php echo site_url(); ?>/User/add_pelamar" method="POST" enctype="multipart/form-data">
 
         				<!-- Formulir pendaftaran Lowongan Pekerjaan -->
@@ -295,53 +295,53 @@
                 </div>
                 <!-- Form input CV -->
                 <div class="form-group row">
-                  <label for="title" style="font-family: Roboto; color:black;">CV *pdf|doc</label>
-                  <input type="file" class="form-control-file" accept="PDF/*" name="cv">
+                  <label for="title" style="font-family: Roboto; color:black;">CV</label>
+                  <input type="file" class="form-control-file" accept="PDF/*" name="cv" required>
                 </div>
                 <!-- Form input Sertifikat Pelatihan/Kursus/Pengalaman Kerja -->
                 <div class="form-group row">
-                  <label for="title" style="font-family: Roboto; color:black;">*optional</label>
+                  <label for="title" style="font-family: Roboto; color:black;">Sertifikat Pelatihan/ Kursus/ Pengalaman Kerja</label>
                   <input type="file" class="form-control-file" accept="PDF/*" name="sertif1">
                 </div>
                 <!-- Form input Sertifikat Pelatihan/Kursus/Pengalaman Kerja -->
                 <div class="form-group row">
-                  <label for="title" style="font-family: Roboto; color:black;">*optional</label>
+                  <label for="title" style="font-family: Roboto; color:black;">Pelatihan/ Kursus/ Pengalaman Kerja</label>
                   <input type="file" class="form-control-file" accept="PDF/*" name="sertif2">
                 </div>
                 <!-- Form input Sertifikat Pelatihan/Kursus/Pengalaman Kerja -->
                 <div class="form-group row">
-                  <label for="title" style="font-family: Roboto; color:black;">*optional</label>
+                  <label for="title" style="font-family: Roboto; color:black;">Pelatihan/Kursus/Pengalaman Kerja</label>
                   <input type="file" class="form-control-file" accept="PDF/*" name="sertif3">
                 </div>
                 <!-- Form input softcopy Ijazah Pendidikan -->
                 <div class="form-group row">
-                  <label for="title" style="font-family: Roboto; color:black;">*optional</label>
-                  <input type="file" class="form-control-file" accept="PDF/*" name="ijazah">
+                  <label for="title" style="font-family: Roboto; color:black;">Ijazah</label>
+                  <input type="file" class="form-control-file" accept="PDF/*" name="ijazah" required>
                 </div>
                 <!-- Form input softcopy Transkip Pendidikan Terakhir -->
                 <div class="form-group row">
                   <label for="title" style="font-family: Roboto; color:black;">Transkip Pendidikan Terakhir</label>
-                  <input type="file" class="form-control-file" accept="PDF/*" name="nilai">
+                  <input type="file" class="form-control-file" accept="PDF/*" name="nilai" required>
                 </div>
                 <!-- Form input softcopy Surat Keterangan Kelakuan Baik -->
                 <div class="form-group row">
                   <label for="title" style="font-family: Roboto; color:black;">Surat Keterangan Kelakuan Baik</label>
-                  <input type="file" class="form-control-file" accept="PDF/*" name="skkb">
+                  <input type="file" class="form-control-file" accept="PDF/*" name="skkb" required>
                 </div>
                 <!-- Form input softcopy Keterangan Sehat -->
                 <div class="form-group row">
                   <label for="title" style="font-family: Roboto; color:black;">Keterangan Sehat</label>
-                  <input type="file" class="form-control-file" accept="PDF/*" name="ks">
+                  <input type="file" class="form-control-file" accept="PDF/*" name="ks" required>
                 </div>
                 <!-- Form input softcopy Kartu Tanda Penduduk -->
                 <div class="form-group row">
                   <label for="title" style="font-family: Roboto; color:black;">Kartu Tanda Penduduk</label>
-                  <input type="file" class="form-control-file" accept="PDF/*" name="ktp">
+                  <input type="file" class="form-control-file" accept="PDF/*" name="ktp" required>
                 </div>
                 <!-- Form input softcopy Kartu Keluarga -->
                 <div class="form-group row">
                   <label for="title" style="font-family: Roboto; color:black;">Kartu Keluarga</label>
-                  <input type="file" class="form-control-file" accept="PDF/*" name="kk">
+                  <input type="file" class="form-control-file" accept="PDF/*" name="kk" required>
                 </div>
                 <!-- Form input softcopy NPWP -->
                 <div class="form-group row">
@@ -351,6 +351,8 @@
 
                 <!-- Validasi pendaftaran -->
                 <input type="hidden" name="hasil" value="no">
+                <input type="hidden" name="kelengkapan" value="">
+
                 <div class="form-group row">
                     <div class="col-sm-10">
                       <button type="submit" class="btn btn-primary">Daftar</button>

@@ -332,7 +332,6 @@
 		$(document).ready(function () {
 			var table = $('#table_id').DataTable({
         scrollY: 400,
-        scrollX: 400,
         "paging":   false
 
 			});

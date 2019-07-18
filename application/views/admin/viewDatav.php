@@ -314,37 +314,49 @@
                   <label for="cv" class="col-sm-2 col-form-label">CV</label>
                   <div class="col-sm-10">
                     <div class="custom-file">
-                      <button type="button" name="button" class="btn"><a href='<?= base_url('uploads/pelamar/') . $list['cv'];?>'>Download File CV </a></button>
+                      <button type="button" name="button" class="btn"><a href='<?= base_url('uploads/pelamar/') . $list['cv'];?>' >Download File CV </a></button>
                     </div>
                   </div>
                 </div>
                 <br>
                 <!-- Form input Sertifikat Pelatihan/kursus/pengalaman Kerja -->
                 <div class="row">
-                  <label for="cv" class="col-sm-2 col-form-label">Sertifikat Pelatihan/kursus/pengalaman Kerja</label>
+                  <label for="cv" class="col-sm-2 col-form-label">Sertifikat Pelatihan/ kursus/ pengalaman Kerja</label>
                   <div class="col-sm-10">
                     <div class="custom-file">
+                      <?php if ($list['sertif1']){ ?>
+                          <span class="badge badge-success">Tidak ada</span>
+                      <?php } else{ ?>
                       <button type="button" name="button" class="btn"><a href='<?= base_url('uploads/pelamar/') . $list['sertif1'];?>'>Download File sertifikat </a></button>
+                    <?php } ?>
                     </div>
                   </div>
                 </div>
                 <br>
                 <!-- Form input Sertifikat Pelatihan/kursus/pengalaman Kerja -->
                 <div class="row">
-                  <label for="cv" class="col-sm-2 col-form-label">Sertifikat Pelatihan/kursus/pengalaman Kerja</label>
+                  <label for="cv" class="col-sm-2 col-form-label">Sertifikat Pelatihan/ kursus/ pengalaman Kerja</label>
                   <div class="col-sm-10">
                     <div class="custom-file">
+                      <?php if ($list['sertif2'] == ''){ ?>
+                        <span class="badge badge-success">Tidak ada</span>
+                      <?php } else{ ?>
                       <button type="button" name="button" class="btn"><a href='<?= base_url('uploads/pelamar/') . $list['sertif2'];?>'>Download File sertifikat </a></button>
+                    <?php } ?>
                     </div>
                   </div>
                 </div>
                 <br>
                 <!-- Form input Sertifikat Pelatihan/kursus/pengalaman Kerja -->
                 <div class="row">
-                  <label for="cv" class="col-sm-2 col-form-label">Sertifikat Pelatihan/kursus/pengalaman Kerja</label>
+                  <label for="cv" class="col-sm-2 col-form-label">Sertifikat Pelatihan/ kursus/ pengalaman Kerja</label>
                   <div class="col-sm-10">
                     <div class="custom-file">
+                      <?php if ($list['sertif3'] == ''){ ?>
+                        <span class="badge badge-success">Tidak ada</span>
+                      <?php } else{ ?>
                       <button type="button" name="button" class="btn"><a href='<?= base_url('uploads/pelamar/') . $list['sertif3'];?>'>Download File sertifikat </a></button>
+                    <?php } ?>
                     </div>
                   </div>
                 </div>
@@ -414,7 +426,11 @@
                   <label for="cv" class="col-sm-2 col-form-label">NPWP</label>
                   <div class="col-sm-10">
                     <div class="custom-file">
-                      <button type="button" name="button" class="btn"><a href='<?= base_url('uploads/pelamar/') . $list['npwp'];?>'>Download File NPWP </a></button>
+                      <?php if ($list['npwp'] == ''){ ?>
+                        <span class="badge badge-success">Tidak ada</span>
+                      <?php } else{ ?>
+                      <button type="button" name="button" class="btn"><a href='<?= base_url('uploads/pelamar/') . $list['sertif1'];?>'>Download File sertifikat </a></button>
+                    <?php } ?>
                     </div>
                   </div>
                 </div>
@@ -424,8 +440,8 @@
                   <label for="cv" class="col-sm-2 col-form-label">Kelengkapan Berkas</label>
                   <div class="col-sm-10">
                     <div class="custom-file">
-                      <input style="font-family: Roboto; color:black;" type="textarea" class="form-control" name="Kelengkapan" placeholder="Keterangan Kelengkapan Berkas" >
-
+                      <!-- <input style="font-family: Roboto; color:black;" type="textarea" class="form-control" name="Kelengkapan" placeholder="Keterangan Kelengkapan Berkas" > -->
+                      <textarea name="kelengkapan" class="texteditor"><?php echo $list['kelengkapan']; ?></textarea>
                     </div>
                   </div>
                 </div><br>
@@ -541,10 +557,10 @@
   <!-- Bootstrap core JavaScript-->
   <script src="<?= base_url();?>assets/vendor/jquery/jquery.min.js"></script>
   <script src="<?= base_url();?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
   <!-- Core plugin JavaScript-->
   <script src="<?= base_url();?>assets/vendor/jquery-easing/jquery.easing.min.js"></script>
-
+  <script src="<?= base_url();?>assets/ckeditor/ckeditor.js"></script>
+  <script src="<?= base_url();?>assets/ckeditor/adapters/jquery.js"></script>
   <!-- Custom scripts for all pages-->
   <script src="<?= base_url();?>assets/js/sb-admin-2.min.js"></script>
   <script>
@@ -552,6 +568,10 @@
       let filename = $(this).val().split('\\').pop();
       $(this).next('.custom-file-label').addClass("selected").html(filename);
     });
+  </script>
+
+  <script type="text/javascript">
+      $('textarea.texteditor').ckeditor();
   </script>
 </body>
 </html>

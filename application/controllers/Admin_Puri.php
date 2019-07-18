@@ -374,8 +374,10 @@ public function hapusLoker($id_loker){
     $this->load->model('AdminM');
     $data['user'] = $this->db->get_where('user',['email' => $this->session->userdata('email')])->row_array();
     $hasil = $this->input->post('hasil');
+    $kelengkapan = $this->input->post('kelengkapan');
 
-    $data = array('hasil'=>$hasil
+    $data = array('hasil'=>$hasil,
+    'kelengkapan'=>$kelengkapan
                   );
     // $this->AdminM->add_statusM($data);
 
