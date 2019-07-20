@@ -65,28 +65,27 @@
           </div>
 
 
-
-
           <div class="container">
               <div class="row">
                         <?php foreach($loker_baru as $lo):?>
-                        <div class="col m4" style="">
-                          <div class="card" style="margin-bottom:57px;">
-                            <div class="card-image">
-                              <img src="<?= base_url('assets/img/loker/') . $lo['gambar'];?>" style="height:15em;">
-                            </div>
-                            <div class="card-content" style="box-sizing:border-box;">
-                              <h6 class="" style="color:green; font-family: Roboto;" style="margin-top:8px; display: inline-block;" ><b><?=$lo['posisi'];?></b></h6>
+                            
+                            <div class="col m4" style="">
+                              <div class="card" style="margin-bottom:57px;">
+                                <div class="card-image">
+                                  <img src="<?= base_url('assets/img/loker/') . $lo['gambar'];?>" style="height:15em;">
+                                </div>
+                                <div class="card-content" style="box-sizing:border-box;">
+                                  <h6 class="" style="color:green; font-family: Roboto;" style="margin-top:8px; display: inline-block;" ><b><?=$lo['posisi'];?></b></h6>
 
-                               <span class="new badge red" style="margin-left: 2px; font-family: Roboto; font-size:13px; width:20em;" data-badge-caption=" " > Batas Penerimaan : <?= date("d/F/Y",strtotime($lo['batas'])); ?></span><br />
+                                   <span class="new badge red" style="margin-left: 2px; font-family: Roboto; font-size:13px; width:20em;" data-badge-caption=" " > Batas Penerimaan : <?= date("d/F/Y",strtotime($lo['batas'])); ?></span><br />
 
-                               <h7 style="font-family: Roboto; ">Lokasi : <?= character_limiter($lo['penempatan'],10)?></h7>
+                                   <h7 style="font-family: Roboto; ">Lokasi : <?= character_limiter($lo['penempatan'],10)?></h7>
+                                </div>
+                                <div class="card-action" style="padding:6px;">
+                                  <a href="<?= base_url();?>Pendaftar_C/detailLoker/<?= $lo['id_loker'];?>" class="btn green darken-1" style="font-family: Roboto;">Detail</a>
+                                </div>
+                              </div>
                             </div>
-                            <div class="card-action" style="padding:6px;">
-                              <a href="<?= base_url();?>Pendaftar_C/detailLoker/<?= $lo['id_loker'];?>" class="btn green darken-1" style="font-family: Roboto;">Detail</a>
-                            </div>
-                          </div>
-                        </div>
 
                         <?php endforeach;?>
               </div>
@@ -101,7 +100,6 @@
                 </div>
               </div>
             </div>
-
 
 
           </main>

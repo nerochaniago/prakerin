@@ -324,7 +324,7 @@
                   <label for="cv" class="col-sm-2 col-form-label">Sertifikat Pelatihan/ kursus/ pengalaman Kerja</label>
                   <div class="col-sm-10">
                     <div class="custom-file">
-                      <?php if ($list['sertif1']){ ?>
+                      <?php if ($list['sertif1'] == ''){ ?>
                           <span class="badge badge-success">Tidak ada</span>
                       <?php } else{ ?>
                       <button type="button" name="button" class="btn"><a href='<?= base_url('uploads/pelamar/') . $list['sertif1'];?>'>Download File sertifikat </a></button>
@@ -393,7 +393,7 @@
                 <br>
                 <!-- Form input Sertifikat Keterangan Sehat -->
                 <div class="row">
-                  <label for="cv" class="col-sm-2 col-form-label">Sertifikat Keterangan Sehat</label>
+                  <label for="cv" class="col-sm-2 col-form-label">Surat Keterangan Sehat</label>
                   <div class="col-sm-10">
                     <div class="custom-file">
                       <button type="button" name="button" class="btn"><a href='<?= base_url('uploads/pelamar/') . $list['ks'];?>'>Download File Keterangan Sehat </a></button>
@@ -447,7 +447,7 @@
                 </div><br>
                 <!-- Form input Status -->
                 <div class="row">
-                  <label for="cv" class="col-sm-2 col-form-label">Status</label>
+                  <label for="cv" class="col-sm-2 col-form-label">Hasil</label>
                   <div class="col-sm-10">
                     <div class="custom-file">
                       <select class="form-control" id="hasil" name="hasil">
@@ -461,7 +461,7 @@
                 <!-- Validasi pendaftaran -->
                 <div class="form-group row">
                     <div class="col-sm-10">
-                      <button type="submit" class="btn btn-primary">Update Status</button>
+                      <button type="submit" class="btn btn-primary">Submit Hasil</button>
                       <a href="<?= base_url();?>Admin_Puri/Excel_Export" class="btn btn-danger ml-2">Kembali</a>
                       <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#masukkandatabaru">
                         Change Status

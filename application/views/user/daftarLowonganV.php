@@ -295,57 +295,57 @@
                 </div>
                 <!-- Form input CV -->
                 <div class="form-group row">
-                  <label for="title" style="font-family: Roboto; color:black;">CV</label>
+                  <label for="title" style="font-family: Roboto; color:black;">CV *jpg/pdf</label>
                   <input type="file" class="form-control-file" accept="PDF/*" name="cv" required>
                 </div>
                 <!-- Form input Sertifikat Pelatihan/Kursus/Pengalaman Kerja -->
                 <div class="form-group row">
-                  <label for="title" style="font-family: Roboto; color:black;">Sertifikat Pelatihan/ Kursus/ Pengalaman Kerja</label>
+                  <label for="title" style="font-family: Roboto; color:black;">Sertifikat Pelatihan/ Kursus/ Pengalaman Kerja (optional) *jpg/pdf</label>
                   <input type="file" class="form-control-file" accept="PDF/*" name="sertif1">
                 </div>
                 <!-- Form input Sertifikat Pelatihan/Kursus/Pengalaman Kerja -->
                 <div class="form-group row">
-                  <label for="title" style="font-family: Roboto; color:black;">Pelatihan/ Kursus/ Pengalaman Kerja</label>
+                  <label for="title" style="font-family: Roboto; color:black;">Pelatihan/ Kursus/ Pengalaman Kerja (optional) *jpg/pdf</label>
                   <input type="file" class="form-control-file" accept="PDF/*" name="sertif2">
                 </div>
                 <!-- Form input Sertifikat Pelatihan/Kursus/Pengalaman Kerja -->
                 <div class="form-group row">
-                  <label for="title" style="font-family: Roboto; color:black;">Pelatihan/Kursus/Pengalaman Kerja</label>
+                  <label for="title" style="font-family: Roboto; color:black;">Pelatihan/Kursus/Pengalaman Kerja (optional) *jpg/pdf</label>
                   <input type="file" class="form-control-file" accept="PDF/*" name="sertif3">
                 </div>
                 <!-- Form input softcopy Ijazah Pendidikan -->
                 <div class="form-group row">
-                  <label for="title" style="font-family: Roboto; color:black;">Ijazah</label>
+                  <label for="title" style="font-family: Roboto; color:black;">Ijazah *jpg/pdf</label>
                   <input type="file" class="form-control-file" accept="PDF/*" name="ijazah" required>
                 </div>
                 <!-- Form input softcopy Transkip Pendidikan Terakhir -->
                 <div class="form-group row">
-                  <label for="title" style="font-family: Roboto; color:black;">Transkip Pendidikan Terakhir</label>
+                  <label for="title" style="font-family: Roboto; color:black;">Transkip Pendidikan Terakhir *jpg/pdf</label>
                   <input type="file" class="form-control-file" accept="PDF/*" name="nilai" required>
                 </div>
                 <!-- Form input softcopy Surat Keterangan Kelakuan Baik -->
                 <div class="form-group row">
-                  <label for="title" style="font-family: Roboto; color:black;">Surat Keterangan Kelakuan Baik</label>
+                  <label for="title" style="font-family: Roboto; color:black;">Surat Keterangan Kelakuan Baik *jpg/pdf</label>
                   <input type="file" class="form-control-file" accept="PDF/*" name="skkb" required>
                 </div>
                 <!-- Form input softcopy Keterangan Sehat -->
                 <div class="form-group row">
-                  <label for="title" style="font-family: Roboto; color:black;">Keterangan Sehat</label>
+                  <label for="title" style="font-family: Roboto; color:black;">Keterangan Sehat *jpg/pdf</label>
                   <input type="file" class="form-control-file" accept="PDF/*" name="ks" required>
                 </div>
                 <!-- Form input softcopy Kartu Tanda Penduduk -->
                 <div class="form-group row">
-                  <label for="title" style="font-family: Roboto; color:black;">Kartu Tanda Penduduk</label>
+                  <label for="title" style="font-family: Roboto; color:black;">Kartu Tanda Penduduk *jpg/pdf</label>
                   <input type="file" class="form-control-file" accept="PDF/*" name="ktp" required>
                 </div>
                 <!-- Form input softcopy Kartu Keluarga -->
                 <div class="form-group row">
-                  <label for="title" style="font-family: Roboto; color:black;">Kartu Keluarga</label>
+                  <label for="title" style="font-family: Roboto; color:black;">Kartu Keluarga *jpg/pdf</label>
                   <input type="file" class="form-control-file" accept="PDF/*" name="kk" required>
                 </div>
                 <!-- Form input softcopy NPWP -->
                 <div class="form-group row">
-                  <label for="title" style="font-family: Roboto; color:black;">NPWP</label>
+                  <label for="title" style="font-family: Roboto; color:black;">NPWP (optional) *jpg/pdf</label>
                   <input type="file" class="form-control-file" accept="PDF/*" name="npwp">
                 </div>
 

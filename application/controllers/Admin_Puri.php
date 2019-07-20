@@ -384,7 +384,7 @@ public function hapusLoker($id_loker){
     $this->db->where('id_pelamar',$this->input->post('id_pelamar'));
     $this->db->update('pendaftaran',$data);
     $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
-     Status has been updated
+     Hasil Berkas has been submit
     </div>');
     redirect('Admin_Puri/Excel_Export');
 

@@ -156,8 +156,14 @@
             </div>
           </div>
           <div class="alert alert-info" role="alert">
-            <marquee><h3 style="color: red; font-weight: bold;"> Penting : Lengkapi Data Anda Pada Menu Daftar Lowongan Pekerjaan</h3></marquee>
-            <h3><strong>*Hanya Dapat Mendaftar 1 Posisi Pekerjaan</strong></h3>
+            <h3><strong>Tata Cara Pengajuan Lamaran</strong></h3>
+            <p>1. Penyampaian lamaran hanya dapat dilakukan secara on-line sesuai dengan periode regristrasi </p>
+              <p> yang telah ditetapkan.</p>
+            <p>2. Peserta hanya diperkenankan melamar pada satu posisi / jabatan saja. Pengisian data lamaran </p>
+            <p>kedua akan ditolak oleh sistem secara otomatis, ataupun melalui proses seleksi yang </p>
+            <p>dilaksanakan oleh Panitia Rekrutmen.</p>
+            <p>3. Lengkapi Data Anda Pada Menu Daftar Lowongan Pekerjaan</p>
+            <p>4. Hasil Seleksi akan di umumkan pada website resmi PT Puri atau melalui Email</p>
           </div>
 
 

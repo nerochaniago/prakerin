@@ -22,6 +22,17 @@
     .slider h3 {
       text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     }
+
+    #topBtn {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      color: black;
+      border: none;
+      cursor: pointer;
+      display: none;
+    }
+
     </style>
     <script type="text/javascript">
     $(document).ready(function(){
@@ -30,13 +41,13 @@
           $(this).addClass("active");
       });
   })
-})
+}
     </script>
 
 </head>
-<body style="display: flex; min-height: 100vh; flex-direction: column;">
+<body style="display: flex; min-height: 100vh; flex-direction: column; ">
     <!--- Navbar --->
-    <div class="navbar-fixed">
+    <div class="navbar-fixed" id="navbar" class="scrollspy">
         <nav class="white darken-2" style="height:5em ">
 
             <div class="nav-wrapper">
@@ -105,6 +116,7 @@
 
 
     <!-- footer -->
+    <a href="#" id="topBtn"><i class=" medium material-icons ">arrow_upward</i></a>
     <footer class="page-footer red darken-3 ">
           <div class="container">
             <div class="row">
@@ -142,6 +154,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
     const sideNav = document.querySelectorAll('.sidenav');
     M.Sidenav.init(sideNav);
@@ -155,7 +168,23 @@
     const parallax = document.querySelectorAll('.parallax');
     M.Parallax.init(parallax);
 
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
 
+  $(window).scroll(function(){
+    if ($(this).scrollTop() > 100) {
+      $('#topBtn').fadeIn();
+    }
+    else {
+      $('#topBtn').fadeOut();
+    }
+  });
+
+  $('topBtn').click(function(){
+     $('.scrollspy').scrollSpy();
+  });
+});
 </script>
 </body>
 </html>
