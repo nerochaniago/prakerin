@@ -14,6 +14,15 @@
     <style media="screen">
     @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
     @import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
+    html {
+      -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome and Opera */
+    }
     </style>
     <script type="text/javascript">
     $(document).ready(function(){
@@ -65,10 +74,11 @@
           </div>
 
 
+
           <div class="container">
               <div class="row">
                         <?php foreach($loker_baru as $lo):?>
-                            
+
                             <div class="col m4" style="">
                               <div class="card" style="margin-bottom:57px;">
                                 <div class="card-image">
