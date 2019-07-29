@@ -44,8 +44,7 @@ class UserM extends CI_Model{
     // else {
     //   $this->db->insert('pendaftaran',$data);
       $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
-       Pendaftaran Berhasil, Pengumuman akan di umumkan pada website resmi www.purimakmurlestari.co.id
-       atau melalui email, harap selalu cek pada web kami dan email
+       Pendaftaran Berhasil, Pengumuman akan di umumkan akan diumumkan diwebsite atau melalui email sdr/i
       </div>');
     // }
   }

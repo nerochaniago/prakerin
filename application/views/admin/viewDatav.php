@@ -214,6 +214,11 @@
                       <legend class="col-form-label col-sm-2 pt-0">Pendidikan Terakhir</legend>
                     <div class="col-sm-10">
                       <div class="form-check">
+                          <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan4" value="SMK" <?php
+      echo set_value('pendaftaran', $list['pendidikan']) == 'SMK' ? "checked" : ""; ?> readonly>
+                          <label class="form-check-label" for="SMK" style="font-family: Roboto; color:black;">SMK</label>
+                      </div>
+                      <div class="form-check">
                         <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan1" value="D3" <?php
     echo set_value('pendaftaran', $list['pendidikan']) == 'D3' ? "checked" : ""; ?> readonly>
                         <label class="form-check-label" for="D3" style="font-family: Roboto; color:black;">D3</label>
@@ -228,17 +233,12 @@
       echo set_value('pendaftaran', $list['pendidikan']) == 'S2' ? "checked" : ""; ?> readonly>
                           <label class="form-check-label" for="S2" style="font-family: Roboto; color:black;">S2</label>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan4" value="S3" <?php
-        echo set_value('pendaftaran', $list['pendidikan']) == 'S3' ? "checked" : ""; ?> readonly>
-                            <label class="form-check-label" for="S3" style="font-family: Roboto; color:black;">S3</label>
-                        </div>
                       </div>
                   </div>
               </fieldset>
               <!-- Form input Universitas -->
               <div class="form-group row">
-                  <label for="nomor" class="col-sm-2 col-form-label">Universitas</label>
+                  <label for="nomor" class="col-sm-2 col-form-label">Nama Institusi</label>
                   <div class="col-sm-10">
                     <input style="font-family: Roboto; color:black;" type="text" class="form-control" name="universitas" value="<?php echo $list['universitas']; ?>" readonly>
                   </div>
@@ -386,7 +386,7 @@
                   <label for="cv" class="col-sm-2 col-form-label">Surat Keterangan Kelakuan Baik</label>
                   <div class="col-sm-10">
                     <div class="custom-file">
-                      <button type="button" name="button" class="btn"><a href='<?= base_url('uploads/pelamar/') . $list['skkb'];?>'>Download File SKKB </a></button>
+                      <button type="button" name="button" class="btn"><a href='<?= base_url('uploads/pelamar/') . $list['skck'];?>'>Download File SKCK </a></button>
                     </div>
                   </div>
                 </div>

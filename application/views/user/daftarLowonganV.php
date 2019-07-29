@@ -169,6 +169,13 @@
                       });
                   </script>
                   </div>
+                <!-- Form input nomor ktp -->
+                <div class="form-group row">
+                    <label for="nomor" class="col-sm-2 col-form-label" style="font-family: Roboto; color:black;">Nomor KTP</label>
+                    <div class="col-sm-10">
+                      <input type="number" class="form-control" name="ktp" placeholder="Nomor KTP">
+                    </div>
+                  </div>
         				<!-- Form input nama lengkap -->
         				<div class="form-group row">
         				    <label for="nama" class="col-sm-2 col-form-label" style="font-family: Roboto; color:black;">Nama Lengkap</label>
@@ -210,27 +217,27 @@
         				      	<legend class="col-form-label col-sm-2 pt-0" style="font-family: Roboto; color:black;">Pendidikan Terakhir</legend>
         				     	<div class="col-sm-10">
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan1" value="D3" checked>
+                            <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan4" value="SMK">
+                            <label class="form-check-label" for="pendidikan4" style="font-family: Roboto; color:black;">SMK</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan1" value="D3">
                           <label class="form-check-label" for="pendidikan1" style="font-family: Roboto; color:black;">D3</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan2" value="S1">
+                            <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan2" value="S1" checked>
                             <label class="form-check-label" for="pendidikan2" style="font-family: Roboto; color:black;">S1</label>
                         </div>
         				        	<div class="form-check">
-        						        <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan3" value="S2" checked>
+        						        <input class="form-check-input" type="radio" name="pendidikan" id="pendidikan3" value="S2">
         						        <label class="form-check-label" for="pendidikan3" style="font-family: Roboto; color:black;">S2</label>
-        				        	</div>
-        				        	<div class="form-check">
-        					          	<input class="form-check-input" type="radio" name="pendidikan" id="pendidikan4" value="S3">
-        					          	<label class="form-check-label" for="pendidikan4" style="font-family: Roboto; color:black;">S3</label>
         				        	</div>
         				      	</div>
         				    </div>
         				</fieldset>
                 <!-- Form input Universitas -->
         				<div class="form-group row">
-        				    <label for="nomor" class="col-sm-2 col-form-label" style="font-family: Roboto; color:black;">Universitas</label>
+        				    <label for="nomor" class="col-sm-2 col-form-label" style="font-family: Roboto; color:black;">Nama Institusi</label>
         				    <div class="col-sm-10">
         				      <input type="text" class="form-control" name="universitas" placeholder="Universitas">
         				    </div>
@@ -290,62 +297,57 @@
         				</fieldset>
                 <!-- Form input Foto -->
                 <div class="form-group row">
-                  <label for="title" style="font-family: Roboto; color:black;">Foto Terbaru  *jpg|jpeg|png</label>
+                  <label for="title" style="font-family: Roboto; color:black;">Foto Terbaru</label>
                   <input type="file" class="form-control-file" accept="image/*" name="foto">
                 </div>
                 <!-- Form input CV -->
                 <div class="form-group row">
-                  <label for="title" style="font-family: Roboto; color:black;">CV *jpg/pdf</label>
-                  <input type="file" class="form-control-file" accept="PDF/*" name="cv" required>
+                  <label for="title" style="font-family: Roboto; color:black;">CV </label>
+                  <input type="file" class="form-control-file" accept="PDF" name="cv" required>
                 </div>
                 <!-- Form input Sertifikat Pelatihan/Kursus/Pengalaman Kerja -->
                 <div class="form-group row">
-                  <label for="title" style="font-family: Roboto; color:black;">Sertifikat Pelatihan/ Kursus/ Pengalaman Kerja (optional) *jpg/pdf</label>
-                  <input type="file" class="form-control-file" accept="PDF/*" name="sertif1">
+                  <label for="title" style="font-family: Roboto; color:black;">Sertifikat Pelatihan/ Kursus/ Pengalaman Kerja (optional) </label>
+                  <input type="file" class="form-control-file" accept="PDF" name="sertif1">
                 </div>
                 <!-- Form input Sertifikat Pelatihan/Kursus/Pengalaman Kerja -->
                 <div class="form-group row">
-                  <label for="title" style="font-family: Roboto; color:black;">Pelatihan/ Kursus/ Pengalaman Kerja (optional) *jpg/pdf</label>
-                  <input type="file" class="form-control-file" accept="PDF/*" name="sertif2">
+                  <label for="title" style="font-family: Roboto; color:black;">Pelatihan/ Kursus/ Pengalaman Kerja (optional) </label>
+                  <input type="file" class="form-control-file" accept="PDF" name="sertif2">
                 </div>
                 <!-- Form input Sertifikat Pelatihan/Kursus/Pengalaman Kerja -->
                 <div class="form-group row">
-                  <label for="title" style="font-family: Roboto; color:black;">Pelatihan/Kursus/Pengalaman Kerja (optional) *jpg/pdf</label>
+                  <label for="title" style="font-family: Roboto; color:black;">Pelatihan/Kursus/Pengalaman Kerja (optional) </label>
                   <input type="file" class="form-control-file" accept="PDF/*" name="sertif3">
                 </div>
                 <!-- Form input softcopy Ijazah Pendidikan -->
                 <div class="form-group row">
-                  <label for="title" style="font-family: Roboto; color:black;">Ijazah *jpg/pdf</label>
-                  <input type="file" class="form-control-file" accept="PDF/*" name="ijazah" required>
+                  <label for="title" style="font-family: Roboto; color:black;">Ijazah </label>
+                  <input type="file" class="form-control-file" accept="PDF" name="ijazah" required>
                 </div>
                 <!-- Form input softcopy Transkip Pendidikan Terakhir -->
                 <div class="form-group row">
-                  <label for="title" style="font-family: Roboto; color:black;">Transkip Pendidikan Terakhir *jpg/pdf</label>
-                  <input type="file" class="form-control-file" accept="PDF/*" name="nilai" required>
+                  <label for="title" style="font-family: Roboto; color:black;">Transkip Pendidikan Terakhir </label>
+                  <input type="file" class="form-control-file" accept="PDF" name="nilai" required>
                 </div>
                 <!-- Form input softcopy Surat Keterangan Kelakuan Baik -->
                 <div class="form-group row">
-                  <label for="title" style="font-family: Roboto; color:black;">Surat Keterangan Kelakuan Baik *jpg/pdf</label>
-                  <input type="file" class="form-control-file" accept="PDF/*" name="skkb" required>
+                  <label for="title" style="font-family: Roboto; color:black;">Surat Keterangan Catatan Kepolisian</label>
+                  <input type="file" class="form-control-file" accept="PDF" name="skck" required>
                 </div>
                 <!-- Form input softcopy Keterangan Sehat -->
                 <div class="form-group row">
-                  <label for="title" style="font-family: Roboto; color:black;">Keterangan Sehat *jpg/pdf</label>
-                  <input type="file" class="form-control-file" accept="PDF/*" name="ks" required>
-                </div>
-                <!-- Form input softcopy Kartu Tanda Penduduk -->
-                <div class="form-group row">
-                  <label for="title" style="font-family: Roboto; color:black;">Kartu Tanda Penduduk *jpg/pdf</label>
-                  <input type="file" class="form-control-file" accept="PDF/*" name="ktp" required>
+                  <label for="title" style="font-family: Roboto; color:black;">Keterangan Sehat </label>
+                  <input type="file" class="form-control-file" accept="PDF" name="ks" required>
                 </div>
                 <!-- Form input softcopy Kartu Keluarga -->
                 <div class="form-group row">
-                  <label for="title" style="font-family: Roboto; color:black;">Kartu Keluarga *jpg/pdf</label>
+                  <label for="title" style="font-family: Roboto; color:black;">Kartu Keluarga</label>
                   <input type="file" class="form-control-file" accept="PDF/*" name="kk" required>
                 </div>
                 <!-- Form input softcopy NPWP -->
                 <div class="form-group row">
-                  <label for="title" style="font-family: Roboto; color:black;">NPWP (optional) *jpg/pdf</label>
+                  <label for="title" style="font-family: Roboto; color:black;">NPWP (optional)</label>
                   <input type="file" class="form-control-file" accept="PDF/*" name="npwp">
                 </div>
 

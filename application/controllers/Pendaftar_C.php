@@ -71,7 +71,7 @@ class Pendaftar_C extends CI_Controller {
 
       $object->setActiveSheetIndex(0);
 
-      $table_columns = array("Posisi", "Nama", "Email","Pendidikan", "Universitas", "Jurusan");
+      $table_columns = array("Posisi", "Nama", "Pendidikan", "Jurusan");
 
       $column = 0;
 
