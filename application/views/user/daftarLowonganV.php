@@ -330,10 +330,10 @@
                   <label for="title" style="font-family: Roboto; color:black;">Transkip Pendidikan Terakhir </label>
                   <input type="file" class="form-control-file" accept="PDF" name="nilai" required>
                 </div>
-                <!-- Form input softcopy Surat Keterangan Kelakuan Baik -->
+                <!-- Form input softcopy Surat K C K -->
                 <div class="form-group row">
-                  <label for="title" style="font-family: Roboto; color:black;">Surat Keterangan Catatan Kepolisian</label>
-                  <input type="file" class="form-control-file" accept="PDF" name="skck" required>
+                  <label for="title" style="font-family: Roboto; color:black;">Surat Keterangan Catatan Kepolisian (optional)</label>
+                  <input type="file" class="form-control-file" accept="PDF" name="skck">
                 </div>
                 <!-- Form input softcopy Keterangan Sehat -->
                 <div class="form-group row">
